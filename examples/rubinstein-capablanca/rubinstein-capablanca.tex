@@ -24,7 +24,9 @@
 \setlength{\boardwidth}{160pt}
 
 % A main line move, as a bold heading above its note
-\newcommand{\Move}[1]{\par\addvspace{8pt}\noindent{\bfseries #1}\par\nopagebreak}
+\newcommand{\Move}[1]{\par\addvspace{8pt}\noindent\phantomsection{\bfseries #1}\par\nopagebreak}
+% A line of the first page's index, which jumps to a label when clicked
+\newcommand{\IndexLine}[2]{\hyperref[#1]{\makebox[\linewidth][l]{#2\hfill\pageref*{#1}}}\par}
 % A diagram in the text
 \newcommand{\ChessDiagram}[1]{\par\addvspace{7pt}{\centering #1\par}\addvspace{5pt}}
 
@@ -74,12 +76,12 @@
 
 \vspace{-2pt}
 {\setlength{\parindent}{0pt}\fontsize{11.5}{14.4}\selectfont\bfseries
-\moves{6...Be6} avoiding the beaten track\hfill\hyperref[be6]{\pageref*{be6}}\par
-\moves{8...Rc8} a change with poor success\hfill\hyperref[rc8]{\pageref*{rc8}}\par
-\moves{14.Bxf6} Rubinstein's combination begins\hfill\hyperref[bxf6]{\pageref*{bxf6}}\par
-\moves{16.Kg2!} the move Black had not considered\hfill\hyperref[kg2]{\pageref*{kg2}}\par
-\moves{30...a6} a lost chance to draw\hfill\hyperref[asix]{\pageref*{asix}}\par
-\moves{38.Bd5} a blunder that goes unpunished\hfill\hyperref[bd5]{\pageref*{bd5}}\par}
+\IndexLine{be6}{\moves[plain]{6...Be6} avoiding the beaten track}
+\IndexLine{rc8}{\moves[plain]{8...Rc8} a change with poor success}
+\IndexLine{bxf6}{\moves[plain]{14.Bxf6} Rubinstein's combination begins}
+\IndexLine{kg2}{\moves[plain]{16.Kg2!} the move Black had not considered}
+\IndexLine{asix}{\moves[plain]{30...a6} a lost chance to draw}
+\IndexLine{bd5}{\moves[plain]{38.Bd5} a blunder that goes unpunished}}
 
 \vfill
 \noindent\begin{minipage}[t]{\linewidth}

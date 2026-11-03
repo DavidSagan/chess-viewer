@@ -24,7 +24,9 @@
 \setlength{\boardwidth}{160pt}
 
 % A main line move, as a bold heading above its note
-\newcommand{\Move}[1]{\par\addvspace{8pt}\noindent{\bfseries #1}\par\nopagebreak}
+\newcommand{\Move}[1]{\par\addvspace{8pt}\noindent\phantomsection{\bfseries #1}\par\nopagebreak}
+% A line of the first page's index, which jumps to a label when clicked
+\newcommand{\IndexLine}[2]{\hyperref[#1]{\makebox[\linewidth][l]{#2\hfill\pageref*{#1}}}\par}
 % A diagram in the text
 \newcommand{\ChessDiagram}[1]{\par\addvspace{7pt}{\centering #1\par}\addvspace{5pt}}
 
@@ -79,12 +81,12 @@
 
 \vspace{-2pt}
 {\setlength{\parindent}{0pt}\fontsize{11.5}{14.4}\selectfont\bfseries
-\href{https://lichess.org/analysis/pgn/d4_d5_Nf3_c5_c4_e6_cxd5_exd5_Nc3_Nc6_g3_Be6}{6...\figB e6} avoiding the beaten track\hfill\hyperref[be6]{\pageref*{be6}}\par
-\href{https://lichess.org/analysis/pgn/d4_d5_Nf3_c5_c4_e6_cxd5_exd5_Nc3_Nc6_g3_Be6_Bg2_Be7_O-O_Rc8}{8...\figR c8} a change with poor success\hfill\hyperref[rc8]{\pageref*{rc8}}\par
-\href{https://lichess.org/analysis/pgn/d4_d5_Nf3_c5_c4_e6_cxd5_exd5_Nc3_Nc6_g3_Be6_Bg2_Be7_O-O_Rc8_dxc5_Bxc5_Ng5_Nf6_Nxe6_fxe6_Bh3_Qe7_Bg5_O-O_Bxf6}{14.\figB xf6} Rubinstein's combination begins\hfill\hyperref[bxf6]{\pageref*{bxf6}}\par
-\href{https://lichess.org/analysis/pgn/d4_d5_Nf3_c5_c4_e6_cxd5_exd5_Nc3_Nc6_g3_Be6_Bg2_Be7_O-O_Rc8_dxc5_Bxc5_Ng5_Nf6_Nxe6_fxe6_Bh3_Qe7_Bg5_O-O_Bxf6_Qxf6_Nxd5_Qh6_Kg2}{16.\figK g2!} the move Black had not considered\hfill\hyperref[kg2]{\pageref*{kg2}}\par
-\href{https://lichess.org/analysis/pgn/d4_d5_Nf3_c5_c4_e6_cxd5_exd5_Nc3_Nc6_g3_Be6_Bg2_Be7_O-O_Rc8_dxc5_Bxc5_Ng5_Nf6_Nxe6_fxe6_Bh3_Qe7_Bg5_O-O_Bxf6_Qxf6_Nxd5_Qh6_Kg2_Rcd8_Qc1_exd5_Qxc5_Qd2_Qb5_Nd4_Qd3_Qxd3_exd3_Rfe8_Bg4_Rd6_Rfe1_Rxe1_Rxe1_Rb6_Re5_Rxb2_Rxd5_Nc6_Be6_Kf8_Rf5_Ke8_Bf7_Kd7_Bc4_a6}{30...a6} a lost chance to draw\hfill\hyperref[asix]{\pageref*{asix}}\par
-\href{https://lichess.org/analysis/pgn/d4_d5_Nf3_c5_c4_e6_cxd5_exd5_Nc3_Nc6_g3_Be6_Bg2_Be7_O-O_Rc8_dxc5_Bxc5_Ng5_Nf6_Nxe6_fxe6_Bh3_Qe7_Bg5_O-O_Bxf6_Qxf6_Nxd5_Qh6_Kg2_Rcd8_Qc1_exd5_Qxc5_Qd2_Qb5_Nd4_Qd3_Qxd3_exd3_Rfe8_Bg4_Rd6_Rfe1_Rxe1_Rxe1_Rb6_Re5_Rxb2_Rxd5_Nc6_Be6_Kf8_Rf5_Ke8_Bf7_Kd7_Bc4_a6_Rf7_Kd6_Rxg7_b5_Bg8_a5_Rxh7_a4_h4_b4_Rh6_Kc5_Rh5_Kb6_Bd5}{38.\figB d5} a blunder that goes unpunished\hfill\hyperref[bd5]{\pageref*{bd5}}\par}
+\IndexLine{be6}{6...\figB e6 avoiding the beaten track}
+\IndexLine{rc8}{8...\figR c8 a change with poor success}
+\IndexLine{bxf6}{14.\figB xf6 Rubinstein's combination begins}
+\IndexLine{kg2}{16.\figK g2! the move Black had not considered}
+\IndexLine{asix}{30...a6 a lost chance to draw}
+\IndexLine{bd5}{38.\figB d5 a blunder that goes unpunished}}
 
 \vfill
 \noindent\begin{minipage}[t]{\linewidth}
