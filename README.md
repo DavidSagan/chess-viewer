@@ -1,44 +1,30 @@
 # chess-viewer
 
-Read a chess book and follow its moves on a live analysis board. This repository has two
-parts:
+Read a chess book and follow its moves on a live analysis board.
 
-- **Chess Book Viewer**, a small Mac app that shows a PDF on the left and the
-  [Lichess](https://lichess.org) analysis board on the right. Clicking a move in the PDF shows
-  that position on the board, with no browser prompts or new tabs.
-- **`chessbook.py`**, a build script that turns LaTeX with a few chess commands into a
-  typeset PDF. It checks every move, draws the diagrams, and links moves and diagrams to Lichess.
+- **Just want to read chess PDFs?** See [Run the viewer](#run-the-viewer).
+- **Want to make your own chess PDFs?** See [Create PDFs](#create-pdfs).
 
 ![Chess Book Viewer with the example book on the left and the Lichess analysis board on the right, showing the position after the clicked move 16.Kg2!](docs/app-screenshot.png)
 
 *Clicking 16.Kg2! in the book shows that position on the board.*
 
-Try it with the [example PDF](examples/rubinstein-capablanca/rubinstein-capablanca.pdf), which is
-Rubinstein vs. Capablanca, San Sebastian 1911, with Capablanca's own notes.
+## Run the viewer
 
-This project is not affiliated with Lichess.
+Chess Book Viewer is a small Mac app that shows a PDF on the left and the
+[Lichess](https://lichess.org) analysis board on the right. Clicking a move in the PDF shows that
+position on the board, with no browser prompts or new tabs. This project is not affiliated with
+Lichess.
 
-## What's here
-
-| Path | Contents |
-|---|---|
-| `dist/Chess-Book-Viewer-macOS.zip` | The ready-to-run Mac app |
-| `viewer/main.swift` | The app's source code |
-| `viewer/build.sh` | Builds the app from source |
-| `tools/chessbook.py` | Builds a PDF from LaTeX with chess commands |
-| `examples/rubinstein-capablanca/rubinstein-capablanca.pdf` | The example book |
-| `examples/rubinstein-capablanca/rubinstein-capablanca.tex` | Its source, and the file to edit |
-| `examples/rubinstein-capablanca/rubinstein-capablanca-built.tex` | Plain LaTeX generated from the source, which needs no Python to build |
-| `examples/rubinstein-capablanca/diagrams/` | Generated boards and piece figurines |
-
-## Chess Book Viewer
+The app runs on macOS 12 or later, on Apple silicon and Intel Macs. There is no Windows version.
+It needs an internet connection to show the board.
 
 ### Install
 
-The app runs on macOS 12 or later, on Apple silicon and Intel Macs. There is no Windows version.
-
-1. Download [`Chess-Book-Viewer-macOS.zip`](dist/Chess-Book-Viewer-macOS.zip) and unzip it.
-2. Move **Chess Book Viewer** to your Applications folder, if you like.
+1. Download
+   [`Chess-Book-Viewer-macOS.zip`](https://github.com/DavidSagan/chess-viewer/raw/main/dist/Chess-Book-Viewer-macOS.zip)
+   and unzip it.
+2. Move **Chess Book Viewer** to your Applications folder.
 3. Open it. The app is not notarized by Apple, so macOS will block it the first time. Go to
    **System Settings > Privacy & Security** and choose **Open Anyway**, or run:
 
@@ -46,32 +32,29 @@ The app runs on macOS 12 or later, on Apple silicon and Intel Macs. There is no 
    xattr -dr com.apple.quarantine "/Applications/Chess Book Viewer.app"
    ```
 
-### Use
+### Try it
 
-Open a PDF with **File > Open**, by dragging it onto the app's icon, or by right-clicking the PDF
-and choosing **Open With**.
+Download the
+[example book](https://github.com/DavidSagan/chess-viewer/raw/main/examples/rubinstein-capablanca/rubinstein-capablanca.pdf),
+which is Rubinstein vs. Capablanca, San Sebastian 1911, with Capablanca's own notes. Open it in the
+app with **File > Open**, by dragging it onto the app's icon, or by right-clicking the PDF and
+choosing **Open With**. Then click any move or diagram.
+
+### What to expect
 
 - Clicking a Lichess link shows that position in the right-hand panel.
 - Clicking a link to any other site opens your default browser.
 - Links within the PDF work as usual.
 - **View > Zoom PDF In** and **Zoom PDF Out** change the size of the PDF.
+- The app works with any PDF that has `lichess.org` links, but a PDF without them has nothing to
+  click.
+- Each click loads a new Lichess page, so any analysis you did in the panel is not kept.
+- The panel has its own Lichess sign-in, separate from your browser's.
 
-The app works with any PDF that has `lichess.org` links, including ones not made with these tools.
-Each click loads a new Lichess page, so any analysis you did in the panel is not kept. The panel
-has its own Lichess sign-in, separate from your browser's. The app needs an internet connection to
-show the board.
+## Create PDFs
 
-### Build from source
-
-This needs Xcode or the Xcode Command Line Tools.
-
-```bash
-viewer/build.sh
-```
-
-This creates `viewer/Chess Book Viewer.app`.
-
-## Writing a book
+`tools/chessbook.py` turns LaTeX with a few chess commands into a typeset PDF. It checks every
+move, draws the diagrams, and links moves and diagrams to Lichess.
 
 ### Requirements
 
@@ -85,7 +68,7 @@ This creates `viewer/Chess Book Viewer.app`.
 
 - The Cairo library, which `cairosvg` needs, such as from MacPorts or Homebrew
 
-### Build
+### Build the example
 
 ```bash
 cd examples/rubinstein-capablanca
@@ -101,6 +84,13 @@ DYLD_FALLBACK_LIBRARY_PATH=/opt/local/lib python3 ../../tools/chessbook.py rubin
 This writes the PDF and `rubinstein-capablanca-built.tex`, and refreshes `diagrams/`. To rebuild
 without Python, run `pdflatex` twice on the `-built.tex` file. That PDF takes its name from the
 `-built.tex` file.
+
+| File in `examples/rubinstein-capablanca/` | Contents |
+|---|---|
+| `rubinstein-capablanca.tex` | The source, and the file to edit |
+| `rubinstein-capablanca.pdf` | The finished book |
+| `rubinstein-capablanca-built.tex` | Plain LaTeX generated from the source, which needs no Python to build |
+| `diagrams/` | Generated boards and piece figurines |
 
 ### Chess commands
 
@@ -123,9 +113,11 @@ Your document defines how moves and diagrams look. For example:
 ```latex
 \newlength{\boardwidth}
 \setlength{\boardwidth}{160pt}
-\newcommand{\Move}[1]{\par\addvspace{8pt}\noindent{\bfseries #1}\par\nopagebreak}
+\newcommand{\Move}[1]{\par\addvspace{8pt}\noindent\phantomsection{\bfseries #1}\par\nopagebreak}
 \newcommand{\ChessDiagram}[1]{\par\addvspace{7pt}{\centering #1\par}\addvspace{5pt}}
 ```
+
+The `\phantomsection` lets a `\label` placed after `\mainline` be a link target.
 
 A short example:
 
@@ -146,7 +138,17 @@ from the moves, so they always agree with them.
 The script handles one game per file. It checks that moves are legal, not that the commentary
 is right.
 
-## Credits and licenses
+### Build the viewer from source
+
+This needs Xcode or the Xcode Command Line Tools. The source is in `viewer/main.swift`.
+
+```bash
+viewer/build.sh
+```
+
+This creates `viewer/Chess Book Viewer.app`.
+
+### Credits and licenses
 
 - **Example text:** the notes are by J. R. Capablanca, from *Chess Fundamentals* (1921), using the
   [Project Gutenberg edition](https://www.gutenberg.org/ebooks/33870), which is listed as public
