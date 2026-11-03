@@ -22,6 +22,11 @@ Commands in book.tex:
     \\board[after=14...Qxf6,width=4cm,bare]
                              Diagram after a main line move, at a given width. With bare, it
                              is not passed to \\ChessDiagram.
+    \\board[flipped]         Diagram with Black at the bottom. Use flipped=false for White.
+    \\boardsetup{flipped,width=4cm}
+                             Sets the defaults for \\board from this point in the file on. It
+                             takes flipped, width and bare. It ignores LaTeX groups. Links on
+                             moves follow its flipped setting, for the board that Lichess shows.
     \\figK \\figQ \\figR \\figB \\figN
                              Piece figurines for use in ordinary text, as in \\figN{}g5.
 """
@@ -81,13 +86,38 @@ class Book:
         self.pointer = 0
         self.named = {}
         self.count = {"moves": 0, "boards": 0}
+        self.defaults = {"flipped": False, "width": "\\boardwidth", "bare": False}
 
     def fail(self, match, message):
         line = self.source.count("\n", 0, match.start()) + 1
         raise BookError(f"Line {line}: {match[0][:50]}: {message}")
 
-    def link(self, sans):
-        return LICHESS + "_".join(sans).replace("#", "").replace("+", "")
+    def link(self, sans, flipped=None):
+        flipped = self.defaults["flipped"] if flipped is None else flipped
+        return LICHESS + "_".join(sans).replace("#", "").replace("+", "") + ("?color=black" if flipped else "")
+
+    def board_options(self, text, match, allowed):
+        """Read options such as flipped=false,width=4cm."""
+        options = {}
+        for option in (text or "").split(","):
+            key, equals, value = option.strip().partition("=")
+            if not key:
+                continue
+            if key not in allowed:
+                self.fail(match, f"unknown option {key}")
+            if key in ("flipped", "bare"):
+                if value not in ("true", "false") and equals:
+                    self.fail(match, f"{key} must be true or false")
+                options[key] = value != "false"
+            elif value:
+                options[key] = value
+            else:
+                self.fail(match, f"{key} needs a value")
+        return options
+
+    def boardsetup(self, match):
+        self.defaults.update(self.board_options(match["setup"], match, ("flipped", "width", "bare")))
+        return ""
 
     def play(self, start, text, match, links=True):
         """Play moves after the line `start`. Returns LaTeX for them, and the new line."""
@@ -134,11 +164,7 @@ class Book:
         return latex
 
     def board(self, match):
-        options = {}
-        for option in (match["board"] or "").split(","):
-            if option:
-                key, _, value = option.partition("=")
-                options[key] = value
+        options = {**self.defaults, **self.board_options(match["board"], match, ("after", "flipped", "width", "bare"))}
         if "after" in options:
             _, line = self.play(self.main, options["after"], match)
             self.count["moves"] -= 1
@@ -148,13 +174,14 @@ class Book:
             line = self.main[:self.pointer]
         board = board_after(line)
         last = board.peek() if board.move_stack else None
-        name = "board-" + hashlib.sha1(board.fen().encode()).hexdigest()[:12]
-        cairosvg.svg2pdf(bytestring=chess.svg.board(board, size=360, lastmove=last).encode(),
+        flipped = options["flipped"]
+        name = "board-" + hashlib.sha1(board.fen().encode()).hexdigest()[:12] + ("-flipped" if flipped else "")
+        cairosvg.svg2pdf(bytestring=chess.svg.board(board, size=360, lastmove=last, flipped=flipped).encode(),
                          write_to=str(self.diagrams / f"{name}.pdf"))
         self.count["boards"] += 1
-        width = options.get("width", "\\boardwidth")
-        image = f"\\href{{{self.link(line)}}}{{\\includegraphics[width={width}]{{diagrams/{name}}}}}"
-        return image if "bare" in options else f"\\ChessDiagram{{{image}}}"
+        image = (f"\\href{{{self.link(line, flipped)}}}"
+                 f"{{\\includegraphics[width={options['width']}]{{diagrams/{name}}}}}")
+        return image if options["bare"] else f"\\ChessDiagram{{{image}}}"
 
     def figurines(self):
         lines = []
@@ -181,11 +208,14 @@ class Book:
         # Keep the line count, so that errors can name the line
         self.source = source = source.replace(game[0], "\n" * game[0].count("\n"))
 
-        pattern = re.compile(r"\\mainline\{(?P<main>[^}]*)\}"
+        pattern = re.compile(r"\\boardsetup\{(?P<setup>[^}]*)\}"
+                             r"|\\mainline\{(?P<main>[^}]*)\}"
                              r"|\\moves(?:\[(?P<options>[^\]]*)\])?\{(?P<moves>[^}]*)\}"
                              r"|\\board(?:\[(?P<board>[^\]]*)\])?(?![A-Za-z])")
 
         def replace(match):
+            if match["setup"] is not None:
+                return self.boardsetup(match)
             if match["main"] is not None:
                 return self.mainline(match)
             if match["moves"] is not None:

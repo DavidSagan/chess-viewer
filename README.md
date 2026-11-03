@@ -106,6 +106,8 @@ The source is ordinary LaTeX, so you can use any layout, font or package. These 
 | `\moves[plain]{38.Bd5}` | Checks and typesets the moves with no Lichess links, such as inside a link of your own |
 | `\board` | A diagram of the current main line position, typeset by your `\ChessDiagram` command |
 | `\board[after=14...Qxf6,width=4cm,bare]` | A diagram after a main line move, at a given width. With `bare`, `\ChessDiagram` is not used |
+| `\board[flipped]` | A diagram with Black at the bottom. Use `flipped=false` for White at the bottom |
+| `\boardsetup{flipped,width=4cm}` | Sets the defaults for `\board` from this point in the file on. It takes `flipped`, `width` and `bare` |
 | `\figK \figQ \figR \figB \figN` | Figurines for ordinary text, as in `\figN g5` |
 
 Your document defines how moves and diagrams look. For example:
@@ -118,6 +120,17 @@ Your document defines how moves and diagrams look. For example:
 ```
 
 The `\phantomsection` lets a `\label` placed after `\mainline` be a link target.
+
+`\boardsetup` can appear any number of times, and options on a `\board` override it for that
+diagram. It applies in file order and ignores LaTeX groups. Its `flipped` setting also applies to
+later `\moves` and `\mainline` links, so Lichess shows the same side at the bottom:
+
+```latex
+\boardsetup{flipped}          % Black at the bottom from here on
+\board
+\board[flipped=false]         % This one diagram has White at the bottom
+\boardsetup{flipped=false}    % White at the bottom from here on
+```
 
 A short example:
 
