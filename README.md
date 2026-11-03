@@ -9,6 +9,10 @@ parts:
 - **`chessbook.py`**, a build script that turns LaTeX with a few chess commands into a
   typeset PDF. It checks every move, draws the diagrams, and links moves and diagrams to Lichess.
 
+![Chess Book Viewer with the example book on the left and the Lichess analysis board on the right, showing the position after the clicked move 16.Kg2!](docs/app-screenshot.png)
+
+*Clicking 16.Kg2! in the book shows that position on the board.*
+
 Try it with the [example PDF](examples/rubinstein-capablanca/rubinstein-capablanca.pdf), which is
 Rubinstein vs. Capablanca, San Sebastian 1911, with Capablanca's own notes.
 
