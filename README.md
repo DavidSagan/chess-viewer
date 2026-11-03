@@ -154,4 +154,5 @@ is right.
 - **Font:** the example uses EB Garamond.
 - **Board and analysis:** provided by [Lichess](https://lichess.org) in the app's panel.
 
-See [LICENSE](LICENSE) for the license of this repository.
+The code in this repository is licensed under the GNU General Public License version 3. See
+[LICENSE](LICENSE).
