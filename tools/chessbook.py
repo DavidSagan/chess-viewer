@@ -16,6 +16,7 @@ Commands in book.tex:
                              line at that point.
     \\moves[as=a]{...}        Also names this line, so that later moves can start from it.
     \\moves[from=a]{...}      Starts from the named line, at the first move's number.
+    \\moves[plain]{...}      Checks and typesets the moves, with no Lichess links.
     \\board                   Diagram of the current main line position, passed to your
                              \\ChessDiagram command.
     \\board[after=14...Qxf6,width=4cm,bare]
@@ -88,7 +89,7 @@ class Book:
     def link(self, sans):
         return LICHESS + "_".join(sans).replace("#", "").replace("+", "")
 
-    def play(self, start, text, match):
+    def play(self, start, text, match, links=True):
         """Play moves after the line `start`. Returns LaTeX for them, and the new line."""
         line = list(start)
         out = []
@@ -110,8 +111,11 @@ class Book:
             if not check and played[-1] in "+#":
                 self.fail(match, f"{token} should be written {played}")
             line.append(played)
-            out.append(f"\\href{{{self.link(line)}}}{{{display(token)}}}")
-            self.count["moves"] += 1
+            if links:
+                out.append(f"\\href{{{self.link(line)}}}{{{display(token)}}}")
+                self.count["moves"] += 1
+            else:
+                out.append(display(token))
         return " ".join(out), line
 
     def mainline(self, match):
@@ -122,9 +126,9 @@ class Book:
         return f"\\Move{{{latex}}}"
 
     def moves(self, match):
-        options = dict(option.split("=") for option in (match["options"] or "").split(",") if option)
+        options = dict(option.partition("=")[::2] for option in (match["options"] or "").split(",") if option)
         start = self.named[options["from"]] if "from" in options else self.main
-        latex, line = self.play(start, match["moves"].strip(), match)
+        latex, line = self.play(start, match["moves"].strip(), match, links="plain" not in options)
         if "as" in options:
             self.named[options["as"]] = line
         return latex

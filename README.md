@@ -113,6 +113,7 @@ The source is ordinary LaTeX, so you can use any layout, font or package. These 
 | `\moves{8...h6}` | Moves in the text. A numbered first move branches off the main line at that point |
 | `\moves[as=a]{16.Bg2 Ne5! 17.Nf4}` | Also names this line, so that later moves can start from it |
 | `\moves[from=a]{17.Rc1 Qxc1!!}` | Starts from a named line, at the first move's number |
+| `\moves[plain]{38.Bd5}` | Checks and typesets the moves with no Lichess links, such as inside a link of your own |
 | `\board` | A diagram of the current main line position, typeset by your `\ChessDiagram` command |
 | `\board[after=14...Qxf6,width=4cm,bare]` | A diagram after a main line move, at a given width. With `bare`, `\ChessDiagram` is not used |
 | `\figK \figQ \figR \figB \figN` | Figurines for ordinary text, as in `\figN g5` |
