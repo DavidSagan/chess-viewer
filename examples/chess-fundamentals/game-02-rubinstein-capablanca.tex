@@ -1,0 +1,204 @@
+% Rubinstein - Capablanca, San Sebastian 1911, with Capablanca's notes.
+% Build with: python3 ../../tools/chessbook.py game-02-rubinstein-capablanca.tex
+\documentclass[10pt,twoside]{article}
+\usepackage[paperwidth=487.56bp,paperheight=691.65bp,top=72pt,bottom=44pt,inner=50pt,outer=48pt,
+            headheight=13pt,headsep=20pt,footskip=0pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[lining]{ebgaramond}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage[hidelinks,pdftitle={Rubinstein - Capablanca, San Sebastian 1911},
+            pdfauthor={J. R. Capablanca}]{hyperref}
+
+\newcommand{\textsizebook}{\fontsize{10.5}{12.6}\selectfont}
+\AtBeginDocument{\textsizebook}
+\setlength{\columnsep}{11pt}
+\setlength{\parindent}{9pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{1.5em}
+\raggedbottom
+
+\newlength{\boardwidth}
+\setlength{\boardwidth}{160pt}
+
+% A main line move, as a bold heading above its note
+\newcommand{\Move}[1]{\par\addvspace{8pt}\noindent\phantomsection{\bfseries #1}\par\nopagebreak}
+% A line of the first page's index, which jumps to a label when clicked
+\newcommand{\IndexLine}[2]{\hyperref[#1]{\makebox[\linewidth][l]{#2\hfill\pageref*{#1}}}\par}
+% A diagram in the text
+\newcommand{\ChessDiagram}[1]{\par\addvspace{7pt}{\centering #1\par}\addvspace{5pt}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[CE]{Queen's Gambit Declined}
+\fancyhead[CO]{Rubinstein -- Capablanca}
+
+\game{d4 d5 Nf3 c5 c4 e6 cxd5 exd5 Nc3 Nc6 g3 Be6 Bg2 Be7 O-O Rc8 dxc5 Bxc5 Ng5 Nf6 Nxe6 fxe6
+      Bh3 Qe7 Bg5 O-O Bxf6 Qxf6 Nxd5 Qh6 Kg2 Rcd8 Qc1 exd5 Qxc5 Qd2 Qb5 Nd4 Qd3 Qxd3 exd3 Rfe8
+      Bg4 Rd6 Rfe1 Rxe1 Rxe1 Rb6 Re5 Rxb2 Rxd5 Nc6 Be6+ Kf8 Rf5+ Ke8 Bf7+ Kd7 Bc4 a6 Rf7+ Kd6
+      Rxg7 b5 Bg8 a5 Rxh7 a4 h4 b4 Rh6+ Kc5 Rh5+ Kb6 Bd5 b3 axb3 a3 Bxc6 Rxb3 Bd5 a2 Rh6+}
+
+\begin{document}
+
+% ---- Opening page ----
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+  \node[circle,draw=black,line width=1.6pt,fill=black!20,minimum size=112pt] (seal)
+       at ([xshift=75pt,yshift=-75pt]current page.north west) {};
+  \draw[line width=0.9pt] ([shift={(-48pt,-30pt)}]seal.center) -- ([shift={(44pt,34pt)}]seal.center);
+  \node[rotate=37] at ([shift={(-11pt,14pt)}]seal.center) {\fontsize{25}{25}\selectfont\bfseries Game};
+  \node[rotate=37] at ([shift={(10pt,-16pt)}]seal.center) {\fontsize{38}{38}\selectfont\bfseries 2};
+  \node[anchor=north east] at ([xshift=-14pt,yshift=-24pt]current page.north east)
+       {\board[after=2...c5,width=108pt,bare]};
+\end{tikzpicture}
+
+\vspace*{38pt}
+\begin{center}
+  \hspace*{56pt}\begin{minipage}{235pt}\centering
+    {\fontsize{22}{25}\selectfont\bfseries Queen's Gambit\\Declined\par}
+    \vspace{4pt}\rule{\linewidth}{1pt}\\[-9.5pt]\rule{\linewidth}{0.4pt}
+  \end{minipage}\hspace*{56pt}
+
+  \vspace{14pt}
+  {\fontsize{19}{22}\selectfont\bfseries Rubinstein -- Capablanca\par}
+  \vspace{12pt}
+  {\fontsize{15}{18}\selectfont\bfseries San Sebastian 1911\par}
+  \vspace{16pt}
+  {\fontsize{11.5}{14}\selectfont\bfseries
+   \moves{1.d4 d5 2.Nf3 c5 3.c4 e6 4.cxd5 exd5}\par\vspace{2pt}
+   \rule{300pt}{0.6pt}\par\vspace{2pt}
+   \moves{5.Nc3 Nc6 6.g3 Be6 7.Bg2 Be7 8.O-O Rc8}\par}
+\end{center}
+
+\vspace{-2pt}
+{\setlength{\parindent}{0pt}\fontsize{11.5}{14.4}\selectfont\bfseries
+\IndexLine{be6}{\moves[plain]{6...Be6} avoiding the beaten track}
+\IndexLine{rc8}{\moves[plain]{8...Rc8} a change with poor success}
+\IndexLine{bxf6}{\moves[plain]{14.Bxf6} Rubinstein's combination begins}
+\IndexLine{kg2}{\moves[plain]{16.Kg2!} the move Black had not considered}
+\IndexLine{asix}{\moves[plain]{30...a6} a lost chance to draw}
+\IndexLine{bd5}{\moves[plain]{38.Bd5} a blunder that goes unpunished}}
+
+\vfill
+\noindent\begin{minipage}[t]{\linewidth}
+\centering\small
+\begin{tabular}{@{}c@{\hspace{13pt}}c@{\hspace{13pt}}c@{}}
+  after \moves{14...Qxf6} & after \moves{15...Qh6} & after \moves{37...Kb6} \\[2pt]
+  \board[after=14...Qxf6,width=114pt,bare] & \board[after=15...Qh6,width=114pt,bare] &
+  \board[after=37...Kb6,width=114pt,bare] \\[3pt]
+  \moves{15.Nxd5!} & \moves{16.Kg2!} & \moves{38.Bd5}
+\end{tabular}
+\end{minipage}
+
+\vspace{13pt}
+{\centering\fontsize{8.5}{10}\selectfont\itshape
+ Notes by J. R. Capablanca, from \textup{Chess Fundamentals} (1921), which is in the public domain.\\
+ Descriptive notation has been converted to algebraic. Click any move or diagram to open it on Lichess.\par}
+\clearpage
+
+% ---- The game ----
+\twocolumn
+\textsizebook
+
+\mainline{1.d4 d5 2.Nf3 c5 3.c4 e6 4.cxd5 exd5 5.Nc3 Nc6 6.g3 Be6}\label{be6}
+
+\moves{6...Nf6} is the normal move in this variation. White's development was first introduced by
+Schlechter and elaborated later on by Rubinstein. It aims at the isolation of Black's d-pawn,
+against which the White pieces are gradually concentrated. In making the text move I was trying to
+avoid the beaten track. Being a developing move there should be no objection to it in the way of
+general principles, except that the Knights ought to come out before the Bishops.
+
+\mainline{7.Bg2 Be7 8.O-O Rc8}\label{rc8}
+
+In pursuance of the idea of changing the normal course of this variation, but with very poor
+success. The move in theory ought to be unsound, since Black's king's knight is yet undeveloped. I
+had not yet learned of the attack founded on \figN g5 and the exchange of the Bishop on e6. Either
+\moves{8...Nf6} or \moves{8...h6}, to prevent either \figB{} or \figN g5, was right.
+
+\board
+
+\mainline{9.dxc5 Bxc5 10.Ng5 Nf6 11.Nxe6 fxe6 12.Bh3 Qe7 13.Bg5 O-O}
+
+This is a mistake. The right move was \moves{13...Rd8} in order to get the Rook away from the line
+of the Bishop on h3 and at the same time to support the d-pawn. Incidentally it shows that White
+failed to take proper advantage of Black's weak opening moves. Against the text move White makes a
+very fine combination which I had seen, but which I thought could be defeated.
+
+\mainline{14.Bxf6 Qxf6}\label{bxf6}
+
+I considered \moves{14...gxf6}, which it seemed would give me a playable game, but I thought White's
+combination unsound and therefore let him play it, to my lasting regret.
+
+\board
+
+\mainline{15.Nxd5! Qh6}
+
+\board
+
+\mainline{16.Kg2!}\label{kg2}
+
+\emph{This} is the move which I had not considered. I thought that Rubinstein would have to play
+\moves{16.Bg2}, when I had in mind the following winning combination:
+\moves[as=a]{16.Bg2 Ne5! 17.Nf4} (if \moves[from=a]{17.Rc1 Qxc1!! 18.Qxc1 Bxf2+} wins),
+\moves[from=a,as=b]{17...Ng4 18.h3} (if \moves[from=b]{18.Nh3 Bxf2+} wins the exchange),
+\moves[from=b]{18...Nxf2 19.Rxf2 Bxf2+ 20.Kxf2 g5}, and Black should win. It is curious that this
+combination has been overlooked. It has been taken for granted that I did not see the 17th move
+\moves{17.Qc1}.
+
+\mainline{16...Rcd8}
+
+After White's last move there was nothing for me to do but submit to the inevitable.
+
+\mainline{17.Qc1! exd5 18.Qxc5 Qd2 19.Qb5 Nd4 20.Qd3 Qxd3 21.exd3 Rfe8 22.Bg4}
+
+This gives Black a chance. He should have played \moves[as=c]{22.Rfe1}. If then
+\moves[from=c,as=d]{22...Nc2 23.Rxe8+ Rxe8 24.Rc1 Re2 25.Kf1}
+\moves[from=d,as=e]{25...Nd4} (if \moves[from=d]{25...Rd2 26.Be6+ Kf8 27.Bxd5} would win);
+\moves[from=e]{26.Rc8+ Kf7 27.Rc7+ Re7 28.Rc5} wins.
+
+\mainline{22...Rd6 23.Rfe1 Rxe1 24.Rxe1 Rb6 25.Re5 Rxb2 26.Rxd5 Nc6 27.Be6+ Kf8 28.Rf5+ Ke8
+          29.Bf7+ Kd7 30.Bc4}
+
+\board
+
+\mainline{30...a6}\label{asix}
+
+A bad move, which gives away any legitimate chance Black had to draw. It loses a very important
+move. In fact, as the course of the game will show, it loses several moves. The proper way was to
+play \moves[as=f]{30...Kd6}. If then \moves[from=f]{31.Rb5 Rxb5 32.Bxb5 Nd4}, followed by ...b5;
+and White would have an exceedingly difficult game to draw on account of the dominating position of
+the Knight on d4 in conjunction with the extra Pawn on the Queen's side and the awkward position of
+White's King. (See how this is so.)
+
+\mainline{31.Rf7+ Kd6 32.Rxg7 b5 33.Bg8 a5 34.Rxh7 a4 35.h4 b4 36.Rh6+ Kc5 37.Rh5+ Kb6 38.Bd5}\label{bd5}
+
+With these last three moves White again gives Black a chance. Even before the last move
+\moves{38.Bc4} would have won with comparative ease, but the text move is a downright blunder, of
+which, fortunately for him, Black does not avail himself.
+
+\board
+
+\mainline{38...b3}
+
+\moves[as=g]{38...Rxa2} would make it practically impossible for White to win, if he can win at all.
+White's best continuation then would have been:
+\moves[from=g,as=h]{39.Bc4 Rc2 40.Rb5+ Kc7 41.Bg8 a3 42.h5 a2 43.Bxa2 Rxa2}, and if there is a win it
+is very difficult to find it, as against \moves[from=h]{44.h6 Ra3!} offers excellent chances for a
+draw.
+
+\mainline{39.axb3 a3 40.Bxc6 Rxb3}
+
+If \moves{40...a2 41.Rb5+ Ka6 42.Rb8}.
+
+\mainline{41.Bd5 a2 42.Rh6+}
+
+\noindent\textbf{Resigns.}
+
+As an end game, this is rather a sad exhibition for two masters. The redeeming feature of the game
+is Rubinstein's fine combination in the middle game, beginning with \moves{14.Bxf6}.
+
+\end{document}

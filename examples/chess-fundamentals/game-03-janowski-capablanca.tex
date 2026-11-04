@@ -1,0 +1,130 @@
+% D. Janowski - J. R. Capablanca, Havana, 1913, with Capablanca's notes.
+% Build with: python3 ../../tools/chessbook.py game-03-janowski-capablanca.tex
+\documentclass[10pt,twoside]{article}
+\usepackage[paperwidth=487.56bp,paperheight=691.65bp,top=72pt,bottom=44pt,inner=50pt,outer=48pt,
+            headheight=13pt,headsep=20pt,footskip=0pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[lining]{ebgaramond}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage[hidelinks,pdftitle={Janowski - Capablanca, Havana, 1913},
+            pdfauthor={J. R. Capablanca}]{hyperref}
+
+\newcommand{\textsizebook}{\fontsize{10.5}{12.6}\selectfont}
+\AtBeginDocument{\textsizebook}
+\setlength{\columnsep}{11pt}
+\setlength{\parindent}{9pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{1.5em}
+\raggedbottom
+
+\newlength{\boardwidth}
+\setlength{\boardwidth}{160pt}
+
+% A main line move, as a bold heading above its note
+\newcommand{\Move}[1]{\par\addvspace{8pt}\noindent\phantomsection{\bfseries #1}\par\nopagebreak}
+% A diagram in the text
+\newcommand{\ChessDiagram}[1]{\par\addvspace{7pt}{\centering #1\par}\addvspace{5pt}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[CE]{Irregular Defence}
+\fancyhead[CO]{Janowski -- Capablanca}
+
+\game{d4 Nf6 Nf3 d6 Bg5 Nbd7 e3 e5 Nc3 c6 Bd3 Be7 Qe2 Qa5 O-O Nf8 Rfd1 Bg4 h3 Bh5 dxe5 dxe5
+      Ne4 Nxe4 Bxe7 Kxe7 Bxe4 Bg6 Qc4 Ne6 b4 Qc7 Bxg6 hxg6 Qe4 Kf6 Rd3 Rad8 Rad1 g5 c4 Rxd3
+      Rxd3 Rd8 Rxd8 Nxd8 h4 gxh4 Qxh4+ Ke6 Qg4+ Kf6 Qg5+ Ke6 Qxg7 Qd6 c5 Qd5 e4 Qd1+ Kh2 f6
+      Qg4+ Ke7 Nxe5 Qxg4 Nxg4 Ne6 e5 fxe5 Nxe5 Nd4}
+
+\begin{document}
+
+\twocolumn[{%
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+  \node[circle,draw=black,line width=1.6pt,fill=black!20,minimum size=112pt] (seal)
+       at ([xshift=75pt,yshift=-75pt]current page.north west) {};
+  \draw[line width=0.9pt] ([shift={(-48pt,-30pt)}]seal.center) -- ([shift={(44pt,34pt)}]seal.center);
+  \node[rotate=37] at ([shift={(-11pt,14pt)}]seal.center) {\fontsize{25}{25}\selectfont\bfseries Game};
+  \node[rotate=37] at ([shift={(10pt,-16pt)}]seal.center) {\fontsize{38}{38}\selectfont\bfseries 3};
+  \node[anchor=north east] at ([xshift=-14pt,yshift=-24pt]current page.north east)
+       {\board[after=4...e5,width=108pt,bare]};
+\end{tikzpicture}
+
+\vspace*{38pt}
+\begin{center}
+  \begin{minipage}{235pt}\centering
+    {\fontsize{22}{25}\selectfont\bfseries Irregular Defence\par}
+    \vspace{4pt}\rule{\linewidth}{1pt}\\[-9.5pt]\rule{\linewidth}{0.4pt}
+  \end{minipage}
+
+  \vspace{14pt}
+  {\fontsize{19}{22}\selectfont\bfseries Janowski -- Capablanca\par}
+  \vspace{10pt}
+  {\fontsize{15}{18}\selectfont\bfseries Havana, 1913\par}
+  \vspace{8pt}
+  {\fontsize{11}{13}\selectfont White: D. Janowski \quad Black: J. R. Capablanca\par}
+  \vspace{10pt}
+  {\centering\fontsize{8.5}{10}\selectfont\itshape
+   Notes by J. R. Capablanca, from \textup{Chess Fundamentals} (1921), which is in the public domain.\\
+   Descriptive notation has been converted to algebraic. Page references are to the book.\\
+   Click any move or diagram to open it on Lichess.\par}
+\end{center}
+\vspace{10pt}
+}]
+\textsizebook
+
+\mainline{1.d4 Nf6 2.Nf3 d6 3.Bg5 Nbd7 4.e3 e5 5.Nc3 c6 6.Bd3 Be7 7.Qe2 Qa5 8.O-O Nf8 9.Rfd1 Bg4}
+
+At last Black is on his way to obtain full development. The idea of this irregular opening is mainly to throw White on his own resources. At the time the game was played, the system of defence was not as well known as the regular forms of the Queen's Pawn openings. Whether it is sound or not remains yet to be proved. Its good features are that it keeps the centre intact without creating any particular weakness, and that it gives plenty of opportunity for deep and concealed manoeuvring. The drawback is the long time it takes Black to develop his game. It is natural to suppose that White will employ that time to prepare a well-conceived attack, or that he will use the advantage of his development actually to prevent Black's complete development, or failing that, to obtain some definite material advantage.
+
+\mainline{10.h3 Bh5 11.dxe5 dxe5 12.Ne4}
+
+\board
+
+\mainline{12...Nxe4}
+
+A very serious mistake. I considered castling (\moves[as=a]{12...O-O-O}), which was the right move, but desisted because I was afraid that by playing \moves[from=a]{13.Bxf6 gxf6 14.Ng3 Bg6 15.Nf5}, White would obtain a winning position for the end game. Whether right or wrong this shows how closely related are all parts of the game, and consequently how one will influence the other.
+
+\mainline{13.Bxe7 Kxe7 14.Bxe4 Bg6}
+
+Not good. The natural and proper move would have been \moves{14...Ne6}, in order to bring all the Black pieces into play. \moves{14...Bxf3} at once was also good, as it would have relieved the pressure against Black's King's Pawn, and at the same time have simplified the game.
+
+Here it is seen how failure to comply with the elementary logical reasons, that govern any given position, often brings the player into trouble. I was no doubt influenced in my choice of moves by the fear of \figB f5, which was a very threatening move.
+
+\mainline{15.Qc4 Ne6 16.b4 Qc7 17.Bxg6 hxg6 18.Qe4 Kf6}
+
+\board
+
+\mainline{19.Rd3}
+
+\moves{19.h4}, to be followed by g4, might have been a more vigorous way to carry on the attack. Black's weak point is unquestionably the Pawn at e5, which he is compelled to defend with the King. The text move aims at doubling the Rooks, with the ultimate object of placing one of them at d6, supported by a Pawn at c5, Black could only stop this by playing ...c5 which would create a ``hole'' at d5; or by playing ...b6, which would tie the Black Queen to the defence of the c-pawn as well as the e-pawn, which she already defends. Black, however, can meet all this by offering the exchange of Rooks, which destroys White's plans. For this reason \moves{19.h4} appears the proper way to carry on the attack.
+
+\mainline{19...Rad8 20.Rad1 g5}
+
+This move is preparatory to ...g6, which would make Black's position secure. Unfortunately for Black, he did not carry out his original plan.
+
+\mainline{21.c4 Rxd3}
+
+\moves{21...g6} would have left Black with a perfectly safe game.
+
+\mainline{22.Rxd3 Rd8}
+
+A very serious mistake, which loses a Pawn. \moves{22...g6} was the right move, and would have left Black with a very good game. In fact, if it should come to a simple ending, the position of the Black King would be an advantage.
+
+\mainline{23.Rxd8 Nxd8}
+
+\board
+
+\mainline{24.h4}
+
+This wins a Pawn, as will soon be seen. Black cannot reply \moves[as=a]{24...Ne6}; because \moves[from=a]{25.hxg5+ Nxg5 26.Qh4} wins the Knight.
+
+\mainline{24...gxh4 25.Qxh4+ Ke6 26.Qg4+ Kf6 27.Qg5+ Ke6 28.Qxg7 Qd6 29.c5 Qd5 30.e4! Qd1+ 31.Kh2 f6 32.Qg4+! Ke7 33.Nxe5 Qxg4 34.Nxg4 Ne6 35.e5 fxe5 36.Nxe5 Nd4}
+
+The game went on for a few more moves, and, there being no way to counteract the advance of White's two passed Pawns, Black resigned.
+
+\end{document}

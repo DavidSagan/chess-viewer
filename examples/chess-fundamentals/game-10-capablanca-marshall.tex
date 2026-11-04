@@ -1,0 +1,128 @@
+% J. R. Capablanca - F. J. Marshall, St. Petersburg, 1914, with Capablanca's notes.
+% Build with: python3 ../../tools/chessbook.py game-10-capablanca-marshall.tex
+\documentclass[10pt,twoside]{article}
+\usepackage[paperwidth=487.56bp,paperheight=691.65bp,top=72pt,bottom=44pt,inner=50pt,outer=48pt,
+            headheight=13pt,headsep=20pt,footskip=0pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[lining]{ebgaramond}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage[hidelinks,pdftitle={Capablanca - Marshall, St. Petersburg, 1914},
+            pdfauthor={J. R. Capablanca}]{hyperref}
+
+\newcommand{\textsizebook}{\fontsize{10.5}{12.6}\selectfont}
+\AtBeginDocument{\textsizebook}
+\setlength{\columnsep}{11pt}
+\setlength{\parindent}{9pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{1.5em}
+\raggedbottom
+
+\newlength{\boardwidth}
+\setlength{\boardwidth}{160pt}
+
+% A main line move, as a bold heading above its note
+\newcommand{\Move}[1]{\par\addvspace{8pt}\noindent\phantomsection{\bfseries #1}\par\nopagebreak}
+% A diagram in the text
+\newcommand{\ChessDiagram}[1]{\par\addvspace{7pt}{\centering #1\par}\addvspace{5pt}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[CE]{Petroff Defence}
+\fancyhead[CO]{Capablanca -- Marshall}
+
+\game{e4 e5 Nf3 Nf6 Nxe5 d6 Nf3 Nxe4 Qe2 Qe7 d3 Nf6 Bg5 Be6 Nc3 h6 Bxf6 Qxf6 d4 Be7 Qb5+ Nd7
+      Bd3 g5 h3 O-O Qxb7 Rab8 Qe4 Qg7 b3 c5 O-O cxd4 Nd5 Bd8 Bc4 Nc5 Qxd4 Qxd4 Nxd4 Bxd5 Bxd5
+      Bf6 Rad1 Bxd4 Rxd4 Kg7 Bc4 Rb6 Re1 Kf6 f4 Ne6 fxg5+ hxg5 Rf1+ Ke7 Rg4 Rg8 Rf5 Rc6 h4
+      Rgc8 hxg5 Rc5 Bxe6 fxe6 Rxc5 Rxc5 g6 Kf8 Rc4 Ra5 a4 Kg7 Rc6 Rd5 Rc7+ Kxg6 Rxa7 Rd1+ Kh2
+      d5 a5 Rc1 Rc7 Ra1 b4 Ra4 c3 d4 Rc6 dxc3 Rxc3 Rxb4 Ra3 Rb7 a6 Ra7 Ra5 Kf6 g4 Ke7 Kg3 Kd6
+      Kf4 Kc7 Ke5 Kd7 g5 Ke7 g6 Kf8 Kxe6 Ke8 g7 Rxg7 a7 Rg6+ Kf5}
+
+\begin{document}
+
+\twocolumn[{%
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+  \node[circle,draw=black,line width=1.6pt,fill=black!20,minimum size=112pt] (seal)
+       at ([xshift=75pt,yshift=-75pt]current page.north west) {};
+  \draw[line width=0.9pt] ([shift={(-48pt,-30pt)}]seal.center) -- ([shift={(44pt,34pt)}]seal.center);
+  \node[rotate=37] at ([shift={(-11pt,14pt)}]seal.center) {\fontsize{25}{25}\selectfont\bfseries Game};
+  \node[rotate=37] at ([shift={(10pt,-16pt)}]seal.center) {\fontsize{38}{38}\selectfont\bfseries 10};
+  \node[anchor=north east] at ([xshift=-14pt,yshift=-24pt]current page.north east)
+       {\board[after=4...Nxe4,width=108pt,bare]};
+\end{tikzpicture}
+
+\vspace*{38pt}
+\begin{center}
+  \begin{minipage}{235pt}\centering
+    {\fontsize{22}{25}\selectfont\bfseries Petroff Defence\par}
+    \vspace{4pt}\rule{\linewidth}{1pt}\\[-9.5pt]\rule{\linewidth}{0.4pt}
+  \end{minipage}
+
+  \vspace{14pt}
+  {\fontsize{19}{22}\selectfont\bfseries Capablanca -- Marshall\par}
+  \vspace{10pt}
+  {\fontsize{15}{18}\selectfont\bfseries St. Petersburg, 1914\par}
+  \vspace{8pt}
+  {\fontsize{11}{13}\selectfont White: J. R. Capablanca \quad Black: F. J. Marshall\par}
+  \vspace{10pt}
+  {\centering\fontsize{8.5}{10}\selectfont\itshape
+   Notes by J. R. Capablanca, from \textup{Chess Fundamentals} (1921), which is in the public domain.\\
+   Descriptive notation has been converted to algebraic. Page references are to the book.\\
+   Click any move or diagram to open it on Lichess.\par}
+\end{center}
+\vspace{10pt}
+}]
+\textsizebook
+
+\mainline{1.e4 e5 2.Nf3 Nf6 3.Nxe5 d6 4.Nf3 Nxe4 5.Qe2 Qe7 6.d3 Nf6 7.Bg5}
+
+Played by Morphy, and a very fine move. The point is that should Black exchange Queens he will be a move behind in development and consequently will get a cramped game if White plays accurately.
+
+\mainline{7...Be6}
+
+Marshall thought at the time that this was the best move and consequently played it in preference to \moves{7...Qxe2+}.
+
+\mainline{8.Nc3 h6 9.Bxf6 Qxf6 10.d4 Be7 11.Qb5+ Nd7 12.Bd3!}
+
+\board
+
+It is now time to examine the result of the opening. On White's side we find the minor pieces well posted and the Queen out in a somewhat odd place, it is true, but safe from attack and actually attacking a Pawn. White is also ready to Castle. White's position is evidently free from danger and his pieces can easily manoeuvre.
+
+On Black's side the first thing we notice is that he has retained both his Bishops, unquestionably an advantage; but on the other hand we find his pieces bunched together too much, and the Queen in danger of being attacked without having any good square to go to. The Bishop at e7 has no freedom and it blocks the Queen, which, in its turn, blocks the Bishop. Besides, Black cannot Castle on the King's side (\moves[as=a]{12...O-O}) because \moves[from=a]{13.Qxb7 Rab8 14.Qe4} threatening mate, wins a Pawn. Nor can he Castle on the Queen's side (\moves[as=b]{12...O-O-O}) because \moves[from=b]{13.Qa5} would put Black's game in imminent danger, since he cannot play ...a6 because of \figB xa6; nor can he play \figK b8 because of \figN b5. Consequently we must conclude that the opening is all in White's favour.
+
+\mainline{12...g5}
+
+To make room for his Queen, threatening also ...g4.
+
+\mainline{13.h3 O-O}
+
+giving up a Pawn in an attempt to free his game and take the initiative. It was difficult for him to find a move, as White threatened \figN e4, and should Black go with the Queen to g7, then d5, \figB f5; \figN xg5+, followed by \figB xf5.
+
+\mainline{14.Qxb7 Rab8 15.Qe4 Qg7 16.b3 c5}
+
+In order to break up White's centre and bring his Knight to c5 and thus lay the foundation for a violent attack against White's King. The plan, however, fails, as it always must in such cases, because Black's development is backward, and consequently his pieces are not properly placed.
+
+\mainline{17.O-O cxd4 18.Nd5!}
+
+A simple move, which destroys Black's plan utterly. Black will now have no concerted action of his pieces, and, as his Pawns are all weak, he will sooner or later lose them.
+
+\board
+
+\mainline{18...Bd8 19.Bc4 Nc5 20.Qxd4 Qxd4}
+
+The fact that he has to exchange Queens when he is a Pawn behind shows that Black's game is lost.
+
+\mainline{21.Nxd4 Bxd5 22.Bxd5 Bf6 23.Rad1 Bxd4}
+
+The Knight was too threatening. But now the ending brought about is one in which the Bishop is stronger than the Knight; which makes Black's plight a desperate one. The game has no further interest, and it is only because of its value as a study of this variation of the Petroff that I have given it. Black was able to fight it out until the sixtieth move on account of some poor play on White's part. The rest of the moves are given merely as a matter of form.
+
+\mainline{24.Rxd4 Kg7 25.Bc4 Rb6 26.Re1 Kf6 27.f4 Ne6 28.fxg5+ hxg5 29.Rf1+ Ke7 30.Rg4 Rg8 31.Rf5 Rc6 32.h4 Rgc8 33.hxg5 Rc5 34.Bxe6 fxe6 35.Rxc5 Rxc5 36.g6 Kf8 37.Rc4 Ra5 38.a4 Kg7 39.Rc6 Rd5 40.Rc7+ Kxg6 41.Rxa7 Rd1+ 42.Kh2 d5 43.a5 Rc1 44.Rc7 Ra1 45.b4 Ra4 46.c3 d4 47.Rc6 dxc3 48.Rxc3 Rxb4 49.Ra3 Rb7 50.a6 Ra7 51.Ra5 Kf6 52.g4 Ke7 53.Kg3 Kd6 54.Kf4 Kc7 55.Ke5 Kd7 56.g5 Ke7 57.g6 Kf8 58.Kxe6 Ke8 59.g7 Rxg7 60.a7 Rg6+ 61.Kf5}
+
+\noindent\textbf{Resigns.}
+
+\end{document}

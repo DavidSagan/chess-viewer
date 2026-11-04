@@ -1,0 +1,131 @@
+% J. R. Capablanca - D. Janowski, St. Petersburg, 1914, with Capablanca's notes.
+% Build with: python3 ../../tools/chessbook.py game-11-capablanca-janowski.tex
+\documentclass[10pt,twoside]{article}
+\usepackage[paperwidth=487.56bp,paperheight=691.65bp,top=72pt,bottom=44pt,inner=50pt,outer=48pt,
+            headheight=13pt,headsep=20pt,footskip=0pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[lining]{ebgaramond}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage[hidelinks,pdftitle={Capablanca - Janowski, St. Petersburg, 1914},
+            pdfauthor={J. R. Capablanca}]{hyperref}
+
+\newcommand{\textsizebook}{\fontsize{10.5}{12.6}\selectfont}
+\AtBeginDocument{\textsizebook}
+\setlength{\columnsep}{11pt}
+\setlength{\parindent}{9pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{1.5em}
+\raggedbottom
+
+\newlength{\boardwidth}
+\setlength{\boardwidth}{160pt}
+
+% A main line move, as a bold heading above its note
+\newcommand{\Move}[1]{\par\addvspace{8pt}\noindent\phantomsection{\bfseries #1}\par\nopagebreak}
+% A diagram in the text
+\newcommand{\ChessDiagram}[1]{\par\addvspace{7pt}{\centering #1\par}\addvspace{5pt}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[CE]{Ruy Lopez}
+\fancyhead[CO]{Capablanca -- Janowski}
+
+\game{e4 e5 Nf3 Nc6 Bb5 a6 Bxc6 dxc6 Nc3 Bc5 d3 Bg4 Be3 Bxe3 fxe3 Qe7 O-O O-O-O Qe1 Nh6 Rb1 f6
+      b4 Nf7 a4 Bxf3 Rxf3 b6 b5 cxb5 axb5 a5 Nd5 Qc5 c4 Ng5 Rf2 Ne6 Qc3 Rd7 Rd1 Kb7 d4 Qd6 Rc2
+      exd4 exd4 Nf4 c5 Nxd5 exd5 Qxd5 c6+ Kb8 cxd7 Qxd7 d5 Re8 d6 cxd6 Qc6}
+
+\begin{document}
+
+\twocolumn[{%
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+  \node[circle,draw=black,line width=1.6pt,fill=black!20,minimum size=112pt] (seal)
+       at ([xshift=75pt,yshift=-75pt]current page.north west) {};
+  \draw[line width=0.9pt] ([shift={(-48pt,-30pt)}]seal.center) -- ([shift={(44pt,34pt)}]seal.center);
+  \node[rotate=37] at ([shift={(-11pt,14pt)}]seal.center) {\fontsize{25}{25}\selectfont\bfseries Game};
+  \node[rotate=37] at ([shift={(10pt,-16pt)}]seal.center) {\fontsize{38}{38}\selectfont\bfseries 11};
+  \node[anchor=north east] at ([xshift=-14pt,yshift=-24pt]current page.north east)
+       {\board[after=4...dxc6,width=108pt,bare]};
+\end{tikzpicture}
+
+\vspace*{38pt}
+\begin{center}
+  \begin{minipage}{235pt}\centering
+    {\fontsize{22}{25}\selectfont\bfseries Ruy Lopez\par}
+    \vspace{4pt}\rule{\linewidth}{1pt}\\[-9.5pt]\rule{\linewidth}{0.4pt}
+  \end{minipage}
+
+  \vspace{14pt}
+  {\fontsize{19}{22}\selectfont\bfseries Capablanca -- Janowski\par}
+  \vspace{10pt}
+  {\fontsize{15}{18}\selectfont\bfseries St. Petersburg, 1914\par}
+  \vspace{8pt}
+  {\fontsize{11}{13}\selectfont White: J. R. Capablanca \quad Black: D. Janowski\par}
+  \vspace{10pt}
+  {\centering\fontsize{8.5}{10}\selectfont\itshape
+   Notes by J. R. Capablanca, from \textup{Chess Fundamentals} (1921), which is in the public domain.\\
+   Descriptive notation has been converted to algebraic. Page references are to the book.\\
+   Click any move or diagram to open it on Lichess.\par}
+\end{center}
+\vspace{10pt}
+}]
+\textsizebook
+
+\mainline{1.e4 e5 2.Nf3 Nc6 3.Bb5 a6 4.Bxc6 dxc6 5.Nc3}
+
+I played this move after having discussed it with Alechin on several occasions. Alechin considered it, at the time, superior to \moves{5.d4}, which is generally played. He played it himself later on in the Tournament, in one of his games against Dr. E. Lasker, and obtained the superior game, which he only lost through a blunder.
+
+\mainline{5...Bc5}
+
+\moves{5...f6} is probably the best move in this position. I do not like the text move.
+
+\mainline{6.d3 Bg4 7.Be3 Bxe3}
+
+This opens the f-file for White, and also reinforces his centre, but Black naturally did not want to make a second move with this Bishop.
+
+\mainline{8.fxe3 Qe7 9.O-O O-O-O}
+
+Bold play, typical of Janowski.
+
+\mainline{10.Qe1 Nh6}
+
+\board
+
+The problem for White now is to advance his b-pawn to b5 as fast as he can. If he plays \moves{11.b4} at once, Black simply takes it. If he plays first a3 and then b4, he will still have to protect his b-pawn before he can go on and play a4 and b5. As a matter of fact White played a rather unusual move, but one which, under the circumstances, was the best, since after it he could at once play b4 and then a4 and b5.
+
+\mainline{11.Rb1! f6 12.b4 Nf7 13.a4 Bxf3}
+
+He simplifies, hoping to lighten White's attack, which will have to be conducted practically with only the heavy pieces on the board. He may have also done it in order to play \figN g5 and e6.
+
+\mainline{14.Rxf3}
+
+Taking with the Pawn would have opened a possibility for a counter attack.
+
+\mainline{14...b6}
+
+He is forced to this in order to avoid the breaking up of his Queen's side Pawns. The only alternative would have been \moves{14...b5}; which on the face of it looks bad.
+
+\mainline{15.b5 cxb5 16.axb5 a5 17.Nd5 Qc5 18.c4}
+
+\board
+
+The White Knight is now a tower of strength. Behind it White will be able to prepare an attack, which will begin with d4, to drive away the Black Queen and thus leave himself free to play c5. There is only one thing to take care of and that is to prevent Black from sacrificing the Rook for the Knight and a Pawn.
+
+\mainline{18...Ng5 19.Rf2 Ne6 20.Qc3 Rd7}
+
+Had White on his 19th move played \moves{19.Rf1} instead of \moves{19.Rf2}, Black could have played now instead of the text move, \figR xd5; exd5, \figQ xe3+; followed by \figN f4 with a winning game.
+
+\mainline{21.Rd1 Kb7}
+
+It would have been better for Black to play \moves{21...Kd8}. The text move loses very rapidly.
+
+\mainline{22.d4 Qd6 23.Rc2 exd4 24.exd4 Nf4 25.c5 Nxd5 26.exd5 Qxd5 27.c6+ Kb8 28.cxd7 Qxd7 29.d5 Re8 30.d6 cxd6 31.Qc6}
+
+\noindent\textbf{Resigns.}
+
+\end{document}

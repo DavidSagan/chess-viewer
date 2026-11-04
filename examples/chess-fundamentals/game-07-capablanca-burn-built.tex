@@ -1,0 +1,146 @@
+% J. R. Capablanca - A. Burn, San Sebastian, 1911, with Capablanca's notes.
+% Build with: python3 ../../tools/chessbook.py game-07-capablanca-burn.tex
+\documentclass[10pt,twoside]{article}
+\usepackage[paperwidth=487.56bp,paperheight=691.65bp,top=72pt,bottom=44pt,inner=50pt,outer=48pt,
+            headheight=13pt,headsep=20pt,footskip=0pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[lining]{ebgaramond}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage[hidelinks,pdftitle={Capablanca - Burn, San Sebastian, 1911},
+            pdfauthor={J. R. Capablanca}]{hyperref}
+
+\newcommand{\textsizebook}{\fontsize{10.5}{12.6}\selectfont}
+\AtBeginDocument{\textsizebook}
+\setlength{\columnsep}{11pt}
+\setlength{\parindent}{9pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{1.5em}
+\raggedbottom
+
+\newlength{\boardwidth}
+\setlength{\boardwidth}{160pt}
+
+% A main line move, as a bold heading above its note
+\newcommand{\Move}[1]{\par\addvspace{8pt}\noindent\phantomsection{\bfseries #1}\par\nopagebreak}
+% A diagram in the text
+\newcommand{\ChessDiagram}[1]{\par\addvspace{7pt}{\centering #1\par}\addvspace{5pt}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[CE]{Ruy Lopez}
+\fancyhead[CO]{Capablanca -- Burn}
+
+
+
+
+
+
+
+\newcommand{\figK}{\raisebox{-0.14em}{\includegraphics[height=1em]{diagrams/figK}}}
+\newcommand{\figQ}{\raisebox{-0.14em}{\includegraphics[height=1em]{diagrams/figQ}}}
+\newcommand{\figR}{\raisebox{-0.14em}{\includegraphics[height=1em]{diagrams/figR}}}
+\newcommand{\figB}{\raisebox{-0.14em}{\includegraphics[height=1em]{diagrams/figB}}}
+\newcommand{\figN}{\raisebox{-0.14em}{\includegraphics[height=1em]{diagrams/figN}}}
+\begin{document}
+
+\twocolumn[{%
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+  \node[circle,draw=black,line width=1.6pt,fill=black!20,minimum size=112pt] (seal)
+       at ([xshift=75pt,yshift=-75pt]current page.north west) {};
+  \draw[line width=0.9pt] ([shift={(-48pt,-30pt)}]seal.center) -- ([shift={(44pt,34pt)}]seal.center);
+  \node[rotate=37] at ([shift={(-11pt,14pt)}]seal.center) {\fontsize{25}{25}\selectfont\bfseries Game};
+  \node[rotate=37] at ([shift={(10pt,-16pt)}]seal.center) {\fontsize{38}{38}\selectfont\bfseries 7};
+  \node[anchor=north east] at ([xshift=-14pt,yshift=-24pt]current page.north east)
+       {\href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6}{\includegraphics[width=108pt]{diagrams/board-0d5ba9f896a8}}};
+\end{tikzpicture}
+
+\vspace*{38pt}
+\begin{center}
+  \begin{minipage}{235pt}\centering
+    {\fontsize{22}{25}\selectfont\bfseries Ruy Lopez\par}
+    \vspace{4pt}\rule{\linewidth}{1pt}\\[-9.5pt]\rule{\linewidth}{0.4pt}
+  \end{minipage}
+
+  \vspace{14pt}
+  {\fontsize{19}{22}\selectfont\bfseries Capablanca -- Burn\par}
+  \vspace{10pt}
+  {\fontsize{15}{18}\selectfont\bfseries San Sebastian, 1911\par}
+  \vspace{8pt}
+  {\fontsize{11}{13}\selectfont White: J. R. Capablanca \quad Black: A. Burn\par}
+  \vspace{10pt}
+  {\centering\fontsize{8.5}{10}\selectfont\itshape
+   Notes by J. R. Capablanca, from \textup{Chess Fundamentals} (1921), which is in the public domain.\\
+   Descriptive notation has been converted to algebraic. Page references are to the book.\\
+   Click any move or diagram to open it on Lichess.\par}
+\end{center}
+\vspace{10pt}
+}]
+\textsizebook
+
+\Move{\href{https://lichess.org/analysis/pgn/e4}{1.e4} \href{https://lichess.org/analysis/pgn/e4_e5}{e5} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3}{2.\figN f3} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6}{\figN c6} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5}{3.\figB b5} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6}{a6} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4}{4.\figB a4} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6}{\figN f6} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3}{5.d3}}
+
+This is a very solid development, to which I was much addicted at the time, because of my ignorance of the multiple variations of the openings.
+
+\Move{\href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6}{5...d6} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3}{6.c3} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7}{\figB e7}}
+
+In this variation there is the alternative of developing this Bishop via g7, after \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_g6}{6...g6}.
+
+\Move{\href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2}{7.\figN bd2} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O}{0--0} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1}{8.\figN f1} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5}{b5} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2}{9.\figB c2} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5}{d5} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2}{10.\figQ e2} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4}{dxe4} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4}{11.dxe4} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5}{\figB c5}}
+
+Evidently to make room for the Queen at e7, but I do not think the move advisable at this stage. \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Be6}{11...\figB e6} is a more natural and effective move. It develops a piece and threatens \figB c4, which would have to be stopped.
+
+\Move{\href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5}{12.\figB g5} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6}{\figB e6}}
+
+Now it is not so effective, because White's Queen's Bishop is out, and the Knight, in going to e3 to defend the square c4, does not block the Queen's Bishop.
+
+\Move{\href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3}{13.\figN e3} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8}{\figR e8} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O}{14.0--0} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7}{\figQ e7}}
+
+This is bad. Black's game was already not good. He probably had no choice but to take the Knight with the Bishop before making this move.
+
+\ChessDiagram{\href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7}{\includegraphics[width=\boardwidth]{diagrams/board-3906aafa9492}}}
+
+\Move{\href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5}{15.\figN d5} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5}{\figB xd5} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5}{16.exd5} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8}{\figN b8}}
+
+in order to bring it to d7, to support the other Knight and also his King's Pawn. White, however, does not allow time for this, and by taking advantage of his superior position is able to win a Pawn.
+
+\Move{\href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4}{17.a4} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4}{b4}}
+
+Since he had no way to prevent the loss of a Pawn, he should have given it up where it is, and played \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_Nbd7}{17...\figN bd7}, in order to make his position more solid. The text move not only loses a Pawn, but leaves Black's game very much weakened.
+
+\Move{\href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4}{18.cxb4} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4}{\figB xb4} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6}{19.\figB xf6} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6}{\figQ xf6} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4}{20.\figQ e4} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6}{\figB d6} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7}{21.\figQ xh7+} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8}{\figK f8}}
+
+\ChessDiagram{\href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8}{\includegraphics[width=\boardwidth]{diagrams/board-c0902d9ddcc3}}}
+
+With a Pawn more and all his pieces ready for action, while Black is still backward in development, it only remains for White to drive home his advantage before Black can come out with his pieces, in which case, by using the open h-file, Black might be able to start a strong attack against White's King. White is able by his next move to eliminate all danger.
+
+\Move{\href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4}{22.\figN h4} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6}{\figQ h6}}
+
+This is practically forced. Black could not play \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_g6}{22...g6} because of \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_g6_Bxg6}{23.\figB xg6}, and White meanwhile threatened \figQ h8+ followed by \figN f5+ and \figQ xg7.
+
+\Move{\href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6}{23.\figQ xh6} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6}{gxh6} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5}{24.\figN f5} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5}{h5} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1}{25.\figB d1} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7}{\figN d7} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5}{26.\figB xh5} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6}{\figN f6} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2}{27.\figB e2} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5}{\figN xd5} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1}{28.\figR fd1} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1_Nf4}{\figN f4} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1_Nf4_Bc4}{29.\figB c4} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1_Nf4_Bc4_Red8}{\figR ed8} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1_Nf4_Bc4_Red8_h4}{30.h4} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1_Nf4_Bc4_Red8_h4_a5}{a5}}
+
+Black must lose time assuring the safety of this Pawn.
+
+\Move{\href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1_Nf4_Bc4_Red8_h4_a5_g3}{31.g3} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1_Nf4_Bc4_Red8_h4_a5_g3_Ne6}{\figN e6} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1_Nf4_Bc4_Red8_h4_a5_g3_Ne6_Bxe6}{32.\figB xe6} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1_Nf4_Bc4_Red8_h4_a5_g3_Ne6_Bxe6_fxe6}{fxe6} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1_Nf4_Bc4_Red8_h4_a5_g3_Ne6_Bxe6_fxe6_Ne3}{33.\figN e3} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1_Nf4_Bc4_Red8_h4_a5_g3_Ne6_Bxe6_fxe6_Ne3_Rdb8}{\figR db8} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1_Nf4_Bc4_Red8_h4_a5_g3_Ne6_Bxe6_fxe6_Ne3_Rdb8_Nc4}{34.\figN c4} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1_Nf4_Bc4_Red8_h4_a5_g3_Ne6_Bxe6_fxe6_Ne3_Rdb8_Nc4_Ke7}{\figK e7}}
+
+Black fights a hopeless battle. He is two Pawns down for all practical purposes, and the Pawns he has are isolated and have to be defended by pieces.
+
+\Move{\href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1_Nf4_Bc4_Red8_h4_a5_g3_Ne6_Bxe6_fxe6_Ne3_Rdb8_Nc4_Ke7_Rac1}{35.\figR ac1} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1_Nf4_Bc4_Red8_h4_a5_g3_Ne6_Bxe6_fxe6_Ne3_Rdb8_Nc4_Ke7_Rac1_Ra7}{\figR a7}}
+
+White threatened \figN xd6, followed by \figR c7+.
+
+\Move{\href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1_Nf4_Bc4_Red8_h4_a5_g3_Ne6_Bxe6_fxe6_Ne3_Rdb8_Nc4_Ke7_Rac1_Ra7_Re1}{36.\figR e1} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1_Nf4_Bc4_Red8_h4_a5_g3_Ne6_Bxe6_fxe6_Ne3_Rdb8_Nc4_Ke7_Rac1_Ra7_Re1_Kf6}{\figK f6} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1_Nf4_Bc4_Red8_h4_a5_g3_Ne6_Bxe6_fxe6_Ne3_Rdb8_Nc4_Ke7_Rac1_Ra7_Re1_Kf6_Re4}{37.\figR e4} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1_Nf4_Bc4_Red8_h4_a5_g3_Ne6_Bxe6_fxe6_Ne3_Rdb8_Nc4_Ke7_Rac1_Ra7_Re1_Kf6_Re4_Rb4}{\figR b4} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1_Nf4_Bc4_Red8_h4_a5_g3_Ne6_Bxe6_fxe6_Ne3_Rdb8_Nc4_Ke7_Rac1_Ra7_Re1_Kf6_Re4_Rb4_g4}{38.g4} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1_Nf4_Bc4_Red8_h4_a5_g3_Ne6_Bxe6_fxe6_Ne3_Rdb8_Nc4_Ke7_Rac1_Ra7_Re1_Kf6_Re4_Rb4_g4_Ra6}{\figR a6}}
+
+If \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1_Nf4_Bc4_Red8_h4_a5_g3_Ne6_Bxe6_fxe6_Ne3_Rdb8_Nc4_Ke7_Rac1_Ra7_Re1_Kf6_Re4_Rb4_g4_Rxa4}{38...\figR xa4} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1_Nf4_Bc4_Red8_h4_a5_g3_Ne6_Bxe6_fxe6_Ne3_Rdb8_Nc4_Ke7_Rac1_Ra7_Re1_Kf6_Re4_Rb4_g4_Rxa4_Nxd6}{39.\figN xd6} of course would win a piece
+
+\Move{\href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1_Nf4_Bc4_Red8_h4_a5_g3_Ne6_Bxe6_fxe6_Ne3_Rdb8_Nc4_Ke7_Rac1_Ra7_Re1_Kf6_Re4_Rb4_g4_Ra6_Rc3}{39.\figR c3} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1_Nf4_Bc4_Red8_h4_a5_g3_Ne6_Bxe6_fxe6_Ne3_Rdb8_Nc4_Ke7_Rac1_Ra7_Re1_Kf6_Re4_Rb4_g4_Ra6_Rc3_Bc5}{\figB c5} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1_Nf4_Bc4_Red8_h4_a5_g3_Ne6_Bxe6_fxe6_Ne3_Rdb8_Nc4_Ke7_Rac1_Ra7_Re1_Kf6_Re4_Rb4_g4_Ra6_Rc3_Bc5_Rf3}{40.\figR f3+} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1_Nf4_Bc4_Red8_h4_a5_g3_Ne6_Bxe6_fxe6_Ne3_Rdb8_Nc4_Ke7_Rac1_Ra7_Re1_Kf6_Re4_Rb4_g4_Ra6_Rc3_Bc5_Rf3_Kg7}{\figK g7} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1_Nf4_Bc4_Red8_h4_a5_g3_Ne6_Bxe6_fxe6_Ne3_Rdb8_Nc4_Ke7_Rac1_Ra7_Re1_Kf6_Re4_Rb4_g4_Ra6_Rc3_Bc5_Rf3_Kg7_b3}{41.b3} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1_Nf4_Bc4_Red8_h4_a5_g3_Ne6_Bxe6_fxe6_Ne3_Rdb8_Nc4_Ke7_Rac1_Ra7_Re1_Kf6_Re4_Rb4_g4_Ra6_Rc3_Bc5_Rf3_Kg7_b3_Bd4}{\figB d4} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1_Nf4_Bc4_Red8_h4_a5_g3_Ne6_Bxe6_fxe6_Ne3_Rdb8_Nc4_Ke7_Rac1_Ra7_Re1_Kf6_Re4_Rb4_g4_Ra6_Rc3_Bc5_Rf3_Kg7_b3_Bd4_Kg2}{42.\figK g2} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1_Nf4_Bc4_Red8_h4_a5_g3_Ne6_Bxe6_fxe6_Ne3_Rdb8_Nc4_Ke7_Rac1_Ra7_Re1_Kf6_Re4_Rb4_g4_Ra6_Rc3_Bc5_Rf3_Kg7_b3_Bd4_Kg2_Ra8}{\figR a8} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1_Nf4_Bc4_Red8_h4_a5_g3_Ne6_Bxe6_fxe6_Ne3_Rdb8_Nc4_Ke7_Rac1_Ra7_Re1_Kf6_Re4_Rb4_g4_Ra6_Rc3_Bc5_Rf3_Kg7_b3_Bd4_Kg2_Ra8_g5}{43.g5} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1_Nf4_Bc4_Red8_h4_a5_g3_Ne6_Bxe6_fxe6_Ne3_Rdb8_Nc4_Ke7_Rac1_Ra7_Re1_Kf6_Re4_Rb4_g4_Ra6_Rc3_Bc5_Rf3_Kg7_b3_Bd4_Kg2_Ra8_g5_Ra6}{\figR a6} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1_Nf4_Bc4_Red8_h4_a5_g3_Ne6_Bxe6_fxe6_Ne3_Rdb8_Nc4_Ke7_Rac1_Ra7_Re1_Kf6_Re4_Rb4_g4_Ra6_Rc3_Bc5_Rf3_Kg7_b3_Bd4_Kg2_Ra8_g5_Ra6_h5}{44.h5} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1_Nf4_Bc4_Red8_h4_a5_g3_Ne6_Bxe6_fxe6_Ne3_Rdb8_Nc4_Ke7_Rac1_Ra7_Re1_Kf6_Re4_Rb4_g4_Ra6_Rc3_Bc5_Rf3_Kg7_b3_Bd4_Kg2_Ra8_g5_Ra6_h5_Rxc4}{\figR xc4} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1_Nf4_Bc4_Red8_h4_a5_g3_Ne6_Bxe6_fxe6_Ne3_Rdb8_Nc4_Ke7_Rac1_Ra7_Re1_Kf6_Re4_Rb4_g4_Ra6_Rc3_Bc5_Rf3_Kg7_b3_Bd4_Kg2_Ra8_g5_Ra6_h5_Rxc4_bxc4}{45.bxc4} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1_Nf4_Bc4_Red8_h4_a5_g3_Ne6_Bxe6_fxe6_Ne3_Rdb8_Nc4_Ke7_Rac1_Ra7_Re1_Kf6_Re4_Rb4_g4_Ra6_Rc3_Bc5_Rf3_Kg7_b3_Bd4_Kg2_Ra8_g5_Ra6_h5_Rxc4_bxc4_Rc6}{\figR c6} \href{https://lichess.org/analysis/pgn/e4_e5_Nf3_Nc6_Bb5_a6_Ba4_Nf6_d3_d6_c3_Be7_Nbd2_O-O_Nf1_b5_Bc2_d5_Qe2_dxe4_dxe4_Bc5_Bg5_Be6_Ne3_Re8_O-O_Qe7_Nd5_Bxd5_exd5_Nb8_a4_b4_cxb4_Bxb4_Bxf6_Qxf6_Qe4_Bd6_Qxh7_Kf8_Nh4_Qh6_Qxh6_gxh6_Nf5_h5_Bd1_Nd7_Bxh5_Nf6_Be2_Nxd5_Rfd1_Nf4_Bc4_Red8_h4_a5_g3_Ne6_Bxe6_fxe6_Ne3_Rdb8_Nc4_Ke7_Rac1_Ra7_Re1_Kf6_Re4_Rb4_g4_Ra6_Rc3_Bc5_Rf3_Kg7_b3_Bd4_Kg2_Ra8_g5_Ra6_h5_Rxc4_bxc4_Rc6_g6}{46.g6}}
+
+\noindent\textbf{Resigns.}
+
+\end{document}

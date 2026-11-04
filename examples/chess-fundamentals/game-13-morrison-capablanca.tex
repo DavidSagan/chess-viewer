@@ -1,0 +1,186 @@
+% J. S. Morrison - J. R. Capablanca, New York, 1918, with Capablanca's notes.
+% Build with: python3 ../../tools/chessbook.py game-13-morrison-capablanca.tex
+\documentclass[10pt,twoside]{article}
+\usepackage[paperwidth=487.56bp,paperheight=691.65bp,top=72pt,bottom=44pt,inner=50pt,outer=48pt,
+            headheight=13pt,headsep=20pt,footskip=0pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[lining]{ebgaramond}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage[hidelinks,pdftitle={Morrison - Capablanca, New York, 1918},
+            pdfauthor={J. R. Capablanca}]{hyperref}
+
+\newcommand{\textsizebook}{\fontsize{10.5}{12.6}\selectfont}
+\AtBeginDocument{\textsizebook}
+\setlength{\columnsep}{11pt}
+\setlength{\parindent}{9pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{1.5em}
+\raggedbottom
+
+\newlength{\boardwidth}
+\setlength{\boardwidth}{160pt}
+
+% A main line move, as a bold heading above its note
+\newcommand{\Move}[1]{\par\addvspace{8pt}\noindent\phantomsection{\bfseries #1}\par\nopagebreak}
+% A diagram in the text
+\newcommand{\ChessDiagram}[1]{\par\addvspace{7pt}{\centering #1\par}\addvspace{5pt}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[CE]{Ruy Lopez}
+\fancyhead[CO]{Morrison -- Capablanca}
+
+\game{e4 e5 Nf3 Nc6 Bb5 d6 Nc3 Bd7 d4 exd4 Nxd4 g6 Nf3 Bg7 Bg5 Nf6 Qd2 h6 Bh4 O-O O-O-O Re8
+      Rhe1 g5 Bg3 Nh5 Nd5 a6 Bd3 Be6 c3 f5 h4 f4 hxg5 hxg5 Rh1 Bf7 Kb1 Ne5 Nxe5 Rxe5 Bh2 Nf6
+      g3 Nxe4 Bxe4 Rxe4 gxf4 c6 Ne3 Qa5 c4 Qxd2 Rxd2 gxf4 Ng4 Bg6 Ka1 Rae8 a3 Re1+ Rxe1 Rxe1+
+      Ka2 Bf7 Kb3 d5 Bxf4 dxc4+ Kb4 c3 bxc3 Re4+ c4 Rxc4+ Ka5 Rxf4 Rd8+ Kh7 Rd7 Be6}
+
+\begin{document}
+
+\twocolumn[{%
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+  \node[circle,draw=black,line width=1.6pt,fill=black!20,minimum size=112pt] (seal)
+       at ([xshift=75pt,yshift=-75pt]current page.north west) {};
+  \draw[line width=0.9pt] ([shift={(-48pt,-30pt)}]seal.center) -- ([shift={(44pt,34pt)}]seal.center);
+  \node[rotate=37] at ([shift={(-11pt,14pt)}]seal.center) {\fontsize{25}{25}\selectfont\bfseries Game};
+  \node[rotate=37] at ([shift={(10pt,-16pt)}]seal.center) {\fontsize{38}{38}\selectfont\bfseries 13};
+  \node[anchor=north east] at ([xshift=-14pt,yshift=-24pt]current page.north east)
+       {\board[after=4...Bd7,width=108pt,bare]};
+\end{tikzpicture}
+
+\vspace*{38pt}
+\begin{center}
+  \begin{minipage}{235pt}\centering
+    {\fontsize{22}{25}\selectfont\bfseries Ruy Lopez\par}
+    \vspace{4pt}\rule{\linewidth}{1pt}\\[-9.5pt]\rule{\linewidth}{0.4pt}
+  \end{minipage}
+
+  \vspace{14pt}
+  {\fontsize{19}{22}\selectfont\bfseries Morrison -- Capablanca\par}
+  \vspace{10pt}
+  {\fontsize{15}{18}\selectfont\bfseries New York, 1918\par}
+  \vspace{8pt}
+  {\fontsize{11}{13}\selectfont White: J. S. Morrison \quad Black: J. R. Capablanca\par}
+  \vspace{10pt}
+  {\centering\fontsize{8.5}{10}\selectfont\itshape
+   Notes by J. R. Capablanca, from \textup{Chess Fundamentals} (1921), which is in the public domain.\\
+   Descriptive notation has been converted to algebraic. Page references are to the book.\\
+   Click any move or diagram to open it on Lichess.\par}
+\end{center}
+\vspace{10pt}
+}]
+\textsizebook
+
+\mainline{1.e4 e5 2.Nf3 Nc6 3.Bb5 d6 4.Nc3 Bd7 5.d4 exd4 6.Nxd4 g6}
+
+In this form of defence of the Ruy Lopez the development of the King's Bishop via g7 is, I think, of great importance. The Bishop at g7 exerts great pressure along the long diagonal. At the same time the position of the Bishop and Pawns in front of the King, once it is Castled, is one of great defensive strength. Therefore, in this form of development, the Bishop, we might say, exerts its maximum strength (Compare this note with the one in the Capablanca-Burn game at San Sebastian, page 197.)
+
+\mainline{7.Nf3 Bg7 8.Bg5 Nf6}
+
+Of course not \moves[as=a]{8...Nge7}; because of \moves[from=a]{9.Nd5}. The alternative would have been \moves{8...f6}; to be followed by \figN ge7; but in this position it is preferable to have the Knight at f6.
+
+\mainline{9.Qd2 h6 10.Bh4}
+
+An error of judgment. White wants to keep the Knight pinned, but it was more important to prevent Black from Castling immediately. \moves{10.Bf4} would have done this.
+
+\mainline{10...O-O 11.O-O-O}
+
+Bold play, but again faulty judgment, unless he intended to play to win or lose, throwing safety to the winds. The Black Bishop at g7 becomes a very powerful attacking piece. The strategical disposition of the Black pieces is now far superior to White's, therefore it will be Black who will take the offensive.
+
+\mainline{11...Re8 12.Rhe1}
+
+\board
+
+White wanted to keep his Queen's Rook on the open file, and consequently brings over his other Rook to the centre to defend his e-pawn, which Black threatened to win by ...g5, followed by \figN xe4.
+
+\mainline{12...g5!}
+
+Now that the King's Rook is in the centre, Black can safely advance, since, in order to attack on the King's side, White would have to shift his Rooks, which he cannot do so long as Black keeps up the pressure in the centre.
+
+\mainline{13.Bg3 Nh5}
+
+Uncovering the Bishop, which now acts along the long diagonal, and at the same time preventing e5, which would be answered by \figN xg3; Pawn takes Knight, \figN xe5; etc., winning a Pawn.
+
+\mainline{14.Nd5 a6}
+
+Black drives the Bishop away so as to \emph{unpin} his pieces and be able to manoeuvre freely.
+
+\mainline{15.Bd3 Be6}
+
+Preparing the onslaught. Black's pieces begin to bear against the King's position.
+
+\mainline{16.c3}
+
+\board
+
+With the last move White not only blocks the action of Black's King's Bishop, but he also aims at placing his Bishop at b1 and his Queen at c2, and then advancing his e-pawn, to check at h7.
+
+\mainline{16...f5!}
+
+Initiating an attack to which there is no reply, and which has for its ultimate object either the winning of the White Queen's Bishop or cutting it off from the game. (Compare this game with the Winter-Capablanca game at Hastings.)
+
+\mainline{17.h4 f4}
+
+The Bishop is now out of action. White naturally counter attacks violently against the seemingly exposed position of the Black King, and, with very good judgment, even offers the Bishop.
+
+\board
+
+\mainline{18.hxg5! hxg5!}
+
+Taking the Bishop would be dangerous, if not actually bad, while the text move accomplishes Black's object, which is to put the Bishop out of action.
+
+\mainline{19.Rh1 Bf7 20.Kb1}
+
+This move unquestionably loses time. Since he would have to retire his Bishop to h2 sooner or later, he might have done it immediately. It is doubtful, however, if at this stage of the game it would be possible for White to save the game.
+
+\mainline{20...Ne5 21.Nxe5 Rxe5}
+
+It was difficult to decide which way to retake. I took with the Rook in order to have it prepared for a possible attack against the King.
+
+\mainline{22.Bh2 Nf6}
+
+Now that the White Bishop has been driven back, Black wants to get rid of White's strongly posted Knight at d5, which blocks the attack of the Bishop at f7. It may be said that the Knight at d5 is the key to White's defence.
+
+\board
+
+\mainline{23.g3}
+
+White strives not only to have play for his Bishop, but also he wants to break up Black's Pawns in order to counter-attack. The alternative would have been \moves{23.Nxf6+ Qxf6}; and Black would be threatening \figR h5, and also \figQ e6. The student should notice that Black's drawback in all this is the fact that he is playing minus the services of his Queen's Rook. It is this fact that makes it possible for White to hold out longer.
+
+\mainline{23...Nxe4 24.Bxe4 Rxe4 25.gxf4 c6}
+
+\board
+
+\mainline{26.Ne3}
+
+\moves{26.Nb4} was the alternative, but in any event White could not resist the attack. I leave it to the reader to work this out for himself, as the variations are so numerous that they would take up too much space.
+
+\mainline{26...Qa5 27.c4 Qxd2 28.Rxd2 gxf4 29.Ng4 Bg6}
+
+This forces the King to the corner, where he will be in a mating net.
+
+\mainline{30.Ka1 Rae8}
+
+Now at last the Queen's Rook enters into the game and soon the battle is over.
+
+\mainline{31.a3}
+
+If \moves{31.Rxd6 Re1+ 32.Rd1 R1e2}.
+
+\mainline{31...Re1+ 32.Rxe1 Rxe1+ 33.Ka2 Bf7 34.Kb3 d5}
+
+the quickest way to finish the game.
+
+\mainline{35.Bxf4 dxc4+ 36.Kb4 c3 37.bxc3 Re4+ 38.c4 Rxc4+ 39.Ka5 Rxf4 40.Rd8+ Kh7 41.Rd7 Be6}
+
+\noindent\textbf{Resigns.}
+
+A very lively game.
+
+\end{document}

@@ -1,0 +1,175 @@
+% J. Mieses - J. R. Capablanca, Berlin, 1913, with Capablanca's notes.
+% Build with: python3 ../../tools/chessbook.py game-08-mieses-capablanca.tex
+\documentclass[10pt,twoside]{article}
+\usepackage[paperwidth=487.56bp,paperheight=691.65bp,top=72pt,bottom=44pt,inner=50pt,outer=48pt,
+            headheight=13pt,headsep=20pt,footskip=0pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[lining]{ebgaramond}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage[hidelinks,pdftitle={Mieses - Capablanca, Berlin, 1913},
+            pdfauthor={J. R. Capablanca}]{hyperref}
+
+\newcommand{\textsizebook}{\fontsize{10.5}{12.6}\selectfont}
+\AtBeginDocument{\textsizebook}
+\setlength{\columnsep}{11pt}
+\setlength{\parindent}{9pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{1.5em}
+\raggedbottom
+
+\newlength{\boardwidth}
+\setlength{\boardwidth}{160pt}
+
+% A main line move, as a bold heading above its note
+\newcommand{\Move}[1]{\par\addvspace{8pt}\noindent\phantomsection{\bfseries #1}\par\nopagebreak}
+% A diagram in the text
+\newcommand{\ChessDiagram}[1]{\par\addvspace{7pt}{\centering #1\par}\addvspace{5pt}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[CE]{Centre Game}
+\fancyhead[CO]{Mieses -- Capablanca}
+
+\game{e4 e5 d4 exd4 Qxd4 Nc6 Qe3 Nf6 Nc3 Bb4 Bd2 O-O O-O-O Re8 Qg3 Nxe4 Nxe4 Rxe4 Bf4 Qf6 Nh3
+      d6 Bd3 Nd4 Be3 Bg4 Ng5 Rxe3 Qxg4 Ne2+ Bxe2 Rxe2 Ne4 Rxe4 Qxe4 Qg5+ f4 Qb5 c3 Bc5 Rhe1
+      Qc6 Rd5 Qd7 f5 c6 Rd2 d5 Qf3 Be7 Rde2 Bf6 Qh5 h6 g4 Kh7 Kb1 Rd8 Rd1 c5 Qh3 Qa4 Red2 Qe4+
+      Ka1 b5 Qg2 Qa4 Kb1 b4 cxb4 Qxb4 a3 Qa4 Rxd5 Rb8 R1d2 c4 Qg3 Rb3 Qd6 c3 Rc2 cxb2 Rd3 Qe4
+      Rd1 Rc3}
+
+\begin{document}
+
+\twocolumn[{%
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+  \node[circle,draw=black,line width=1.6pt,fill=black!20,minimum size=112pt] (seal)
+       at ([xshift=75pt,yshift=-75pt]current page.north west) {};
+  \draw[line width=0.9pt] ([shift={(-48pt,-30pt)}]seal.center) -- ([shift={(44pt,34pt)}]seal.center);
+  \node[rotate=37] at ([shift={(-11pt,14pt)}]seal.center) {\fontsize{25}{25}\selectfont\bfseries Game};
+  \node[rotate=37] at ([shift={(10pt,-16pt)}]seal.center) {\fontsize{38}{38}\selectfont\bfseries 8};
+  \node[anchor=north east] at ([xshift=-14pt,yshift=-24pt]current page.north east)
+       {\board[after=4...Nf6,width=108pt,bare]};
+\end{tikzpicture}
+
+\vspace*{38pt}
+\begin{center}
+  \begin{minipage}{235pt}\centering
+    {\fontsize{22}{25}\selectfont\bfseries Centre Game\par}
+    \vspace{4pt}\rule{\linewidth}{1pt}\\[-9.5pt]\rule{\linewidth}{0.4pt}
+  \end{minipage}
+
+  \vspace{14pt}
+  {\fontsize{19}{22}\selectfont\bfseries Mieses -- Capablanca\par}
+  \vspace{10pt}
+  {\fontsize{15}{18}\selectfont\bfseries Berlin, 1913\par}
+  \vspace{8pt}
+  {\fontsize{11}{13}\selectfont White: J. Mieses \quad Black: J. R. Capablanca\par}
+  \vspace{10pt}
+  {\centering\fontsize{8.5}{10}\selectfont\itshape
+   Notes by J. R. Capablanca, from \textup{Chess Fundamentals} (1921), which is in the public domain.\\
+   Descriptive notation has been converted to algebraic. Page references are to the book.\\
+   Click any move or diagram to open it on Lichess.\par}
+\end{center}
+\vspace{10pt}
+}]
+\textsizebook
+
+\mainline{1.e4 e5 2.d4 exd4 3.Qxd4 Nc6 4.Qe3 Nf6 5.Nc3 Bb4 6.Bd2 O-O 7.O-O-O Re8}
+
+In this position, instead of the text move, \moves{7...d6} is often played in order to develop the Queen's Bishop. My idea was to exert sufficient pressure against the e-pawn to win it, and thus gain a material advantage, which would, at least, compensate whatever slight advantage of position White might have. The plan, I think, is quite feasible, my subsequent difficulties being due to faulty execution of the plan.
+
+\mainline{8.Qg3 Nxe4 9.Nxe4 Rxe4 10.Bf4}
+
+\board
+
+\mainline{10...Qf6}
+
+White's threat to regain the Pawn was merely with the idea of gaining time to develop his pieces. Black could have played \moves[as=a]{10...d6}; opening the way for his Queen's Bishop, when would have followed, \moves[from=a]{11.Bd3 Re8 12.Nf3}, and White would soon start a powerful direct attack against Black's King. With the text move Black aims at taking the initiative away from White in accordance with the principles laid down in this book.
+
+\mainline{11.Nh3}
+
+If \moves{11.Bxc7 d6}; and White's Bishop would be completely shut off, and could only be extricated, if at all, with serious loss of position. The text move aims at quick development to keep the initiative.
+
+\mainline{11...d6}
+
+This now is not only a developing move, but it also threatens to win a piece by \figB xh3.
+
+\mainline{12.Bd3 Nd4}
+
+This complicates the game unnecessarily. \moves{12...Re8}; was simple, and perfectly safe.
+
+\mainline{13.Be3}
+
+\board
+
+\mainline{13...Bg4}
+
+This is a serious mistake. The position was most interesting, and though in appearance dangerous for Black, not so in reality. The right move would have been \moves[as=a]{13...Rg4}, when we would have \moves[from=a,as=b]{14.Bxd4 Rxd4 15.c3 Bxc3 16.bxc3 Rg4 17.Qe3} (best), \moves[from=b]{17...Qxc3+ 18.Bc2 Qxe3+ 19.fxe3 Rxg2}, and Black has the best of the game with four Pawns for a Knight, besides the fact that all the White Pawns are isolated.
+
+\mainline{14.Ng5! Rxe3}
+
+There was nothing better.
+
+\mainline{15.Qxg4! Ne2+}
+
+\board
+
+\mainline{16.Bxe2! Rxe2 17.Ne4! Rxe4 18.Qxe4 Qg5+ 19.f4 Qb5 20.c3 Bc5 21.Rhe1 Qc6 22.Rd5}
+
+\moves{22.Qxc6} would have given White a decided advantage, enough to win with proper play. Mieses, however, feared the difficulties of an ending where, while having the exchange, he would be a Pawn minus. He preferred to keep the Queens on the board and keep up the attack. At first sight, and even after careful thought, there seems to be no objection to his plan; but in truth such is not the case. From this point the game will gradually improve in Black's favour until, with the exchange ahead, White is lost.
+
+\mainline{22...Qd7 23.f5 c6 24.Rd2 d5}
+
+\board
+
+My plan for the moment is very simple. It will consist in bringing my Bishop around to f6. Then I shall try to paralyse White's attack against my King by playing ...h6, and also prevent White from ever playing g5. Once my King is safe from attack I shall begin to advance my Queen's side Pawns, where there are four to three; and that advantage, coupled with the enormous attacking power of my Bishop at f6, will at least assure me an even chance of success.
+
+\mainline{25.Qf3 Be7 26.Rde2 Bf6 27.Qh5 h6 28.g4 Kh7!}
+
+To prevent \moves[as=a]{29.h4}, which I would answer with \moves[from=a]{29...g6}, winning the Queen. It can now be considered that my King is safe from attack. White will have to withdraw his Queen via h3, and Black can use the time to begin his advance on the Queen's side.
+
+\mainline{29.Kb1 Rd8 30.Rd1 c5}
+
+Notice that, on assuming the defensive, White has placed his Rooks correctly from the point of view of strategy. They are both on white squares free from the possible attack of the Black Bishop.
+
+\mainline{31.Qh3 Qa4}
+
+This gains time by attacking the Rook and holding the White Queen at h3 for the moment, on account of the g-pawn. Besides, the Queen must be in the middle of the fray now that the attack has to be brought home. White has actually more value in material, and therefore Black must utilise everything at his command in order to succeed.
+
+\mainline{32.Red2 Qe4+ 33.Ka1 b5}
+
+threatening ...b4; which would open the line of action of the Bishop and also secure a passed Pawn.
+
+\mainline{34.Qg2 Qa4}
+
+indirectly defending the d-pawn, which White cannot take on account of \figQ xd1+.
+
+\mainline{35.Kb1 b4}
+
+The attack increases in force as it is gradually brought home directly against the King. The position now is most interesting and extremely difficult. It is doubtful if there is any valid defence against Black's best play. The variations are numerous and difficult.
+
+\board
+
+\mainline{36.cxb4 Qxb4}
+
+Black has now a passed Pawn, and his Bishop exerts great pressure. White cannot very well play now \moves[as=a]{37.Rxd5} because of \moves[from=a]{37...Rxd5 38.Rxd5 Bxb2}; and White could not take the Bishop because \figQ e4+ would win the Rook, leaving Black a clear passed Pawn ahead.
+
+\mainline{37.a3 Qa4! 38.Rxd5 Rb8 39.R1d2 c4 40.Qg3 Rb3 41.Qd6}
+
+\board
+
+\mainline{41...c3}
+
+\moves{41...Bxb2} would also win, which shows that White's game is altogether gone. In these cases, however, it is not the prettiest move that should be played, but the most effective one, the move that will make your opponent resign soonest.
+
+\mainline{42.Rc2 cxb2 43.Rd3 Qe4! 44.Rd1 Rc3}
+
+\noindent\textbf{Resigns.}
+
+Of course White must play \moves[as=a]{45.Qd2}, and Black then plays \moves[from=a]{45...Rxa3}.
+
+\end{document}

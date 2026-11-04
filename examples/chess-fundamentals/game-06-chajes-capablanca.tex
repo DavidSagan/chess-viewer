@@ -1,0 +1,168 @@
+% O. Chajes - J. R. Capablanca, Rice Memorial Tournament, 1916, with Capablanca's notes.
+% Build with: python3 ../../tools/chessbook.py game-06-chajes-capablanca.tex
+\documentclass[10pt,twoside]{article}
+\usepackage[paperwidth=487.56bp,paperheight=691.65bp,top=72pt,bottom=44pt,inner=50pt,outer=48pt,
+            headheight=13pt,headsep=20pt,footskip=0pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[lining]{ebgaramond}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage[hidelinks,pdftitle={Chajes - Capablanca, Rice Memorial Tournament, 1916},
+            pdfauthor={J. R. Capablanca}]{hyperref}
+
+\newcommand{\textsizebook}{\fontsize{10.5}{12.6}\selectfont}
+\AtBeginDocument{\textsizebook}
+\setlength{\columnsep}{11pt}
+\setlength{\parindent}{9pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{1.5em}
+\raggedbottom
+
+\newlength{\boardwidth}
+\setlength{\boardwidth}{160pt}
+
+% A main line move, as a bold heading above its note
+\newcommand{\Move}[1]{\par\addvspace{8pt}\noindent\phantomsection{\bfseries #1}\par\nopagebreak}
+% A diagram in the text
+\newcommand{\ChessDiagram}[1]{\par\addvspace{7pt}{\centering #1\par}\addvspace{5pt}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[CE]{French Defence}
+\fancyhead[CO]{Chajes -- Capablanca}
+
+\game{e4 e6 d4 d5 Nc3 Nf6 Bg5 Bb4 e5 h6 Bd2 Bxc3 bxc3 Ne4 Qg4 Kf8 Bc1 c5 Bd3 Qa5 Ne2 cxd4 O-O
+      dxc3 Bxe4 dxe4 Qxe4 Nc6 Rd1 g6 f4 Kg7 Be3 Ne7 Bf2 Nd5 Rd3 Bd7 Nd4 Rac8 Rg3 Kh7 h4 Rhg8
+      h5 Qb4 Rh3 f5 exf6 Nxf6 hxg6+ Rxg6 Rxh6+ Kxh6 Nf5+ exf5 Qxb4 Rcg8 g3 Bc6 Rd1 Kh5 Rd6 Be4
+      Qxc3 Nd5 Rxg6 Kxg6 Qe5 Kf7 c4 Re8 Qb2 Nf6 Bd4 Rh8 Qb5 Rh1+ Kf2 a6 Qb6 Rh2+ Ke1 Nd7 Qd6
+      Bc6 g4 fxg4 f5 Rh1+ Kd2 Ke8 f6 Rh7 Qe6+ Kf8 Be3 Rf7 Bh6+ Kg8 Bg7 g3 Ke2 g2 Kf2 Nf8 Qg4
+      Nd7 Kg1 a5 a4 Bxa4 Qh3 Rxf6 Bxf6 Nxf6 Qxg2+ Kf8 Qxb7}
+
+\begin{document}
+
+\twocolumn[{%
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+  \node[circle,draw=black,line width=1.6pt,fill=black!20,minimum size=112pt] (seal)
+       at ([xshift=75pt,yshift=-75pt]current page.north west) {};
+  \draw[line width=0.9pt] ([shift={(-48pt,-30pt)}]seal.center) -- ([shift={(44pt,34pt)}]seal.center);
+  \node[rotate=37] at ([shift={(-11pt,14pt)}]seal.center) {\fontsize{25}{25}\selectfont\bfseries Game};
+  \node[rotate=37] at ([shift={(10pt,-16pt)}]seal.center) {\fontsize{38}{38}\selectfont\bfseries 6};
+  \node[anchor=north east] at ([xshift=-14pt,yshift=-24pt]current page.north east)
+       {\board[after=4...Bb4,width=108pt,bare]};
+\end{tikzpicture}
+
+\vspace*{38pt}
+\begin{center}
+  \begin{minipage}{235pt}\centering
+    {\fontsize{22}{25}\selectfont\bfseries French Defence\par}
+    \vspace{4pt}\rule{\linewidth}{1pt}\\[-9.5pt]\rule{\linewidth}{0.4pt}
+  \end{minipage}
+
+  \vspace{14pt}
+  {\fontsize{19}{22}\selectfont\bfseries Chajes -- Capablanca\par}
+  \vspace{10pt}
+  {\fontsize{15}{18}\selectfont\bfseries Rice Memorial Tournament, 1916\par}
+  \vspace{8pt}
+  {\fontsize{11}{13}\selectfont White: O. Chajes \quad Black: J. R. Capablanca\par}
+  \vspace{10pt}
+  {\centering\fontsize{8.5}{10}\selectfont\itshape
+   Notes by J. R. Capablanca, from \textup{Chess Fundamentals} (1921), which is in the public domain.\\
+   Descriptive notation has been converted to algebraic. Page references are to the book.\\
+   Click any move or diagram to open it on Lichess.\par}
+\end{center}
+\vspace{10pt}
+}]
+\textsizebook
+
+\mainline{1.e4 e6 2.d4 d5 3.Nc3 Nf6 4.Bg5 Bb4}
+
+Of all the variations of the French Defence I like this best, because it gives Black more chances to obtain the initiative.
+
+\mainline{5.e5}
+
+Though I consider \moves{5.exd5} the best move, there is much to be said in favour of this move, but not of the variation as a whole, which White adopted in this game.
+
+\mainline{5...h6 6.Bd2 Bxc3 7.bxc3 Ne4 8.Qg4 Kf8}
+
+The alternative, \moves[as=a]{8...g6}; leaves Black's King's side very weak. White by playing \moves[from=a,as=b]{9.h4} would force Black to play \moves[from=b]{9...h5}; and later, on White's Bishop by going to d3, would threaten the weakened g-pawn. By the text move Black gives up Castling, but gains time for an attack against White's centre and Queen's side.
+
+\mainline{9.Bc1 c5}
+
+Threatening \figQ a5 and stopping thereby White's threat of \figB a3. It demonstrates that White's last move was a complete loss of time and merely weakened his position.
+
+\mainline{10.Bd3 Qa5 11.Ne2 cxd4 12.O-O dxc3 13.Bxe4 dxe4 14.Qxe4 Nc6}
+
+\board
+
+Black has come out of the opening with a Pawn to the good. His development, however, has suffered somewhat, and there are Bishops of opposite colour, so that it cannot be said as yet, that Black has a won game; but he has certainly the best of the position, because, besides being a Pawn to the good, he threatens White's e-pawn, which must of course be defended, and this in turn will give him the opportunity to post his Knight at d5 via e7. When the Black Knight is posted at d5, the Bishop will be developed to c6 via d7, as soon as the opportunity presents itself, and it will be Black that will then have the initiative, and can consequently decide the course of the game.
+
+\mainline{15.Rd1}
+
+To prevent \figN e7; which would be answered by \figN xc3, or still better by \figB a3. The move, however, is strategically wrong, since by bringing his pieces to the Queen's side, White loses any chance he might have of making a determined attack on the King's side before Black is thoroughly prepared for it.
+
+\mainline{15...g6 16.f4 Kg7 17.Be3}
+
+Better would have been \moves{17.a4}, in order to play \figB a3. The White Bishop would be much better posted on the open diagonal than here, where it acts purely on the defensive.
+
+\mainline{17...Ne7 18.Bf2 Nd5}
+
+This Knight completely paralyses the attack, as it dominates the whole situation, and there is no way to dislodge it. Behind it Black can quietly develop his pieces. The game can now be said to be won for Black strategically.
+
+\mainline{19.Rd3 Bd7 20.Nd4 Rac8 21.Rg3 Kh7 22.h4 Rhg8 23.h5 Qb4}
+
+In order to pin the Knight and be ready to come back to either e7 or f8. Also to prevent \figR b1. In reality nearly all these precautions are unnecessary, since White's attack amounts to nothing. Probably Black should have left aside all these considerations, and played \moves{23...Qa4} now, in order to follow it up with ...f5, as he did later, but under less favourable circumstances.
+
+\mainline{24.Rh3}
+
+\board
+
+\mainline{24...f5}
+
+Not the best, as White will soon prove. \moves{24...Qf8} would have avoided everything, but Black wants to assume the initiative at once and plunges into complications. However, as will soon be seen, the move is not a losing one by any means.
+
+\mainline{25.exf6 Nxf6 26.hxg6+ Rxg6}
+
+\board
+
+\mainline{27.Rxh6+}
+
+This wins the Queen.
+
+\mainline{27...Kxh6 28.Nf5+ exf5 29.Qxb4}
+
+\board
+
+The position looks most interesting. I thought it would be possible to get up such an attack against the White King as to make it impossible for him to hold out much longer, but I was wrong, unless it could have been done by playing \moves[as=a]{29...Bc6} first, forcing \moves[from=a,as=b]{30.g3} and then playing \moves[from=b]{30...Kh5}. I followed a similar plan, but lost a very important move by playing \moves{29...Rcg8}; which gave White time to play \moves{31.Rd1}. I am convinced, however, that \moves{29...Bc6} at once was the right move. White would be forced to play \moves[from=a]{30.g3}, and Black would reply with either \moves[from=b]{30...Kh5}; as already indicated, which looks the best (the plan, of course, is to play \figR h8; and follow it up with \figK g4; threatening mate, or some other move according to circumstances. In some cases, of course, it will be better first to play \figK g4), or \moves[from=b]{30...Ne4}, which will at least give him a draw. There are so many possibilities in this position that it would be impossible to give them all. It will be worth the reader's time to go carefully through the lines of play indicated above.
+
+\mainline{29...Rcg8}
+
+As stated \moves{29...Bc6} was the best move.
+
+\mainline{30.g3 Bc6 31.Rd1 Kh5}
+
+The plan, of course, as explained above, is to go to g4 in due time and threaten mate at h1, but it is now too late, the White Rook having come in time to prevent the manoeuvre. Instead of the text move, therefore, Black should have played \moves{31...Ne4}; which would have given him a draw at the very least. After the text moves the tables are turned. It is now White who has the upper hand, and Black who has to fight for a draw.
+
+\mainline{32.Rd6 Be4}
+
+\moves{32...Ne4} was still the right move, and probably the last chance Black had to draw against White's best play.
+
+\mainline{33.Qxc3 Nd5 34.Rxg6 Kxg6}
+
+\moves{34...Nxc3 35.Rxg8 Nxa2} was no better.
+
+\mainline{35.Qe5 Kf7 36.c4 Re8 37.Qb2 Nf6 38.Bd4 Rh8 39.Qb5 Rh1+ 40.Kf2 a6 41.Qb6 Rh2+ 42.Ke1 Nd7 43.Qd6 Bc6 44.g4 fxg4 45.f5 Rh1+ 46.Kd2 Ke8 47.f6 Rh7 48.Qe6+ Kf8 49.Be3 Rf7 50.Bh6+ Kg8}
+
+Most players will be wondering, as the spectators did, why I did not resign. The reason is that while I knew the game to be lost, I was hoping for the following variation, which Chajes came very near playing: \moves{51.Qxg4+ Kh7 52.Qh5 Rxf6 53.Bg5+ Kg7 54.Bxf6+ Kxf6}; and while White has a won game it is by no means easy. If the reader does not believe it, let him take the White pieces against a master and see what happens. My opponent, who decided to take no chances, played \moves{51.Bg7}, and finally won as shown below.
+
+\mainline{51.Bg7 g3 52.Ke2 g2 53.Kf2 Nf8 54.Qg4 Nd7 55.Kg1 a5 56.a4 Bxa4 57.Qh3 Rxf6 58.Bxf6 Nxf6 59.Qxg2+ Kf8 60.Qxb7}
+
+and after a very few more moves Black resigned.
+
+A very fine game on Chajes' part from move 25 on, for while Black, having the best of the position, missed several chances, White, on the other hand, missed none.
+
+\end{document}

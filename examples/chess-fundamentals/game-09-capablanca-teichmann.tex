@@ -1,0 +1,162 @@
+% J. R. Capablanca - R. Teichmann, Berlin, 1913, with Capablanca's notes.
+% Build with: python3 ../../tools/chessbook.py game-09-capablanca-teichmann.tex
+\documentclass[10pt,twoside]{article}
+\usepackage[paperwidth=487.56bp,paperheight=691.65bp,top=72pt,bottom=44pt,inner=50pt,outer=48pt,
+            headheight=13pt,headsep=20pt,footskip=0pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[lining]{ebgaramond}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage[hidelinks,pdftitle={Capablanca - Teichmann, Berlin, 1913},
+            pdfauthor={J. R. Capablanca}]{hyperref}
+
+\newcommand{\textsizebook}{\fontsize{10.5}{12.6}\selectfont}
+\AtBeginDocument{\textsizebook}
+\setlength{\columnsep}{11pt}
+\setlength{\parindent}{9pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{1.5em}
+\raggedbottom
+
+\newlength{\boardwidth}
+\setlength{\boardwidth}{160pt}
+
+% A main line move, as a bold heading above its note
+\newcommand{\Move}[1]{\par\addvspace{8pt}\noindent\phantomsection{\bfseries #1}\par\nopagebreak}
+% A diagram in the text
+\newcommand{\ChessDiagram}[1]{\par\addvspace{7pt}{\centering #1\par}\addvspace{5pt}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[CE]{Queen's Gambit Declined}
+\fancyhead[CO]{Capablanca -- Teichmann}
+
+\game{d4 d5 Nf3 Nf6 c4 e6 Bg5 Be7 Nc3 Nbd7 e3 O-O Rc1 b6 cxd5 exd5 Bb5 Bb7 O-O a6 Ba4 Rc8 Qe2
+      c5 dxc5 Nxc5 Rfd1 Nxa4 Nxa4 b5 Rxc8 Qxc8 Nc3 Qc4 Nd4 Qxe2 Ncxe2 Rc8 Nf5 Kf8 Nxe7 Kxe7
+      Nd4 g6 f3 h6 Bxh6 Nd7 h4 Nc5 Bf4 Ne6 Nxe6 Kxe6 Rd2 Rh8 Rc2 Rc8 Rxc8 Bxc8 Kf2 d4 exd4 Kd5
+      Ke3 Be6 Kd3 Kc6 a3 Bc4+ Ke3 Be6 Bh6 Kd5 Bg7}
+
+\begin{document}
+
+\twocolumn[{%
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+  \node[circle,draw=black,line width=1.6pt,fill=black!20,minimum size=112pt] (seal)
+       at ([xshift=75pt,yshift=-75pt]current page.north west) {};
+  \draw[line width=0.9pt] ([shift={(-48pt,-30pt)}]seal.center) -- ([shift={(44pt,34pt)}]seal.center);
+  \node[rotate=37] at ([shift={(-11pt,14pt)}]seal.center) {\fontsize{25}{25}\selectfont\bfseries Game};
+  \node[rotate=37] at ([shift={(10pt,-16pt)}]seal.center) {\fontsize{38}{38}\selectfont\bfseries 9};
+  \node[anchor=north east] at ([xshift=-14pt,yshift=-24pt]current page.north east)
+       {\board[after=4...Be7,width=108pt,bare]};
+\end{tikzpicture}
+
+\vspace*{38pt}
+\begin{center}
+  \begin{minipage}{235pt}\centering
+    {\fontsize{22}{25}\selectfont\bfseries Queen's Gambit Declined\par}
+    \vspace{4pt}\rule{\linewidth}{1pt}\\[-9.5pt]\rule{\linewidth}{0.4pt}
+  \end{minipage}
+
+  \vspace{14pt}
+  {\fontsize{19}{22}\selectfont\bfseries Capablanca -- Teichmann\par}
+  \vspace{10pt}
+  {\fontsize{15}{18}\selectfont\bfseries Berlin, 1913\par}
+  \vspace{8pt}
+  {\fontsize{11}{13}\selectfont White: J. R. Capablanca \quad Black: R. Teichmann\par}
+  \vspace{10pt}
+  {\centering\fontsize{8.5}{10}\selectfont\itshape
+   Notes by J. R. Capablanca, from \textup{Chess Fundamentals} (1921), which is in the public domain.\\
+   Descriptive notation has been converted to algebraic. Page references are to the book.\\
+   Click any move or diagram to open it on Lichess.\par}
+\end{center}
+\vspace{10pt}
+}]
+\textsizebook
+
+\mainline{1.d4 d5 2.Nf3 Nf6 3.c4 e6 4.Bg5 Be7 5.Nc3 Nbd7 6.e3 O-O 7.Rc1 b6 8.cxd5 exd5 9.Bb5}
+
+An invention of my own, I believe. I played it on the spur of the moment simply to change the normal course of the game. Generally the Bishop goes to d3, or to a6, after \moves{9.Qa4}. The text move is in the nature of an ordinary developing move, and as it violates no principle it cannot be bad.
+
+\mainline{9...Bb7 10.O-O a6 11.Ba4 Rc8 12.Qe2 c5 13.dxc5 Nxc5}
+
+If \moves{13...bxc5 14.Rfd1}, and White would play to win one of Black's centre Pawns. The drawback to the text move is that it leaves Black's d-pawn isolated, and consequently weak and subject to attack.
+
+\mainline{14.Rfd1 Nxa4}
+
+The alternative would have been \moves{14...b5 15.Bc2 b4 16.Na4 Nce4}.
+
+\mainline{15.Nxa4 b5 16.Rxc8 Qxc8 17.Nc3 Qc4}
+
+Black aims at the exchange of Queens in order to remain with two Bishops for the ending, but in this position such a course is a mistake, because the Bishop at b7 is inactive and cannot come into the game by any means, unless Black gives up the isolated Queen's Pawn which the Bishop must defend.
+
+\mainline{18.Nd4}
+
+Not, of course, \moves[as=a]{18.Rd4}, because of \moves[from=a]{18...Qxe2 19.Nxe2 Rc8}; and there would be no good way to prevent \figR c2.
+
+\mainline{18...Qxe2 19.Ncxe2!}
+
+Notice the co-ordination of the Knights' moves. They are manoeuvred chain-like, so to speak, in order to maintain one of them, either at d4 or ready to go there. Now White threatens to take the open file, and therefore forces Black's next move.
+
+\mainline{19...Rc8}
+
+\board
+
+The student should examine this position carefully. There seems to be no particular danger, yet, as White will demonstrate, Black may be said to be lost. If the game is not altogether lost, the defence is at least of the most difficult kind; indeed, I must confess that I can see no adequate defence against White's next move.
+
+\mainline{20.Nf5! Kf8}
+
+If \moves{20...Bd8 21.Nd6 Rc7 22.Nxb7 Rxb7 23.Bxf6 Bxf6 24.Rxd5 Rc7 25.Rd2}, and White is a Pawn ahead. If the Bishop moves anywhere else, then \figB xf6, doubling the f-pawn and isolating all of Black's King's side Pawns.
+
+\mainline{21.Nxe7 Kxe7 22.Nd4 g6}
+
+This is practically forced, as White threatened \figN f5+. Notice that the Black Knight is pinned in such a way that no relief can be afforded except by giving up the h-pawn or abandoning the open file with the Rook, which would be disastrous, as White would immediately sieze it.
+
+\mainline{23.f3!}
+
+\board
+
+\mainline{23...h6}
+
+Black could do nothing else except mark time with his Rook along the open file, since as soon as he moved away White would take it. White, on the other hand, threatens to march up with his King to e5 via f2, g3, f4, after having, of course, prepared the way. Hence, Black's best chance was to give up a Pawn, as in the text, in order to free his Knight.
+
+\mainline{24.Bxh6 Nd7 25.h4 Nc5 26.Bf4 Ne6}
+
+Black exchanges Knights to remain with Bishops of opposite colours, which gives him the best chance to draw.
+
+\mainline{27.Nxe6 Kxe6}
+
+\moves{27...fxe6} would be worse, as White would then be able to post his Bishop at e5.
+
+\mainline{28.Rd2 Rh8}
+
+\board
+
+Black wants to force \figB g3. g3 would be bad, on account of ...d4; which would get the Black Bishop into the game, even though White could answer e4. The text move is, however, weak, as will soon be seen. His best chance was to play ...b4; and follow it up with ...a5 and \figB a6. White meanwhile could play g4 and h5, obtaining a passed Pawn, which, with proper play, should win.
+
+\mainline{29.Rc2! Rc8 30.Rxc8 Bxc8}
+
+There are now Bishops of opposite colour, but nevertheless White has an easily-won game.
+
+\mainline{31.Kf2}
+
+\board
+
+\mainline{31...d4}
+
+Practically forced. Otherwise the White King would march up to d4 and then to c5 and win Black's Queen's side Pawns. If Black attempted to stop this by putting his King at c6 then the White King would enter through e5 into Black's King's side and win just as easily.
+
+\mainline{32.exd4 Kd5 33.Ke3 Be6 34.Kd3 Kc6 35.a3 Bc4+ 36.Ke3 Be6 37.Bh6}
+
+It is better not to hurry \moves{37.g4} because of ...f5; for although White could win in any case, it would take longer. Now the White King threatens to help by going in through f4 after posting the Bishop at g7, where it not only protects the d-pawn, but indirectly also the b-pawn.
+
+\mainline{37...Kd5 38.Bg7}
+
+\noindent\textbf{Resigns.}
+
+The student ought to have realised by this time the enormous importance of playing well every kind of ending. In this game again, practically from the opening, White aimed at nothing but the isolation of Black's d-pawn. Once he obtained that, he tried for and obtained, fortunately, another advantage of position elsewhere which translated itself into the material advantage of a Pawn. Then by accurate playing in the ending he gradually forced home his advantage. This ending has the merit of having been played against one of the finest players in the world.
+
+\end{document}

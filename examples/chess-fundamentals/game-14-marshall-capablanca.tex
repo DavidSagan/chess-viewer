@@ -1,0 +1,178 @@
+% F. J. Marshall - J. R. Capablanca, New York, 1918, with Capablanca's notes.
+% Build with: python3 ../../tools/chessbook.py game-14-marshall-capablanca.tex
+\documentclass[10pt,twoside]{article}
+\usepackage[paperwidth=487.56bp,paperheight=691.65bp,top=72pt,bottom=44pt,inner=50pt,outer=48pt,
+            headheight=13pt,headsep=20pt,footskip=0pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[lining]{ebgaramond}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage[hidelinks,pdftitle={Marshall - Capablanca, New York, 1918},
+            pdfauthor={J. R. Capablanca}]{hyperref}
+
+\newcommand{\textsizebook}{\fontsize{10.5}{12.6}\selectfont}
+\AtBeginDocument{\textsizebook}
+\setlength{\columnsep}{11pt}
+\setlength{\parindent}{9pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{1.5em}
+\raggedbottom
+
+\newlength{\boardwidth}
+\setlength{\boardwidth}{160pt}
+
+% A main line move, as a bold heading above its note
+\newcommand{\Move}[1]{\par\addvspace{8pt}\noindent\phantomsection{\bfseries #1}\par\nopagebreak}
+% A diagram in the text
+\newcommand{\ChessDiagram}[1]{\par\addvspace{7pt}{\centering #1\par}\addvspace{5pt}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[CE]{Queen's Gambit Declined}
+\fancyhead[CO]{Marshall -- Capablanca}
+
+\game{d4 d5 Nf3 Nf6 c4 e6 Nc3 Nbd7 Bg5 Be7 e3 O-O Rc1 c6 Qc2 dxc4 Bxc4 Nd5 Bxe7 Qxe7 O-O Nxc3
+      Qxc3 b6 e4 Bb7 Rfe1 Rfd8 d5 Nc5 dxe6 Nxe6 Bxe6 Qxe6 Nd4 Qe5 Nxc6 Qxc3 Rxc3 Rd2 Rb1 Re8
+      e5 g5 h4 gxh4 Re1 Re6 Rec1 Kg7 b4 b5 a3 Rg6 Kf1 Ra2 Kg1 h3 g3 a6 e6 Rxe6 g4 Rh6 f3 Rd6
+      Ne7 Rdd2 Nf5+ Kf6 Nh4 Kg5 Nf5 Rg2+ Kf1 h2 f4+ Kxf4}
+
+\begin{document}
+
+\twocolumn[{%
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+  \node[circle,draw=black,line width=1.6pt,fill=black!20,minimum size=112pt] (seal)
+       at ([xshift=75pt,yshift=-75pt]current page.north west) {};
+  \draw[line width=0.9pt] ([shift={(-48pt,-30pt)}]seal.center) -- ([shift={(44pt,34pt)}]seal.center);
+  \node[rotate=37] at ([shift={(-11pt,14pt)}]seal.center) {\fontsize{25}{25}\selectfont\bfseries Game};
+  \node[rotate=37] at ([shift={(10pt,-16pt)}]seal.center) {\fontsize{38}{38}\selectfont\bfseries 14};
+  \node[anchor=north east] at ([xshift=-14pt,yshift=-24pt]current page.north east)
+       {\board[after=4...Nbd7,width=108pt,bare]};
+\end{tikzpicture}
+
+\vspace*{38pt}
+\begin{center}
+  \begin{minipage}{235pt}\centering
+    {\fontsize{22}{25}\selectfont\bfseries Queen's Gambit Declined\par}
+    \vspace{4pt}\rule{\linewidth}{1pt}\\[-9.5pt]\rule{\linewidth}{0.4pt}
+  \end{minipage}
+
+  \vspace{14pt}
+  {\fontsize{19}{22}\selectfont\bfseries Marshall -- Capablanca\par}
+  \vspace{10pt}
+  {\fontsize{15}{18}\selectfont\bfseries New York, 1918\par}
+  \vspace{8pt}
+  {\fontsize{11}{13}\selectfont White: F. J. Marshall \quad Black: J. R. Capablanca\par}
+  \vspace{10pt}
+  {\centering\fontsize{8.5}{10}\selectfont\itshape
+   Notes by J. R. Capablanca, from \textup{Chess Fundamentals} (1921), which is in the public domain.\\
+   Descriptive notation has been converted to algebraic. Page references are to the book.\\
+   Click any move or diagram to open it on Lichess.\par}
+\end{center}
+\vspace{10pt}
+}]
+\textsizebook
+
+\mainline{1.d4 d5 2.Nf3 Nf6 3.c4 e6 4.Nc3 Nbd7 5.Bg5 Be7 6.e3 O-O 7.Rc1 c6}
+
+This is one of the oldest systems of defence against the Queen's Gambit. I had played it before in this Tournament against Kostic, and no doubt Marshall expected it. At times I change my defences, or rather systems of defence; on the other hand, during a Tournament, if one of them has given me good results, I generally play it all the time.
+
+\mainline{8.Qc2 dxc4 9.Bxc4 Nd5 10.Bxe7 Qxe7 11.O-O Nxc3 12.Qxc3 b6}
+
+This is the key to this system of defence. Having simplified the game considerably by a series of exchanges, Black will now develop his Queen's Bishop along the long diagonal without having created any apparent weakness. The proper development of the Queen's Bishop is Black's greatest problem in the Queen's Gambit.
+
+\mainline{13.e4 Bb7 14.Rfe1 Rfd8}
+
+\board
+
+The developing stage can now be said to be complete on both sides. The opening is over and the middle-game begins. White, as is generally the case, has obtained the centre. Black, on the other hand, is entrenched in his first three ranks, and if given time will post his Queen's Rook at c8 and his Knight at f6, and finally play ...c5, in order to break up White's centre and give full action to the Black Bishop posted at b7. In this game White attempts to anticipate that plan by initiating an advance on the centre, which, when carefully analysed, is truly an attack against Black's e-pawn.
+
+\mainline{15.d5 Nc5!}
+
+Against Kostic in a previous game I had played \moves{15...Nf8}. It was carelessness on my part, but Marshall believed differently, otherwise he would not have played this variation, since, had he analysed this move, he would, I think, have realised that Black would obtain an excellent game. Black now threatens not only ...cxd5; but also \figN xe4; followed by ...cxd5. The position is very interesting and full of possibilities.
+
+\board
+
+\mainline{16.dxe6 Nxe6 17.Bxe6 Qxe6}
+
+played under the impression that White had to lose time in defending his a-pawn, when I could play ...c5, obtaining a very superior game. But, as will be seen, my opponent had quite a little surprise for me.
+
+\mainline{18.Nd4!}
+
+\board
+
+\mainline{18...Qe5!}
+
+Of course, if \moves{18...Qxa2 19.Ra1} would win the Queen. The text move is probably the only satisfactory move in the position. The obvious move would have been \moves[as=b]{18...Qd7} to defend the c-pawn, and then would have come \moves[from=b,as=a]{19.Nf5 f6 20.Qg3} (threatening \figR ad1), \moves[from=a]{20...Kh8 21.Rcd1 Qf7 22.h4}, with a tremendous advantage in position. The text move, on the other hand, assures Black an even game at the very least, as will soon be seen.
+
+\mainline{19.Nxc6 Qxc3 20.Rxc3 Rd2 21.Rb1}
+
+A very serious error of judgment. White is under the impression that he has the better game, because he is a Pawn ahead, but that is not so. The powerful position of the Black Rook at d2 fully compensates Black for the Pawn minus. Besides, the Bishop is better with Rooks than the Knight (see pages 48--56, where the relative values of the Knight and Bishop are compared), and, as already stated, with Pawns on both sides of the board the Bishop is superior because of its long range. Incidentally, this ending will demonstrate the great power of the Bishop. White's best chance was to take a draw at once, thus. \moves[as=a]{21.Ne7+ Kf8 22.Rc7} \moves[from=a,as=b]{22...Re8} (not \figB xe4; because f3 would give White the best of it); \moves[from=b,as=c]{23.Rxb7} (best; not \figN g6+, because of ...fxg6; followed by \figR xe4), \moves[from=c]{23...Rxe7 24.Rb8+ Re8 25.Rxe8+ Kxe8}, and with proper play White will draw.
+
+It is curious that, although a Pawn ahead, White is the one who is always in danger. It is only now, after seeing this analysis, that the value of Black's 18th move \moves{18...Qe5} can be fully appreciated.
+
+\mainline{21...Re8}
+
+With this powerful move Black begins, against White's centre, an assault which will soon be shifted against the King itself. White is afraid to play \moves{22.f3} because of ...f5.
+
+\mainline{22.e5 g5}
+
+To prevent f4. The White Knight is practically pinned, because he does not dare move on account of \figR xe5.
+
+\board
+
+\mainline{23.h4}
+
+This is a sequel to the previous move. White expects to disrupt Black's Pawns, and thus make them weak.
+
+\mainline{23...gxh4}
+
+Though doubled and isolated this Pawn exercises enormous pressure. Black now threatens \figR e6; to be followed by \figR g6 and ...h3 and h2 at the proper time.
+
+\mainline{24.Re1}
+
+White cannot stand the slow death any longer. He sees danger everywhere, and wants to avert it by giving up his Queen's side Pawns, expecting to regain his fortunes later on by taking the initiative on the King's side.
+
+\mainline{24...Re6!}
+
+Much better than taking Pawns. This forces White to defend the Knight with the Rook at e1, because of the threat \figR g6.
+
+\mainline{25.Rec1 Kg7}
+
+Preparatory to \figR g6. The game is going to be decided on the King's side, and it is the isolated double Pawn that will supply the finishing touch.
+
+\mainline{26.b4 b5}
+
+To prevent b5, defending the Knight and liberating the Rooks.
+
+\mainline{27.a3 Rg6 28.Kf1 Ra2}
+
+\board
+
+Notice the remarkable position of the pieces. White cannot move anything without incurring some loss. His best chance would have been to play \moves{29.e6}, but that would only have prolonged the game, which is lost in any case.
+
+\mainline{29.Kg1 h3 30.g3 a6}
+
+Again forcing White to move and to lose something thereby, as all his pieces are tied up.
+
+\board
+
+\mainline{31.e6 Rxe6}
+
+Not even now can White move the Knight because of ...h2+; \figK xh2, \figR h6+; \figK g1, \figR h1 mate.
+
+\mainline{32.g4 Rh6 33.f3}
+
+If \moves{33.g5 h2+ 34.Kh1 Rxc6 35.Rxc6 Rxf2}, winning easily.
+
+\mainline{33...Rd6 34.Ne7 Rdd2 35.Nf5+ Kf6 36.Nh4 Kg5 37.Nf5 Rg2+ 38.Kf1 h2 39.f4+ Kxf4}
+
+\noindent\textbf{Resigns.}
+
+An ending worth very careful study.
+
+\end{document}

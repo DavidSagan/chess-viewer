@@ -1,0 +1,148 @@
+% Dr. E. Lasker - J. R. Capablanca, St. Petersburg, 1914, with Capablanca's notes.
+% Build with: python3 ../../tools/chessbook.py game-05-lasker-capablanca.tex
+\documentclass[10pt,twoside]{article}
+\usepackage[paperwidth=487.56bp,paperheight=691.65bp,top=72pt,bottom=44pt,inner=50pt,outer=48pt,
+            headheight=13pt,headsep=20pt,footskip=0pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[lining]{ebgaramond}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage[hidelinks,pdftitle={Lasker - Capablanca, St. Petersburg, 1914},
+            pdfauthor={J. R. Capablanca}]{hyperref}
+
+\newcommand{\textsizebook}{\fontsize{10.5}{12.6}\selectfont}
+\AtBeginDocument{\textsizebook}
+\setlength{\columnsep}{11pt}
+\setlength{\parindent}{9pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{1.5em}
+\raggedbottom
+
+\newlength{\boardwidth}
+\setlength{\boardwidth}{160pt}
+
+% A main line move, as a bold heading above its note
+\newcommand{\Move}[1]{\par\addvspace{8pt}\noindent\phantomsection{\bfseries #1}\par\nopagebreak}
+% A diagram in the text
+\newcommand{\ChessDiagram}[1]{\par\addvspace{7pt}{\centering #1\par}\addvspace{5pt}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[CE]{Ruy Lopez}
+\fancyhead[CO]{Lasker -- Capablanca}
+
+\game{e4 e5 Nf3 Nc6 Bb5 a6 Bxc6 dxc6 d4 exd4 Qxd4 Qxd4 Nxd4 Bd6 Nc3 Ne7 O-O O-O f4 Re8 Nb3 f6
+      f5 b6 Bf4 Bb7 Bxd6 cxd6 Nd4 Rad8 Ne6 Rd7 Rad1 Nc8 Rf2 b5 Rfd2 Rde7 b4 Kf7 a3 Ba8 Kf2 Ra7
+      g4 h6 Rd3 a5 h4 axb4 axb4 Rae7 Kf3 Rg8 Kf4 g6 Rg3 g5+ Kf3 Nb6 hxg5 hxg5 Rh3 Rd7 Kg3 Ke8
+      Rdh1 Bb7 e5 dxe5 Ne4 Nd5 N6c5 Bc8 Nxd7 Bxd7 Rh7 Rf8 Ra1 Kd8 Ra8+ Bc8 Nc5}
+
+\begin{document}
+
+\twocolumn[{%
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+  \node[circle,draw=black,line width=1.6pt,fill=black!20,minimum size=112pt] (seal)
+       at ([xshift=75pt,yshift=-75pt]current page.north west) {};
+  \draw[line width=0.9pt] ([shift={(-48pt,-30pt)}]seal.center) -- ([shift={(44pt,34pt)}]seal.center);
+  \node[rotate=37] at ([shift={(-11pt,14pt)}]seal.center) {\fontsize{25}{25}\selectfont\bfseries Game};
+  \node[rotate=37] at ([shift={(10pt,-16pt)}]seal.center) {\fontsize{38}{38}\selectfont\bfseries 5};
+  \node[anchor=north east] at ([xshift=-14pt,yshift=-24pt]current page.north east)
+       {\board[after=4...dxc6,width=108pt,bare]};
+\end{tikzpicture}
+
+\vspace*{38pt}
+\begin{center}
+  \begin{minipage}{235pt}\centering
+    {\fontsize{22}{25}\selectfont\bfseries Ruy Lopez\par}
+    \vspace{4pt}\rule{\linewidth}{1pt}\\[-9.5pt]\rule{\linewidth}{0.4pt}
+  \end{minipage}
+
+  \vspace{14pt}
+  {\fontsize{19}{22}\selectfont\bfseries Lasker -- Capablanca\par}
+  \vspace{10pt}
+  {\fontsize{15}{18}\selectfont\bfseries St. Petersburg, 1914\par}
+  \vspace{8pt}
+  {\fontsize{11}{13}\selectfont White: Dr. E. Lasker \quad Black: J. R. Capablanca\par}
+  \vspace{10pt}
+  {\centering\fontsize{8.5}{10}\selectfont\itshape
+   Notes by J. R. Capablanca, from \textup{Chess Fundamentals} (1921), which is in the public domain.\\
+   Descriptive notation has been converted to algebraic. Page references are to the book.\\
+   Click any move or diagram to open it on Lichess.\par}
+\end{center}
+\vspace{10pt}
+}]
+\textsizebook
+
+\mainline{1.e4 e5 2.Nf3 Nc6 3.Bb5 a6 4.Bxc6}
+
+The object of this move is to bring about speedily a middle-game without Queens, in which White has four Pawns to three on the King's side, while Black's superiority of Pawns on the other side is somewhat balanced by the fact that one of Black's Pawns is doubled. On the other hand, Black has the advantage of remaining with two Bishops while White has only one.
+
+\mainline{4...dxc6 5.d4 exd4 6.Qxd4 Qxd4 7.Nxd4 Bd6}
+
+Black's idea is to Castle on the King's side. His reason is that the King ought to remain on the weaker side to oppose later the advance of White's Pawns. Theoretically there is very much to be said in favour of this reasoning, but whether in practice that would be the best system would be rather difficult to prove. The student should notice that if now all the pieces were exchanged White would practically be a Pawn ahead, and would therefore have a won ending.
+
+\mainline{8.Nc3 Ne7}
+
+A perfectly sound form of development. In any other form adopted the Black Knight could not be developed either as quickly or as well. e7 is the natural position for the Black Knight in this variation, in order not to obstruct Black's Pawns, and also, in some eventualities, in order to go to g6. There is also the possibility of its going to d4 via c6 after ...c5.
+
+\mainline{9.O-O O-O 10.f4}
+
+This move I considered weak at the time, and I do still. It leaves the e-pawn weak, unless it advances to e5, and it also makes it possible for Black to pin the Knight by \figB c5.
+
+\mainline{10...Re8}
+
+Best. It threatens \figB c5; \figB e3, \figN d5. It also prevents \figB e3 because of \figN d5 or f5.
+
+\mainline{11.Nb3 f6}
+
+Preparatory to ...b6, followed by ...c5 and \figB b7 in conjunction with \figN g6, which would put White in great difficulties to meet the combined attack against the two centre Pawns.
+
+\mainline{12.f5}
+
+\board
+
+It has been wrongly claimed that this wins the game, but I would like nothing better than to have such a position again. It required several mistakes on my part finally to obtain a lost position.
+
+\mainline{12...b6 13.Bf4}
+
+\board
+
+\mainline{13...Bb7}
+
+Played against my better judgment. The right move of course was \moves{13...Bxf4}. Dr. Lasker gives the following variation: \moves[as=a]{13...Bxf4 14.Rxf4 c5 15.Rd1 Bb7 16.Rf2 Rad8 17.Rxd8 Rxd8 18.Rd2 Rxd2 19.Nxd2}, and he claims that White has the best of it. But, as Niemzovitch pointed out immediately after the game, \moves[from=a]{16...Rad8} given in Dr. Lasker's variation, is not the best. If \moves[from=a]{16...Rac8!} then White will have great difficulty in drawing the game, since there is no good way to stop Black from playing \figN c6, followed by \figN e5, threatening \figN c4. And should White attempt to meet this manoeuvre by withdrawing the Knight at b3; then the Black Knight can go to d4, and the White Pawn at e4 will be the object of the attack. Taking Dr. Lasker's variation, however, whatever advantage there might be disappears at once if Black plays \moves[from=a,as=b]{19...Nc6}, threatening \figN b4 and also \figN d4, neither of which can be stopped. If White answers \moves[from=b]{20.Nd5 Nd4} for Black will at least draw. In fact, after \moves[from=a]{19...Nc6} Black threatens so many things that it is difficult to see how White can prevent the loss of one or more Pawns.
+
+\mainline{14.Bxd6 cxd6 15.Nd4}
+
+It is a curious but true fact that I did not see this move when I played \moves{13...Bb7}, otherwise I would have played the right move \moves{13...Bxf4}.
+
+\mainline{15...Rad8}
+
+The game is yet far from lost, as against the entry of the Knight, Black can later on play ...c5, followed by ...d5.
+
+\mainline{16.Ne6 Rd7 17.Rad1}
+
+\board
+
+I now was on the point of playing ...c5, to be followed by ...d5, which I thought would give me a draw, but suddenly I became ambitious and thought that I could play the text move, \moves{17...Nc8}, and later on sacrifice the exchange for the Knight at e6, winning a Pawn for it, and leaving White's e-pawn still weaker. I intended to carry this plan either before or after playing ...g5 as the circumstances demanded. Now let us analyse: \moves[as=a]{17...c5}. If \moves[from=a]{18.Nd5 Bxd5 19.exd5 b5}; and a careful analysis will show that Black has nothing to fear. Black's plan in this case would be to work his Knight around to e5, via c8, b6, and c4 or d7. Again, \moves[as=b]{17...c5 18.Rf2 d5 19.exd5 Bxd5}; \moves[from=b,as=c]{20.Nxd5} (best, since if \moves[from=b]{20.Rfd2 Bxe6} give Black the advantage), \moves[from=c]{20...Rxd5 21.Rxd5 Nxd5}; and there is no good reason why Black should lose.
+
+\mainline{17...Nc8 18.Rf2 b5 19.Rfd2 Rde7 20.b4 Kf7 21.a3 Ba8}
+
+Once more changing my plan and this time without any good reason. Had I now played \moves{21...Rxe6 22.fxe6+ Rxe6}; as I intended to do when I went back with the Knight to c8, I doubt very much if White would have been able to win the game. At least it would have been extremely difficult.
+
+\mainline{22.Kf2 Ra7 23.g4 h6 24.Rd3 a5 25.h4 axb4 26.axb4 Rae7}
+
+This, of course, has no object now. Black, with a bad game, flounders around for a move. It would have been better to play \moves{26...Ra3} to keep the open file, and at the same time to threaten to come out with the Knight at b6 and c4.
+
+\mainline{27.Kf3 Rg8 28.Kf4 g6}
+
+Again bad. White's last two moves were weak, since the White King does nothing here. He should have played his Rook to g3 on the 27th move. Black now should have played \moves{28...g5+}. After missing this chance White has it all his own way, and finishes the game most accurately, and Black becomes more helpless with each move. The game needs no further comment, excepting that my play throughout was of an altogether irresolute character. When a plan is made, it must be carried out if at all possible. Regarding the play of White, I consider his 10th and 12th moves were very weak; he played well after that up to the 27th move, which was bad, as well as his 28th move. The rest of his play was good, probably perfect.
+
+\mainline{29.Rg3 g5+ 30.Kf3 Nb6 31.hxg5 hxg5 32.Rh3 Rd7 33.Kg3! Ke8 34.Rdh1 Bb7 35.e5 dxe5 36.Ne4 Nd5 37.N6c5 Bc8 38.Nxd7 Bxd7 39.Rh7 Rf8 40.Ra1 Kd8 41.Ra8+ Bc8 42.Nc5}
+
+\noindent\textbf{Resigns.}
+
+\end{document}

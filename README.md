@@ -62,6 +62,9 @@ which is Rubinstein vs. Capablanca, San Sebastian 1911, with Capablanca's own no
 app with **File > Open**. On a Mac, you can also drag it onto the app's icon or right-click the PDF
 and choose **Open With**. Then click any move or diagram.
 
+For more, [all 14 games](examples/chess-fundamentals) from Capablanca's *Chess Fundamentals* are in the
+same form.
+
 ### What to expect
 
 - Clicking a Lichess link shows that position in the right-hand panel.

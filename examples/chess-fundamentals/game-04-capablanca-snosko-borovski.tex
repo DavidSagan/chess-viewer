@@ -1,0 +1,162 @@
+% J. R. Capablanca - E. A. Snosko-Borovski, St. Petersburg, 1913, with Capablanca's notes.
+% Build with: python3 ../../tools/chessbook.py game-04-capablanca-snosko-borovski.tex
+\documentclass[10pt,twoside]{article}
+\usepackage[paperwidth=487.56bp,paperheight=691.65bp,top=72pt,bottom=44pt,inner=50pt,outer=48pt,
+            headheight=13pt,headsep=20pt,footskip=0pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[lining]{ebgaramond}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage[hidelinks,pdftitle={Capablanca - Snosko-Borovski, St. Petersburg, 1913},
+            pdfauthor={J. R. Capablanca}]{hyperref}
+
+\newcommand{\textsizebook}{\fontsize{10.5}{12.6}\selectfont}
+\AtBeginDocument{\textsizebook}
+\setlength{\columnsep}{11pt}
+\setlength{\parindent}{9pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{1.5em}
+\raggedbottom
+
+\newlength{\boardwidth}
+\setlength{\boardwidth}{160pt}
+
+% A main line move, as a bold heading above its note
+\newcommand{\Move}[1]{\par\addvspace{8pt}\noindent\phantomsection{\bfseries #1}\par\nopagebreak}
+% A diagram in the text
+\newcommand{\ChessDiagram}[1]{\par\addvspace{7pt}{\centering #1\par}\addvspace{5pt}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[CE]{French Defence}
+\fancyhead[CO]{Capablanca -- Snosko-Borovski}
+
+\game{d4 e6 e4 d5 Nc3 Nf6 Bg5 Bb4 exd5 Qxd5 Bxf6 Bxc3+ bxc3 gxf6 Nf3 b6 Qd2 Bb7 Be2 Nd7 c4 Qf5
+      O-O-O O-O-O Qe3 Rhg8 g3 Qa5 Rd3 Kb8 Rhd1 Qf5 Nh4 Qg5 f4 Qg7 Bf3 Rge8 Bxb7 Kxb7 c5 c6 Nf3
+      Qf8 Nd2 bxc5 Nc4 Nb6 Na5+ Ka8 dxc5 Nd5 Qd4 Rc8 c4 e5 Qg1 e4 cxd5 exd3 d6 Re2 d7 Rc2+ Kb1
+      Rb8+ Nb3 Qe7 Rxd3 Re2 Qd4 Rd8 Qa4 Qe4 Qa6 Kb8 Kc1 Rxd7 Nd4 Re1+}
+
+\begin{document}
+
+\twocolumn[{%
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+  \node[circle,draw=black,line width=1.6pt,fill=black!20,minimum size=112pt] (seal)
+       at ([xshift=75pt,yshift=-75pt]current page.north west) {};
+  \draw[line width=0.9pt] ([shift={(-48pt,-30pt)}]seal.center) -- ([shift={(44pt,34pt)}]seal.center);
+  \node[rotate=37] at ([shift={(-11pt,14pt)}]seal.center) {\fontsize{25}{25}\selectfont\bfseries Game};
+  \node[rotate=37] at ([shift={(10pt,-16pt)}]seal.center) {\fontsize{38}{38}\selectfont\bfseries 4};
+  \node[anchor=north east] at ([xshift=-14pt,yshift=-24pt]current page.north east)
+       {\board[after=4...Bb4,width=108pt,bare]};
+\end{tikzpicture}
+
+\vspace*{38pt}
+\begin{center}
+  \begin{minipage}{235pt}\centering
+    {\fontsize{22}{25}\selectfont\bfseries French Defence\par}
+    \vspace{4pt}\rule{\linewidth}{1pt}\\[-9.5pt]\rule{\linewidth}{0.4pt}
+  \end{minipage}
+
+  \vspace{14pt}
+  {\fontsize{19}{22}\selectfont\bfseries Capablanca -- Snosko-Borovski\par}
+  \vspace{10pt}
+  {\fontsize{15}{18}\selectfont\bfseries St. Petersburg, 1913\par}
+  \vspace{8pt}
+  {\fontsize{11}{13}\selectfont White: J. R. Capablanca \quad Black: E. A. Snosko-Borovski\par}
+  \vspace{10pt}
+  {\centering\fontsize{8.5}{10}\selectfont\itshape
+   Notes by J. R. Capablanca, from \textup{Chess Fundamentals} (1921), which is in the public domain.\\
+   Descriptive notation has been converted to algebraic. Page references are to the book.\\
+   Click any move or diagram to open it on Lichess.\par}
+\end{center}
+\vspace{10pt}
+}]
+\textsizebook
+
+\mainline{1.d4 e6 2.e4 d5 3.Nc3 Nf6 4.Bg5 Bb4}
+
+This constitutes the \emph{McCutcheon Variation}. It aims at taking the initiative away from White. Instead of defending, Black makes a counter demonstration on the Queen's side. It leads to highly interesting games.
+
+\mainline{5.exd5}
+
+At the time this game was played the variation \moves{5.e5} was in vogue, but I considered then, as I do now, the text move to be the stronger.
+
+\mainline{5...Qxd5}
+
+This is considered superior to \moves{5...exd5}. It has for its object, as I said before, to take the initiative away from White by disrupting White's Queen's side. White, however, has more than ample compensation through his breaking up Black's King's side. It might be laid down as a principle of the opening that \emph{the breaking up of the King's side is of more importance than a similar occurrence on the Queen's side}.
+
+\mainline{6.Bxf6 Bxc3+ 7.bxc3 gxf6 8.Nf3 b6}
+
+The plan of Black in this variation is to post his Bishop on the long diagonal so as to be able later on, in conjunction with the action of his Rooks along the open g-file, to make a violent attack against White's King. It is, of course, expected that White will Castle on the King's side because of the broken-up condition of his Queen's side Pawns.
+
+\mainline{9.Qd2 Bb7 10.Be2 Nd7 11.c4 Qf5 12.O-O-O}
+
+An original idea, I believe, played for the first time in a similar position in a game against Mr. Walter Penn Shipley, of Philadelphia. My idea is that as there is no Black Bishop and because Black's pieces have been developed with a view to an attack on the King's side, it will be impossible for Black to take advantage of the apparently unprotected position of White's King. Two possibilities must be considered. Firstly: If Black Castles on the Queen's side, as in this game, it is evident that there is no danger of an attack. Secondly: If Black Castles on the King's side, White begins the attack first, taking advantage of the awkward position of Black's Queen. In addition to the attacking probabilities of the text move, White in one move brings his King into safety and brings one of his Rooks into play. Thus he gains several moves, ``tempi'' as they are called, which will serve him to develop whatever plan he may wish to evolve.
+
+\mainline{12...O-O-O 13.Qe3 Rhg8 14.g3 Qa5}
+
+Unquestionably a mistake, overlooking White's fine reply, but a careful examination will show that White already has the better position.
+
+\mainline{15.Rd3! Kb8 16.Rhd1 Qf5}
+
+\board
+
+\mainline{17.Nh4}
+
+This move has been criticised because it puts the Knight out of the way for a few moves. But by forcing \moves{17...Qg5}; White gains a very important move with \moves{18.f4}, which not only consolidates his position, but also drives the Queen away, putting it out of the game for the moment. Certainly the Queen is far more valuable than the Knight, to say nothing of the time gained and the freedom of action obtained thereby for White's more important pieces.
+
+\mainline{17...Qg5 18.f4 Qg7 19.Bf3}
+
+In such positions it is generally very advantageous to get rid of the Black Bishop controlling his a6 and c6, which form ``holes'' for White's pieces. The Bishop in such positions is of very great defensive value, hence the advantage of getting rid of it.
+
+\mainline{19...Rge8 20.Bxb7 Kxb7 21.c5! c6}
+
+White threatened c6+.
+
+\mainline{22.Nf3 Qf8}
+
+To prevent the Knight from moving to d6 via d2 and e4 or c4. It is self-evident that White has a great advantage of position.
+
+\board
+
+\mainline{23.Nd2?}
+
+I had considered \moves{23.Rb3}, which was the right move, but gave it up because it seemed too slow, and that in such a position there had to be some quicker way of winning.
+
+\mainline{23...bxc5 24.Nc4}
+
+\moves{24.Ne4} or \moves{24.Nb3} would have brought about an ending advantageous to White.
+
+\mainline{24...Nb6 25.Na5+ Ka8 26.dxc5 Nd5 27.Qd4 Rc8}
+
+If \moves{27...Rb8 28.Nxc6 Rbc8 29.Nxa7} would win.
+
+\board
+
+\mainline{28.c4}
+
+\moves{28.Nc4} was the right move. I was, however, still looking for the ``grand combination,'' and thought that the Pawn I would later on have at d6 would win the game. Black deserves great credit for the way in which he conducted this exceedingly difficult defence. He could easily have gone wrong any number of times, but from move 22 onwards he always played the best move.
+
+\mainline{28...e5! 29.Qg1 e4 30.cxd5 exd3 31.d6 Re2 32.d7 Rc2+ 33.Kb1 Rb8+ 34.Nb3 Qe7}
+
+\board
+
+\mainline{35.Rxd3}
+
+The position is most interesting. I believe I lost here my last chance to win the game, and if that is true it would vindicate my judgment when, on move 28, I played \moves{28.c4}. The student can find out what would happen if White plays \moves{35.Qd4!} at once. I have gone over the following variations: \moves[as=a]{35.Qd4}, \moves[from=a,as=b]{35...Rxh2} (of course if \moves[from=a]{35...Rxc5 36.d8=Q} wins); \moves[from=b,as=c]{36.Qxd3! Rd8 37.Qa6 Kb8} best (if \figQ d4+; \figK a1, \figK b8; \figR b1 wins); \moves[from=c]{38.Qxc6} and White will at least have a draw.
+
+\mainline{35...Re2 36.Qd4 Rd8 37.Qa4 Qe4 38.Qa6 Kb8}
+
+There is nothing to be done against this simple move, since White cannot play \moves[as=a]{39.Nd4}, because \moves[from=a]{39...Qh1+} mates.
+
+\mainline{39.Kc1 Rxd7 40.Nd4 Re1+}
+
+\noindent\textbf{Resigns.}
+
+A very interesting battle.
+
+\end{document}

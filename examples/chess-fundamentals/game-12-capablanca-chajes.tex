@@ -1,0 +1,173 @@
+% J. R. Capablanca - O. Chajes, New York, 1918, with Capablanca's notes.
+% Build with: python3 ../../tools/chessbook.py game-12-capablanca-chajes.tex
+\documentclass[10pt,twoside]{article}
+\usepackage[paperwidth=487.56bp,paperheight=691.65bp,top=72pt,bottom=44pt,inner=50pt,outer=48pt,
+            headheight=13pt,headsep=20pt,footskip=0pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[lining]{ebgaramond}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage[hidelinks,pdftitle={Capablanca - Chajes, New York, 1918},
+            pdfauthor={J. R. Capablanca}]{hyperref}
+
+\newcommand{\textsizebook}{\fontsize{10.5}{12.6}\selectfont}
+\AtBeginDocument{\textsizebook}
+\setlength{\columnsep}{11pt}
+\setlength{\parindent}{9pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{1.5em}
+\raggedbottom
+
+\newlength{\boardwidth}
+\setlength{\boardwidth}{160pt}
+
+% A main line move, as a bold heading above its note
+\newcommand{\Move}[1]{\par\addvspace{8pt}\noindent\phantomsection{\bfseries #1}\par\nopagebreak}
+% A diagram in the text
+\newcommand{\ChessDiagram}[1]{\par\addvspace{7pt}{\centering #1\par}\addvspace{5pt}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[CE]{French Defence}
+\fancyhead[CO]{Capablanca -- Chajes}
+
+\game{e4 e6 d4 d5 Nc3 Nf6 Bd3 dxe4 Nxe4 Nbd7 Nxf6+ Nxf6 Nf3 Be7 Qe2 O-O Bg5 h6 Bxf6 Bxf6 Qe4
+      g6 h4 e5 dxe5 Bf5 Qf4 Bxd3 O-O-O Bg7 Rxd3 Qe7 Qc4 Rad8 Rhd1 Rxd3 Rxd3 Re8 c3 c6 Re3 c5
+      Kc2 b6 a4 Qd7 Rd3 Qc8 Qe4 Qe6 Rd5 Kf8 c4 Kg8 b3 Kf8 Kd3 Kg8 Rd6 Qc8 Rd5 Qe6 g4 Kf8 Qf4
+      Kg8 Qe4 Kf8 Ke2 Kg8 Kf1 Kf8 Kg2 Kg8 Kg3 Kf8 h5 gxh5 gxh5 Qe7 Qf5 Kg8 Rd7 Bxe5+ Kg4 Qf6
+      Nxe5 Qg7+ Kf4}
+
+\begin{document}
+
+\twocolumn[{%
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+  \node[circle,draw=black,line width=1.6pt,fill=black!20,minimum size=112pt] (seal)
+       at ([xshift=75pt,yshift=-75pt]current page.north west) {};
+  \draw[line width=0.9pt] ([shift={(-48pt,-30pt)}]seal.center) -- ([shift={(44pt,34pt)}]seal.center);
+  \node[rotate=37] at ([shift={(-11pt,14pt)}]seal.center) {\fontsize{25}{25}\selectfont\bfseries Game};
+  \node[rotate=37] at ([shift={(10pt,-16pt)}]seal.center) {\fontsize{38}{38}\selectfont\bfseries 12};
+  \node[anchor=north east] at ([xshift=-14pt,yshift=-24pt]current page.north east)
+       {\board[after=4...dxe4,width=108pt,bare]};
+\end{tikzpicture}
+
+\vspace*{38pt}
+\begin{center}
+  \begin{minipage}{235pt}\centering
+    {\fontsize{22}{25}\selectfont\bfseries French Defence\par}
+    \vspace{4pt}\rule{\linewidth}{1pt}\\[-9.5pt]\rule{\linewidth}{0.4pt}
+  \end{minipage}
+
+  \vspace{14pt}
+  {\fontsize{19}{22}\selectfont\bfseries Capablanca -- Chajes\par}
+  \vspace{10pt}
+  {\fontsize{15}{18}\selectfont\bfseries New York, 1918\par}
+  \vspace{8pt}
+  {\fontsize{11}{13}\selectfont White: J. R. Capablanca \quad Black: O. Chajes\par}
+  \vspace{10pt}
+  {\centering\fontsize{8.5}{10}\selectfont\itshape
+   Notes by J. R. Capablanca, from \textup{Chess Fundamentals} (1921), which is in the public domain.\\
+   Descriptive notation has been converted to algebraic. Page references are to the book.\\
+   Click any move or diagram to open it on Lichess.\par}
+\end{center}
+\vspace{10pt}
+}]
+\textsizebook
+
+\mainline{1.e4 e6 2.d4 d5 3.Nc3 Nf6 4.Bd3}
+
+Not the most favoured move, but a perfectly natural developing one, and consequently it cannot be bad.
+
+\mainline{4...dxe4}
+
+\moves{4...c5} is generally played in this case instead of the text move.
+
+\mainline{5.Nxe4 Nbd7 6.Nxf6+ Nxf6 7.Nf3 Be7}
+
+\board
+
+\mainline{8.Qe2}
+
+This is played to prevent ...b6, followed by \figB b7, which is the general form of development for Black in this variation. If Black now plays \moves{8...b6 9.Bb5+ Bd7 10.Ne5} and White obtains a considerable advantage in position.
+
+\mainline{8...O-O 9.Bg5 h6}
+
+Of course Black could not play \moves[as=a]{9...b6} because of \moves[from=a]{10.Bxf6}, followed by \figQ e4.
+
+\mainline{10.Bxf6 Bxf6 11.Qe4 g6}
+
+This weakens Black's King's side. \moves{11...Re8} was the right move.
+
+\mainline{12.h4}
+
+\board
+
+\mainline{12...e5}
+
+This is merely giving up a Pawn in order to come out quickly with his Queen's Bishop. But as he does not obtain any compensation for his Pawn, the move is bad. He should have played \moves[as=a]{12...Qd5} and tried to fight the game out that way. It might have continued thus: \moves[from=a]{13.Qf4 Bg7 14.Qxc7 Bxd4 15.Nxd4 Qxd4 16.O-O-O} with considerable advantage of position for White. The text move might be considered a mild form of suicide.
+
+\mainline{13.dxe5 Bf5 14.Qf4 Bxd3 15.O-O-O Bg7 16.Rxd3 Qe7 17.Qc4}
+
+In order to keep the Black Queen from coming into the game.
+
+\mainline{17...Rad8 18.Rhd1}
+
+A better plan would have been to play \moves{18.Re1}, threatening e6.
+
+\mainline{18...Rxd3 19.Rxd3 Re8 20.c3 c6}
+
+Of course if \moves{20...Bxe5 21.Nxe5 Qxe5 22.Re3}. Black with a Pawn minus fights very hard.
+
+\mainline{21.Re3}
+
+The Pawn had now to be defended after Black's last move, because after \figB xe5; \figN xe5, \figQ xe5; \figR e3, Black could now play \figQ b8 defending the Rook.
+
+\mainline{21...c5 22.Kc2 b6 23.a4}
+
+White's plan now is to \emph{fix} the Queen's side in order to be able to manoeuvre freely on the other side, where he has the advantage of material.
+
+\mainline{23...Qd7 24.Rd3 Qc8 25.Qe4 Qe6 26.Rd5 Kf8 27.c4 Kg8}
+
+\board
+
+Black sees that he now stands in his best defensive position, and therefore waits for White to show how he intends to break through. He notices, of course, that the White Knight is in the way of the f-pawn, which cannot advance to f4 to defend, or support rather, the Pawn at e5.
+
+\mainline{28.b3 Kf8 29.Kd3 Kg8 30.Rd6 Qc8 31.Rd5 Qe6 32.g4 Kf8 33.Qf4 Kg8 34.Qe4 Kf8}
+
+\board
+
+Black persists in waiting for developments. He sees that if \moves{35.h5 gxh5 36.gxh5}, the Queen goes to h3, and White will have to face serious difficulties. In this situation White decides that the only course is to bring his King to g3, so as to defend the squares h3 and g4, where the Black Queen might otherwise become a source of annoyance.
+
+\mainline{35.Ke2 Kg8 36.Kf1 Kf8 37.Kg2 Kg8 38.Kg3 Kf8}
+
+Now that he has completed his march with the King, White is ready to advance.
+
+\board
+
+\mainline{39.h5 gxh5}
+
+\moves[as=a]{39...g5} would be answered by \moves[from=a]{40.Qf5}, with a winning game.
+
+\mainline{40.gxh5 Qe7}
+
+Against \moves[as=a]{40...Kg8}; White would play \moves[from=a]{41.Qg4}, practically forcing the exchange of Queens, after which White would have little trouble in winning the ending, since Black's Bishop could not do much damage in the resulting position.
+
+\mainline{41.Qf5 Kg8}
+
+Black overlooks the force of \moves{42.Rd7}. His best defence was \moves{41...Rd8}; against which White could either advance the King or play \figN h4, threatening \figN g6+.
+
+\mainline{42.Rd7 Bxe5+}
+
+This loses a piece, but Black's position was altogether hopeless.
+
+\mainline{43.Kg4 Qf6 44.Nxe5 Qg7+ 45.Kf4}
+
+\noindent\textbf{Resigns.}
+
+The interest of this game centres mainly on the opening and on the march of the White King during the final stage of the game. It is an instance of the King becoming a fighting piece, even while the Queens are still on the board.
+
+\end{document}

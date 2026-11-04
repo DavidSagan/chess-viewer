@@ -1,0 +1,141 @@
+% J. R. Capablanca - A. Burn, San Sebastian, 1911, with Capablanca's notes.
+% Build with: python3 ../../tools/chessbook.py game-07-capablanca-burn.tex
+\documentclass[10pt,twoside]{article}
+\usepackage[paperwidth=487.56bp,paperheight=691.65bp,top=72pt,bottom=44pt,inner=50pt,outer=48pt,
+            headheight=13pt,headsep=20pt,footskip=0pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[lining]{ebgaramond}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage[hidelinks,pdftitle={Capablanca - Burn, San Sebastian, 1911},
+            pdfauthor={J. R. Capablanca}]{hyperref}
+
+\newcommand{\textsizebook}{\fontsize{10.5}{12.6}\selectfont}
+\AtBeginDocument{\textsizebook}
+\setlength{\columnsep}{11pt}
+\setlength{\parindent}{9pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{1.5em}
+\raggedbottom
+
+\newlength{\boardwidth}
+\setlength{\boardwidth}{160pt}
+
+% A main line move, as a bold heading above its note
+\newcommand{\Move}[1]{\par\addvspace{8pt}\noindent\phantomsection{\bfseries #1}\par\nopagebreak}
+% A diagram in the text
+\newcommand{\ChessDiagram}[1]{\par\addvspace{7pt}{\centering #1\par}\addvspace{5pt}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[CE]{Ruy Lopez}
+\fancyhead[CO]{Capablanca -- Burn}
+
+\game{e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 d3 d6 c3 Be7 Nbd2 O-O Nf1 b5 Bc2 d5 Qe2 dxe4 dxe4 Bc5 Bg5
+      Be6 Ne3 Re8 O-O Qe7 Nd5 Bxd5 exd5 Nb8 a4 b4 cxb4 Bxb4 Bxf6 Qxf6 Qe4 Bd6 Qxh7+ Kf8 Nh4
+      Qh6 Qxh6 gxh6 Nf5 h5 Bd1 Nd7 Bxh5 Nf6 Be2 Nxd5 Rfd1 Nf4 Bc4 Red8 h4 a5 g3 Ne6 Bxe6 fxe6
+      Ne3 Rdb8 Nc4 Ke7 Rac1 Ra7 Re1 Kf6 Re4 Rb4 g4 Ra6 Rc3 Bc5 Rf3+ Kg7 b3 Bd4 Kg2 Ra8 g5 Ra6
+      h5 Rxc4 bxc4 Rc6 g6}
+
+\begin{document}
+
+\twocolumn[{%
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+  \node[circle,draw=black,line width=1.6pt,fill=black!20,minimum size=112pt] (seal)
+       at ([xshift=75pt,yshift=-75pt]current page.north west) {};
+  \draw[line width=0.9pt] ([shift={(-48pt,-30pt)}]seal.center) -- ([shift={(44pt,34pt)}]seal.center);
+  \node[rotate=37] at ([shift={(-11pt,14pt)}]seal.center) {\fontsize{25}{25}\selectfont\bfseries Game};
+  \node[rotate=37] at ([shift={(10pt,-16pt)}]seal.center) {\fontsize{38}{38}\selectfont\bfseries 7};
+  \node[anchor=north east] at ([xshift=-14pt,yshift=-24pt]current page.north east)
+       {\board[after=4...Nf6,width=108pt,bare]};
+\end{tikzpicture}
+
+\vspace*{38pt}
+\begin{center}
+  \begin{minipage}{235pt}\centering
+    {\fontsize{22}{25}\selectfont\bfseries Ruy Lopez\par}
+    \vspace{4pt}\rule{\linewidth}{1pt}\\[-9.5pt]\rule{\linewidth}{0.4pt}
+  \end{minipage}
+
+  \vspace{14pt}
+  {\fontsize{19}{22}\selectfont\bfseries Capablanca -- Burn\par}
+  \vspace{10pt}
+  {\fontsize{15}{18}\selectfont\bfseries San Sebastian, 1911\par}
+  \vspace{8pt}
+  {\fontsize{11}{13}\selectfont White: J. R. Capablanca \quad Black: A. Burn\par}
+  \vspace{10pt}
+  {\centering\fontsize{8.5}{10}\selectfont\itshape
+   Notes by J. R. Capablanca, from \textup{Chess Fundamentals} (1921), which is in the public domain.\\
+   Descriptive notation has been converted to algebraic. Page references are to the book.\\
+   Click any move or diagram to open it on Lichess.\par}
+\end{center}
+\vspace{10pt}
+}]
+\textsizebook
+
+\mainline{1.e4 e5 2.Nf3 Nc6 3.Bb5 a6 4.Ba4 Nf6 5.d3}
+
+This is a very solid development, to which I was much addicted at the time, because of my ignorance of the multiple variations of the openings.
+
+\mainline{5...d6 6.c3 Be7}
+
+In this variation there is the alternative of developing this Bishop via g7, after \moves{6...g6}.
+
+\mainline{7.Nbd2 O-O 8.Nf1 b5 9.Bc2 d5 10.Qe2 dxe4 11.dxe4 Bc5}
+
+Evidently to make room for the Queen at e7, but I do not think the move advisable at this stage. \moves{11...Be6} is a more natural and effective move. It develops a piece and threatens \figB c4, which would have to be stopped.
+
+\mainline{12.Bg5 Be6}
+
+Now it is not so effective, because White's Queen's Bishop is out, and the Knight, in going to e3 to defend the square c4, does not block the Queen's Bishop.
+
+\mainline{13.Ne3 Re8 14.O-O Qe7}
+
+This is bad. Black's game was already not good. He probably had no choice but to take the Knight with the Bishop before making this move.
+
+\board
+
+\mainline{15.Nd5 Bxd5 16.exd5 Nb8}
+
+in order to bring it to d7, to support the other Knight and also his King's Pawn. White, however, does not allow time for this, and by taking advantage of his superior position is able to win a Pawn.
+
+\mainline{17.a4 b4}
+
+Since he had no way to prevent the loss of a Pawn, he should have given it up where it is, and played \moves{17...Nbd7}, in order to make his position more solid. The text move not only loses a Pawn, but leaves Black's game very much weakened.
+
+\mainline{18.cxb4 Bxb4 19.Bxf6 Qxf6 20.Qe4 Bd6 21.Qxh7+ Kf8}
+
+\board
+
+With a Pawn more and all his pieces ready for action, while Black is still backward in development, it only remains for White to drive home his advantage before Black can come out with his pieces, in which case, by using the open h-file, Black might be able to start a strong attack against White's King. White is able by his next move to eliminate all danger.
+
+\mainline{22.Nh4 Qh6}
+
+This is practically forced. Black could not play \moves[as=a]{22...g6} because of \moves[from=a]{23.Bxg6}, and White meanwhile threatened \figQ h8+ followed by \figN f5+ and \figQ xg7.
+
+\mainline{23.Qxh6 gxh6 24.Nf5 h5 25.Bd1 Nd7 26.Bxh5 Nf6 27.Be2 Nxd5 28.Rfd1 Nf4 29.Bc4 Red8 30.h4 a5}
+
+Black must lose time assuring the safety of this Pawn.
+
+\mainline{31.g3 Ne6 32.Bxe6 fxe6 33.Ne3 Rdb8 34.Nc4 Ke7}
+
+Black fights a hopeless battle. He is two Pawns down for all practical purposes, and the Pawns he has are isolated and have to be defended by pieces.
+
+\mainline{35.Rac1 Ra7}
+
+White threatened \figN xd6, followed by \figR c7+.
+
+\mainline{36.Re1 Kf6 37.Re4 Rb4 38.g4 Ra6}
+
+If \moves{38...Rxa4 39.Nxd6} of course would win a piece
+
+\mainline{39.Rc3 Bc5 40.Rf3+ Kg7 41.b3 Bd4 42.Kg2 Ra8 43.g5 Ra6 44.h5 Rxc4 45.bxc4 Rc6 46.g6}
+
+\noindent\textbf{Resigns.}
+
+\end{document}
