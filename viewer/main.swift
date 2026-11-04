@@ -1,4 +1,4 @@
-// Chess Book Viewer: a PDF on the left and Lichess on the right. Clicking a move in the PDF
+// Chess PDF Viewer: a PDF on the left and Lichess on the right. Clicking a move in the PDF
 // shows it in the Lichess panel, with no prompt and no new browser tabs or windows.
 
 import Cocoa
@@ -31,7 +31,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, PDFViewDelegate, WKUID
     window = NSWindow(contentRect: frame, styleMask: [.titled, .closable, .miniaturizable, .resizable],
                       backing: .buffered, defer: false)
     // A file given by Finder may have arrived before the window existed
-    window.title = pdfView.document?.documentURL?.lastPathComponent ?? "Chess Book Viewer"
+    window.title = pdfView.document?.documentURL?.lastPathComponent ?? "Chess PDF Viewer"
     window.contentView = split
     window.makeKeyAndOrderFront(nil)
     split.setPosition(frame.width * 0.5, ofDividerAt: 0)
@@ -101,7 +101,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, PDFViewDelegate, WKUID
     let main = NSMenu()
 
     let appMenu = NSMenu()
-    appMenu.addItem(withTitle: "Quit Chess Book Viewer", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
+    appMenu.addItem(withTitle: "Quit Chess PDF Viewer", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
 
     let fileMenu = NSMenu(title: "File")
     fileMenu.addItem(withTitle: "Open…", action: #selector(openDocument(_:)), keyEquivalent: "o")

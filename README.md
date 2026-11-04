@@ -5,13 +5,13 @@ Read a chess book and follow its moves on a live analysis board.
 - **Just want to read chess PDFs?** See [Run the viewer](#run-the-viewer).
 - **Want to make your own chess PDFs?** See [Create PDFs](#create-pdfs).
 
-![Chess Book Viewer with the example book on the left and the Lichess analysis board on the right, showing the position after the clicked move 16.Kg2!](docs/app-screenshot.png)
+![Chess PDF Viewer with the example book on the left and the Lichess analysis board on the right, showing the position after the clicked move 16.Kg2!](docs/app-screenshot.png)
 
 *Clicking 16.Kg2! in the book shows that position on the board.*
 
 ## Run the viewer
 
-Chess Book Viewer is a small Mac app that shows a PDF on the left and the
+Chess PDF Viewer is a small Mac app that shows a PDF on the left and the
 [Lichess](https://lichess.org) analysis board on the right. Clicking a move in the PDF shows that
 position on the board, with no browser prompts or new tabs. This project is not affiliated with
 Lichess.
@@ -22,14 +22,14 @@ It needs an internet connection to show the board.
 ### Install
 
 1. Download
-   [`Chess-Book-Viewer-macOS.zip`](https://github.com/DavidSagan/chess-viewer/raw/main/dist/Chess-Book-Viewer-macOS.zip)
+   [`Chess-PDF-Viewer-macOS.zip`](https://github.com/DavidSagan/chess-viewer/raw/main/dist/Chess-PDF-Viewer-macOS.zip)
    and unzip it.
-2. Move **Chess Book Viewer** to your Applications folder.
+2. Move **Chess PDF Viewer** to your Applications folder.
 3. Open it. The app is not notarized by Apple, so macOS will block it the first time. Go to
    **System Settings > Privacy & Security** and choose **Open Anyway**, or run:
 
    ```bash
-   xattr -dr com.apple.quarantine "/Applications/Chess Book Viewer.app"
+   xattr -dr com.apple.quarantine "/Applications/Chess PDF Viewer.app"
    ```
 
 ### Try it
@@ -159,7 +159,7 @@ This needs Xcode or the Xcode Command Line Tools. The source is in `viewer/main.
 viewer/build.sh
 ```
 
-This creates `viewer/Chess Book Viewer.app`.
+This creates `viewer/Chess PDF Viewer.app`.
 
 ### Credits and licenses
 

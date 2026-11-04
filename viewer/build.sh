@@ -1,15 +1,15 @@
 #!/bin/bash
-# Builds "Chess Book Viewer.app" next to this script.
+# Builds "Chess PDF Viewer.app" next to this script.
 set -euo pipefail
 cd "$(dirname "$0")"
 
-app="Chess Book Viewer.app"
+app="Chess PDF Viewer.app"
 rm -rf "$app"
 mkdir -p "$app/Contents/MacOS"
 # Build for both Apple silicon and Intel Macs, running on macOS 12 and later
 swiftc -O -target arm64-apple-macos12 main.swift -o "$app/viewer-arm64"
 swiftc -O -target x86_64-apple-macos12 main.swift -o "$app/viewer-x86_64"
-lipo -create "$app/viewer-arm64" "$app/viewer-x86_64" -output "$app/Contents/MacOS/ChessBookViewer"
+lipo -create "$app/viewer-arm64" "$app/viewer-x86_64" -output "$app/Contents/MacOS/ChessPDFViewer"
 rm "$app/viewer-arm64" "$app/viewer-x86_64"
 
 cat > "$app/Contents/Info.plist" <<'EOF'
@@ -17,9 +17,9 @@ cat > "$app/Contents/Info.plist" <<'EOF'
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-  <key>CFBundleName</key><string>Chess Book Viewer</string>
-  <key>CFBundleIdentifier</key><string>local.chess-book-viewer</string>
-  <key>CFBundleExecutable</key><string>ChessBookViewer</string>
+  <key>CFBundleName</key><string>Chess PDF Viewer</string>
+  <key>CFBundleIdentifier</key><string>local.chess-pdf-viewer</string>
+  <key>CFBundleExecutable</key><string>ChessPDFViewer</string>
   <key>CFBundlePackageType</key><string>APPL</string>
   <key>CFBundleShortVersionString</key><string>1.0</string>
   <key>NSHighResolutionCapable</key><true/>
