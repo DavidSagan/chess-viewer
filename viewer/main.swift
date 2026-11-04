@@ -30,7 +30,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, PDFViewDelegate, WKUID
                 ?? NSRect(x: 0, y: 0, width: 1400, height: 900)
     window = NSWindow(contentRect: frame, styleMask: [.titled, .closable, .miniaturizable, .resizable],
                       backing: .buffered, defer: false)
-    window.title = "Chess Book Viewer"
+    // A file given by Finder may have arrived before the window existed
+    window.title = pdfView.document?.documentURL?.lastPathComponent ?? "Chess Book Viewer"
     window.contentView = split
     window.makeKeyAndOrderFront(nil)
     split.setPosition(frame.width * 0.5, ofDividerAt: 0)
@@ -71,8 +72,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate, PDFViewDelegate, WKUID
   @objc func openDocument(_ sender: Any?) {
     let panel = NSOpenPanel()
     panel.allowedContentTypes = [.pdf]
-    if panel.runModal() == .OK, let url = panel.url {
-      _ = open(url)
+    if panel.runModal() == .OK, let url = panel.url, !open(url) {
+      let alert = NSAlert()
+      alert.messageText = "Could not open \(url.lastPathComponent)"
+      alert.runModal()
     }
   }
 
