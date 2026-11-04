@@ -7,9 +7,11 @@ in any PDF viewer. In this case, if you click on the moves, a lichess analysis b
 - **Want to make your own chess PDFs?** See [Create PDFs](#create-pdfs).
 - **Example PDF:** See [this](https://github.com/DavidSagan/chess-viewer/raw/main/examples/rubinstein-capablanca/rubinstein-capablanca.pdf) which is Rubinstein vs. Capablanca, San Sebastian 1911, with Capablanca's own notes.
 
-<img src="docs/app-screenshot.png" width="640" alt="Chess PDF Viewer with the example PDF on the left and the Lichess analysis board on the right, showing the position after the clicked move 16.Kg2!">
+<p align="center">
+  <img src="docs/app-screenshot.png" width="640" alt="Chess PDF Viewer with the example PDF on the left and the Lichess analysis board on the right, showing the position after the clicked move 16.Kg2!">
+</p>
 
-*Clicking 16.Kg2! in the PDF shows that position on the board.*
+<p align="center"><em>Clicking 16.Kg2! in the PDF shows that position on the board.</em></p>
 
 ## Run the viewer
 
