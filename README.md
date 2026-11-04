@@ -22,8 +22,9 @@ It needs an internet connection to show the board.
 ### Install
 
 1. Download
-   [`Chess-PDF-Viewer-macOS.zip`](https://github.com/DavidSagan/chess-viewer/raw/main/dist/Chess-PDF-Viewer-macOS.zip)
-   and unzip it.
+   [`Chess-PDF-Viewer-macOS.zip`](https://github.com/DavidSagan/chess-viewer/releases/latest/download/Chess-PDF-Viewer-macOS.zip)
+   from the [latest release](https://github.com/DavidSagan/chess-viewer/releases/latest) and unzip
+   it.
 2. Move **Chess PDF Viewer** to your Applications folder.
 3. Open it. The app is not notarized by Apple, so macOS will block it the first time. Go to
    **System Settings > Privacy & Security** and choose **Open Anyway**, or run:

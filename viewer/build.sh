@@ -1,7 +1,10 @@
 #!/bin/bash
 # Builds "Chess PDF Viewer.app" next to this script.
+# Usage: build.sh [version]
 set -euo pipefail
 cd "$(dirname "$0")"
+
+version="${1:-0.0.0}"
 
 app="Chess PDF Viewer.app"
 rm -rf "$app"
@@ -21,7 +24,7 @@ cat > "$app/Contents/Info.plist" <<'EOF'
   <key>CFBundleIdentifier</key><string>local.chess-pdf-viewer</string>
   <key>CFBundleExecutable</key><string>ChessPDFViewer</string>
   <key>CFBundlePackageType</key><string>APPL</string>
-  <key>CFBundleShortVersionString</key><string>1.0</string>
+  <key>CFBundleShortVersionString</key><string>VERSION</string>
   <key>NSHighResolutionCapable</key><true/>
   <key>LSMinimumSystemVersion</key><string>12.0</string>
   <key>CFBundleDocumentTypes</key>
@@ -37,5 +40,6 @@ cat > "$app/Contents/Info.plist" <<'EOF'
 </plist>
 EOF
 
+plutil -replace CFBundleShortVersionString -string "$version" "$app/Contents/Info.plist"
 codesign --force --sign - "$app"
 echo "Built $PWD/$app"
