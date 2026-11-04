@@ -1,13 +1,15 @@
 # chess-viewer
 
-Read a chess book and follow its moves on a live analysis board.
+Read a chess book (PDF) and follow its moves on a live analysis board. **Note:** The viewer is not strictly necessary since you can open the PDF
+in any PDF viewer. In this case, if you click on the moves, a lichess analysis board will appear in the browser. This is a bit cumbersome. Using the viewer gives a better experience.
 
-- **Just want to read chess PDFs?** See [Run the viewer](#run-the-viewer).
+- **For reading chess PDFs:** See [Run the viewer](#run-the-viewer).
 - **Want to make your own chess PDFs?** See [Create PDFs](#create-pdfs).
+- **Example PDF:** See [this](https://github.com/DavidSagan/chess-viewer/raw/main/examples/rubinstein-capablanca/rubinstein-capablanca.pdf) which is Rubinstein vs. Capablanca, San Sebastian 1911, with Capablanca's own notes.
 
-![Chess PDF Viewer with the example book on the left and the Lichess analysis board on the right, showing the position after the clicked move 16.Kg2!](docs/app-screenshot.png)
+![Chess PDF Viewer with the example PDF on the left and the Lichess analysis board on the right, showing the position after the clicked move 16.Kg2!](docs/app-screenshot.png)
 
-*Clicking 16.Kg2! in the book shows that position on the board.*
+*Clicking 16.Kg2! in the PDF shows that position on the board.*
 
 ## Run the viewer
 
@@ -53,7 +55,7 @@ by Apple or Microsoft, so your system may warn you the first time.
 ### Try it
 
 Download the
-[example book](https://github.com/DavidSagan/chess-viewer/raw/main/examples/rubinstein-capablanca/rubinstein-capablanca.pdf),
+[example PDF](https://github.com/DavidSagan/chess-viewer/raw/main/examples/rubinstein-capablanca/rubinstein-capablanca.pdf),
 which is Rubinstein vs. Capablanca, San Sebastian 1911, with Capablanca's own notes. Open it in the
 app with **File > Open**. On a Mac, you can also drag it onto the app's icon or right-click the PDF
 and choose **Open With**. Then click any move or diagram.
@@ -109,7 +111,7 @@ without Python, run `pdflatex` twice on the `-built.tex` file. That PDF takes it
 | File in `examples/rubinstein-capablanca/` | Contents |
 |---|---|
 | `rubinstein-capablanca.tex` | The source, and the file to edit |
-| `rubinstein-capablanca.pdf` | The finished book |
+| `rubinstein-capablanca.pdf` | The finished PDF |
 | `rubinstein-capablanca-built.tex` | Plain LaTeX generated from the source, which needs no Python to build |
 | `diagrams/` | Generated boards and piece figurines |
 
