@@ -20,12 +20,12 @@ async function panelUrl(app) {
   });
 }
 
-async function waitFor(check, what) {
+async function waitFor(check, what, details = async () => "") {
   const deadline = Date.now() + 30000;
   for (;;) {
     const value = await check();
     if (value) return value;
-    if (Date.now() > deadline) throw new Error(`Timed out waiting for ${what}`);
+    if (Date.now() > deadline) throw new Error(`Timed out waiting for ${what} ${await details()}`);
     await new Promise((resolve) => setTimeout(resolve, 100));
   }
 }
@@ -116,10 +116,15 @@ async function main() {
     await page.mouse.down();
     await page.mouse.move(box.x + 200, 300, { steps: 5 });
     await page.mouse.up();
-    await waitFor(() => app.evaluate(({ webContents, BrowserWindow }) => {
+    const panelState = () => app.evaluate(({ BrowserWindow }) => {
       const view = BrowserWindow.getAllWindows()[0].contentView.children[0];
-      return view.getVisible() && view.getBounds().x;
-    }).then((x) => x && Math.abs(x - (box.x + box.width + 200)) < 12), "the panel to follow the divider");
+      return { visible: view.getVisible(), x: view.getBounds().x };
+    });
+    const wanted = box.x + box.width + 200;
+    await waitFor(async () => {
+      const state = await panelState();
+      return state.visible && Math.abs(state.x - wanted) < 12;
+    }, "the panel to follow the divider", async () => JSON.stringify({ wanted, panel: await panelState() }));
 
     // A file that is not a PDF is refused, and the open one stays
     const bad = path.join(userData, "bad.pdf");

@@ -97,34 +97,46 @@ const commands = {
 window.viewerHost.onCommand((command) => commands[command]?.());
 
 // Keep the pages fitted to the side's width unless the reader has zoomed.
-new ResizeObserver(() => {
+function fitPages() {
   if (currentDocument && pdfViewer.currentScaleValue === AUTO_SCALE) {
     pdfViewer.currentScaleValue = AUTO_SCALE;
   }
+}
+
+// Redrawing the pages at every step of a drag would be slow, so that waits for the end of it.
+new ResizeObserver(() => {
+  if (dragFraction === null) fitPages();
 }).observe(container);
 
 const divider = document.getElementById("divider");
+let dragFraction = null;
 
-function dragFraction(event) {
+function fractionAt(event) {
   return Math.min(0.85, Math.max(0.15, event.clientX / window.innerWidth));
 }
 
 divider.addEventListener("pointerdown", (event) => {
-  divider.setPointerCapture(event.pointerId);
+  dragFraction = fractionAt(event);
   window.viewerHost.dragStart();
 });
 
-divider.addEventListener("pointermove", (event) => {
-  if (divider.hasPointerCapture(event.pointerId)) {
-    document.documentElement.style.setProperty("--split", `${dragFraction(event) * 100}%`);
-  }
+// A move with no button held is not part of the drag, such as one the system sends when the panel
+// is hidden.
+document.addEventListener("pointermove", (event) => {
+  if (dragFraction === null || !(event.buttons & 1)) return;
+  dragFraction = fractionAt(event);
+  document.documentElement.style.setProperty("--split", `${dragFraction * 100}%`);
 });
 
-function endDrag(event) {
-  window.viewerHost.dragEnd(dragFraction(event));
+function endDrag() {
+  if (dragFraction === null) return;
+  window.viewerHost.dragEnd(dragFraction);
+  dragFraction = null;
+  fitPages();
 }
 
-divider.addEventListener("pointerup", endDrag);
-divider.addEventListener("pointercancel", endDrag);
+document.addEventListener("pointerup", endDrag);
+document.addEventListener("pointercancel", endDrag);
+window.addEventListener("blur", endDrag);
 
 window.viewerHost.ready();
