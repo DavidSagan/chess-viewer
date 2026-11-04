@@ -119,7 +119,14 @@ final class AppDelegate: NSObject, NSApplicationDelegate, PDFViewDelegate, WKUID
     let zoomOut = viewMenu.addItem(withTitle: "Zoom PDF Out", action: #selector(PDFView.zoomOut(_:)), keyEquivalent: "-")
     zoomOut.target = pdfView
 
-    for menu in [appMenu, fileMenu, editMenu, viewMenu] {
+    let goMenu = NSMenu(title: "Go")
+    let upArrow = String(UnicodeScalar(NSUpArrowFunctionKey)!)
+    let firstPage = goMenu.addItem(withTitle: "First Page", action: #selector(PDFView.goToFirstPage(_:)), keyEquivalent: upArrow)
+    firstPage.target = pdfView
+    let back = goMenu.addItem(withTitle: "Back", action: #selector(PDFView.goBack(_:)), keyEquivalent: "[")
+    back.target = pdfView
+
+    for menu in [appMenu, fileMenu, editMenu, viewMenu, goMenu] {
       main.addItem(withTitle: menu.title, action: nil, keyEquivalent: "").submenu = menu
     }
     NSApp.mainMenu = main

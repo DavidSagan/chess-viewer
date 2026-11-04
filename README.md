@@ -46,6 +46,8 @@ choosing **Open With**. Then click any move or diagram.
 - Clicking a link to any other site opens your default browser.
 - Links within the PDF work as usual.
 - **View > Zoom PDF In** and **Zoom PDF Out** change the size of the PDF.
+- **Go > First Page** (⌘↑) jumps to the first page, and **Go > Back** (⌘[) returns to where you were
+  before a jump.
 - The app works with any PDF that has `lichess.org` links, but a PDF without them has nothing to
   click.
 - Each click loads a new Lichess page, so any analysis you did in the panel is not kept.
