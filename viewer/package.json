@@ -51,9 +51,26 @@
           "arch": [
             "x64"
           ]
+        },
+        {
+          "target": "appx",
+          "arch": [
+            "x64"
+          ]
         }
       ],
       "artifactName": "Chess-PDF-Viewer-Windows.${ext}"
+    },
+    "appx": {
+      "artifactName": "store-package.msix",
+      "identityName": "DavidOfIthaca.ChessPDFViewer",
+      "publisher": "CN=0C9D2CB1-C317-4C91-ACF9-B81820B06E5A",
+      "publisherDisplayName": "DavidOfIthaca",
+      "displayName": "Chess PDF Viewer",
+      "applicationId": "ChessPDFViewer",
+      "backgroundColor": "#264653",
+      "minVersion": "10.0.17763.0",
+      "maxVersionTested": "10.0.26100.0"
     },
     "linux": {
       "target": [

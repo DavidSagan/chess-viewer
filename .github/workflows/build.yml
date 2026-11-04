@@ -1,5 +1,6 @@
 # Tests and builds the viewer on macOS, Windows and Linux on every push to main. A version tag also
-# publishes the builds as a GitHub Release. Start a release with tools/release.sh.
+# publishes the builds as a GitHub Release and, once set up, submits the Windows package to the
+# Microsoft Store (docs/microsoft-store.md). Start a release with tools/release.sh.
 name: Build
 
 on:
@@ -56,6 +57,13 @@ jobs:
             !viewer/dist/*.blockmap
           if-no-files-found: error
 
+      - uses: actions/upload-artifact@v4
+        if: runner.os == 'Windows'
+        with:
+          name: store-package
+          path: viewer/dist/store-package.msix
+          if-no-files-found: error
+
   release:
     if: github.ref_type == 'tag'
     needs: build
@@ -73,5 +81,51 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
         run: |
+          # This one is only for the Store. Windows won't install it until the Store has signed it.
+          rm -f assets/store-package.msix
           gh release create "$GITHUB_REF_NAME" assets/* \
             --verify-tag --generate-notes --title "$GITHUB_REF_NAME"
+
+  # Runs only after the first Store submission is live and STORE_PRODUCT_ID is set.
+  store:
+    if: github.ref_type == 'tag' && vars.STORE_PRODUCT_ID != ''
+    needs: build
+    runs-on: windows-latest
+    timeout-minutes: 60
+    defaults:
+      run:
+        shell: pwsh
+    env:
+      STORE_PRODUCT_ID: ${{ vars.STORE_PRODUCT_ID }}
+    steps:
+      - name: Check the version
+        run: |
+          if ($env:GITHUB_REF_NAME -like 'v0.*') {
+            Write-Error "The Store does not accept versions starting with 0: $env:GITHUB_REF_NAME"
+          }
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: store-package
+
+      - uses: microsoft/microsoft-store-apppublisher@v1.4
+        with:
+          version: v0.4.4
+
+      - name: Sign in to Partner Center
+        env:
+          TENANT_ID: ${{ secrets.AZURE_AD_TENANT_ID }}
+          SELLER_ID: ${{ secrets.SELLER_ID }}
+          CLIENT_ID: ${{ secrets.AZURE_AD_APPLICATION_CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.AZURE_AD_APPLICATION_SECRET }}
+        run: >-
+          msstore reconfigure --tenantId $env:TENANT_ID --sellerId $env:SELLER_ID
+          --clientId $env:CLIENT_ID --clientSecret $env:CLIENT_SECRET
+
+      - name: Upload the package
+        run: msstore publish store-package.msix --appId $env:STORE_PRODUCT_ID --noCommit
+
+      # Separate from the upload because publishing in one step waits for certification, which can
+      # take days.
+      - name: Submit for certification
+        run: msstore submission publish $env:STORE_PRODUCT_ID
