@@ -47,19 +47,12 @@
     "win": {
       "target": [
         {
-          "target": "zip",
-          "arch": [
-            "x64"
-          ]
-        },
-        {
           "target": "appx",
           "arch": [
             "x64"
           ]
         }
-      ],
-      "artifactName": "Chess-PDF-Viewer-Windows.${ext}"
+      ]
     },
     "appx": {
       "artifactName": "store-package.msix",

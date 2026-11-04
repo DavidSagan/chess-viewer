@@ -25,23 +25,23 @@ to show the board.
 
 ### Install
 
-Download the file for your system from the
-[latest release](https://github.com/DavidSagan/chess-viewer/releases/latest). The app is not signed
-by Apple or Microsoft, so your system may warn you the first time.
+The macOS and Linux apps are on the
+[latest release](https://github.com/DavidSagan/chess-viewer/releases/latest). The Windows app is
+moving to the Microsoft Store.
 
 - **macOS:** Unzip
   [`Chess-PDF-Viewer-macOS.zip`](https://github.com/DavidSagan/chess-viewer/releases/latest/download/Chess-PDF-Viewer-macOS.zip)
-  and move **Chess PDF Viewer** to your Applications folder. macOS will block the app the first
-  time. Go to **System Settings > Privacy & Security** and choose **Open Anyway**, or run:
+  and move **Chess PDF Viewer** to your Applications folder. The app is not signed by Apple, so
+  macOS will block it the first time. Go to **System Settings > Privacy & Security** and choose **Open Anyway**, or run:
 
   ```bash
   xattr -dr com.apple.quarantine "/Applications/Chess PDF Viewer.app"
   ```
 
-- **Windows:** Unzip
-  [`Chess-PDF-Viewer-Windows.zip`](https://github.com/DavidSagan/chess-viewer/releases/latest/download/Chess-PDF-Viewer-Windows.zip)
-  and run **Chess PDF Viewer.exe** from the unzipped folder. If SmartScreen appears, choose
-  **More info > Run anyway**.
+- **Windows:** The Microsoft Store version isn't available yet. Until it is, unzip
+  [`Chess-PDF-Viewer-Windows.zip`](https://github.com/DavidSagan/chess-viewer/releases/download/v1.0.0/Chess-PDF-Viewer-Windows.zip)
+  from version 1.0.0 and run **Chess PDF Viewer.exe** from the unzipped folder. This copy is not
+  signed by Microsoft, so if SmartScreen appears, choose **More info > Run anyway**.
 - **Linux:** Download
   [`Chess-PDF-Viewer-Linux.AppImage`](https://github.com/DavidSagan/chess-viewer/releases/latest/download/Chess-PDF-Viewer-Linux.AppImage),
   then make it executable and run it:

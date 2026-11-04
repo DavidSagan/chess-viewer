@@ -3,7 +3,8 @@
 The Store build is an MSIX package, not an installer exe. The Store signs MSIX packages for free
 and handles updates, while an exe would need a paid code-signing certificate and separate hosting.
 
-Each version tag builds `store-package.msix`. Once setup is finished, the tag also submits it to the
+Windows releases go only through the Store, so GitHub Releases after 1.0.0 have no Windows download. Each
+version tag builds `store-package.msix`. Once setup is finished, the tag also submits it to the
 Store. Microsoft allows automated submissions only for apps that are already live, so the first
 submission is done by hand.
 
@@ -43,6 +44,7 @@ submission is done by hand.
    - **Privacy policy:** people can sign in to Lichess inside the app, so a policy URL may be
      required.
 4. Submit it and wait for it to pass certification and go live.
+5. Replace the Windows install steps in `README.md` with a link to the Store listing.
 
 ## 3. Turn on automatic submissions
 

@@ -1,6 +1,6 @@
 # Tests and builds the viewer on macOS, Windows and Linux on every push to main. A version tag also
-# publishes the builds as a GitHub Release and, once set up, submits the Windows package to the
-# Microsoft Store (docs/microsoft-store.md). Start a release with tools/release.sh.
+# publishes the macOS and Linux builds as a GitHub Release and, once set up, submits the Windows
+# package to the Microsoft Store (docs/microsoft-store.md). Start a release with tools/release.sh.
 name: Build
 
 on:
@@ -50,6 +50,7 @@ jobs:
           npx electron-builder --publish never -c.extraMetadata.version="$version"
 
       - uses: actions/upload-artifact@v4
+        if: runner.os != 'Windows'
         with:
           name: ${{ runner.os }}
           path: |
