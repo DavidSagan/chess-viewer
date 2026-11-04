@@ -1,6 +1,7 @@
 #!/bin/bash
 # Starts a release build: tags the current commit on main and pushes the tag. GitHub Actions then
-# builds the viewer and publishes it as a GitHub Release (.github/workflows/release.yml).
+# builds the viewer for each system and publishes the builds as a GitHub Release
+# (.github/workflows/build.yml).
 #
 # Usage: tools/release.sh 1.2.0
 set -euo pipefail
@@ -22,13 +23,13 @@ git fetch --quiet --tags origin main
 if git rev-parse --quiet --verify "refs/tags/$tag" > /dev/null; then
   fail "$tag already exists"
 fi
-[ -f .github/workflows/release.yml ] || fail "this commit has no release workflow"
+[ -f .github/workflows/build.yml ] || fail "this commit has no release workflow"
 
 git tag -a "$tag" -m "Chess PDF Viewer $version"
 git push --quiet origin "refs/tags/$tag"
 
 repo="$(git remote get-url origin | sed -E 's#^.*github\.com[:/]##; s#\.git$##')"
 echo "Pushed $tag. The build is running:"
-echo "  https://github.com/$repo/actions/workflows/release.yml"
+echo "  https://github.com/$repo/actions/workflows/build.yml"
 echo "The release will appear at:"
 echo "  https://github.com/$repo/releases/tag/$tag"

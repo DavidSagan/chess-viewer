@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Chess PDF Viewer</title>
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' data:; object-src 'none'; base-uri 'none'">
+  <link rel="stylesheet" href="../node_modules/pdfjs-dist/web/pdf_viewer.css">
+  <link rel="stylesheet" href="viewer.css">
+</head>
+<body>
+  <div id="pdf-side">
+    <div id="viewerContainer" tabindex="0"><div id="viewer" class="pdfViewer"></div></div>
+  </div>
+  <div id="divider"></div>
+  <script type="module" src="viewer.js"></script>
+</body>
+</html>

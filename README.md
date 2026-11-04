@@ -11,35 +11,52 @@ Read a chess book and follow its moves on a live analysis board.
 
 ## Run the viewer
 
-Chess PDF Viewer is a small Mac app that shows a PDF on the left and the
+Chess PDF Viewer is a desktop app that shows a PDF on the left and the
 [Lichess](https://lichess.org) analysis board on the right. Clicking a move in the PDF shows that
 position on the board, with no browser prompts or new tabs. This project is not affiliated with
 Lichess.
 
-The app runs on macOS 12 or later, on Apple silicon and Intel Macs. There is no Windows version.
-It needs an internet connection to show the board.
+The app runs on macOS (Apple silicon and Intel), Windows and Linux. It needs an internet connection
+to show the board.
 
 ### Install
 
-1. Download
-   [`Chess-PDF-Viewer-macOS.zip`](https://github.com/DavidSagan/chess-viewer/releases/latest/download/Chess-PDF-Viewer-macOS.zip)
-   from the [latest release](https://github.com/DavidSagan/chess-viewer/releases/latest) and unzip
-   it.
-2. Move **Chess PDF Viewer** to your Applications folder.
-3. Open it. The app is not notarized by Apple, so macOS will block it the first time. Go to
-   **System Settings > Privacy & Security** and choose **Open Anyway**, or run:
+Download the file for your system from the
+[latest release](https://github.com/DavidSagan/chess-viewer/releases/latest). The app is not signed
+by Apple or Microsoft, so your system may warn you the first time.
 
-   ```bash
-   xattr -dr com.apple.quarantine "/Applications/Chess PDF Viewer.app"
-   ```
+- **macOS:** Unzip
+  [`Chess-PDF-Viewer-macOS.zip`](https://github.com/DavidSagan/chess-viewer/releases/latest/download/Chess-PDF-Viewer-macOS.zip)
+  and move **Chess PDF Viewer** to your Applications folder. macOS will block the app the first
+  time. Go to **System Settings > Privacy & Security** and choose **Open Anyway**, or run:
+
+  ```bash
+  xattr -dr com.apple.quarantine "/Applications/Chess PDF Viewer.app"
+  ```
+
+- **Windows:** Unzip
+  [`Chess-PDF-Viewer-Windows.zip`](https://github.com/DavidSagan/chess-viewer/releases/latest/download/Chess-PDF-Viewer-Windows.zip)
+  and run **Chess PDF Viewer.exe** from the unzipped folder. If SmartScreen appears, choose
+  **More info > Run anyway**.
+- **Linux:** Download
+  [`Chess-PDF-Viewer-Linux.AppImage`](https://github.com/DavidSagan/chess-viewer/releases/latest/download/Chess-PDF-Viewer-Linux.AppImage),
+  then make it executable and run it:
+
+  ```bash
+  chmod +x Chess-PDF-Viewer-Linux.AppImage
+  ```
+
+  ```bash
+  ./Chess-PDF-Viewer-Linux.AppImage
+  ```
 
 ### Try it
 
 Download the
 [example book](https://github.com/DavidSagan/chess-viewer/raw/main/examples/rubinstein-capablanca/rubinstein-capablanca.pdf),
 which is Rubinstein vs. Capablanca, San Sebastian 1911, with Capablanca's own notes. Open it in the
-app with **File > Open**, by dragging it onto the app's icon, or by right-clicking the PDF and
-choosing **Open With**. Then click any move or diagram.
+app with **File > Open**. On a Mac, you can also drag it onto the app's icon or right-click the PDF
+and choose **Open With**. Then click any move or diagram.
 
 ### What to expect
 
@@ -47,8 +64,9 @@ choosing **Open With**. Then click any move or diagram.
 - Clicking a link to any other site opens your default browser.
 - Links within the PDF work as usual.
 - **View > Zoom PDF In** and **Zoom PDF Out** change the size of the PDF.
-- **Go > First Page** (⌘↑) jumps to the first page, and **Go > Back** (⌘[) returns to where you were
-  before a jump.
+- **Go > First Page** (⌘↑, or Ctrl+↑ on Windows and Linux) jumps to the first page, and **Go > Back**
+  (⌘[ or Ctrl+[) returns to where you were before a jump.
+- Drag the divider to change how much of the window each side gets.
 - The app works with any PDF that has `lichess.org` links, but a PDF without them has nothing to
   click.
 - Each click loads a new Lichess page, so any analysis you did in the panel is not kept.
@@ -156,13 +174,36 @@ is right.
 
 ### Build the viewer from source
 
-This needs Xcode or the Xcode Command Line Tools. The source is in `viewer/main.swift`.
+This needs [Node.js](https://nodejs.org) 22.12 or later. The source is in `viewer/src`. The viewer
+is built with [Electron](https://www.electronjs.org) and draws PDFs with
+[PDF.js](https://mozilla.github.io/pdf.js/).
+
+To run it directly:
+
+```bash
+cd viewer
+npm ci
+npm start
+```
+
+To test it, which drives the real app with real clicks:
+
+```bash
+npm test
+```
+
+To build the app for your computer, which on a Mac creates `viewer/Chess PDF Viewer.app`:
 
 ```bash
 viewer/build.sh
 ```
 
-This creates `viewer/Chess PDF Viewer.app`.
+Every push to `main` tests and builds the viewer on all three systems. To publish a release, which
+builds it the same way and attaches the results, run:
+
+```bash
+tools/release.sh 1.2.0
+```
 
 ### Credits and licenses
 
@@ -175,6 +216,8 @@ This creates `viewer/Chess PDF Viewer.app`.
 - **Pieces:** the boards use the Cburnett piece set, by Colin M. L. Burnett, as included in
   python-chess.
 - **Font:** the example uses EB Garamond.
+- **Viewer:** [Electron](https://www.electronjs.org), licensed under the MIT license, and
+  [PDF.js](https://mozilla.github.io/pdf.js/), licensed under the Apache License 2.0.
 - **Board and analysis:** provided by [Lichess](https://lichess.org) in the app's panel.
 
 The code in this repository is licensed under the GNU General Public License version 3. See

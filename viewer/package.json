@@ -1,0 +1,79 @@
+{
+  "name": "chess-pdf-viewer",
+  "productName": "Chess PDF Viewer",
+  "version": "0.0.0",
+  "description": "A PDF on the left and the Lichess analysis board on the right",
+  "author": "David Sagan",
+  "license": "GPL-3.0-only",
+  "private": true,
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "node test/smoke.js"
+  },
+  "build": {
+    "appId": "local.chess-pdf-viewer",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "!node_modules/pdfjs-dist/{legacy,types,image_decoders}/**",
+      "!node_modules/pdfjs-dist/**/*.map",
+      "!node_modules/@napi-rs/**"
+    ],
+    "fileAssociations": [
+      {
+        "ext": "pdf",
+        "name": "PDF",
+        "role": "Viewer",
+        "rank": "Alternate"
+      }
+    ],
+    "mac": {
+      "target": [
+        {
+          "target": "zip",
+          "arch": [
+            "universal"
+          ]
+        }
+      ],
+      "artifactName": "Chess-PDF-Viewer-macOS.${ext}",
+      "category": "public.app-category.board-games",
+      "identity": "-",
+      "hardenedRuntime": false
+    },
+    "win": {
+      "target": [
+        {
+          "target": "zip",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "Chess-PDF-Viewer-Windows.${ext}"
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "Chess-PDF-Viewer-Linux.${ext}",
+      "category": "Game"
+    }
+  },
+  "dependencies": {
+    "pdfjs-dist": "6.5.438"
+  },
+  "devDependencies": {
+    "electron": "45.2.2",
+    "electron-builder": "26.18.0",
+    "playwright-core": "1.64.1"
+  }
+}

@@ -3,3 +3,5 @@
 *.out
 .DS_Store
 viewer/Chess PDF Viewer.app/
+viewer/node_modules/
+viewer/dist/
