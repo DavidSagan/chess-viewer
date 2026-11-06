@@ -35,6 +35,11 @@ const place = (page) => page.evaluate(() => {
   const container = document.getElementById("viewerContainer");
   return { top: container.scrollTop, height: container.scrollHeight };
 });
+// What a failed scroll check reports, so a failure shows where the page went.
+const layout = (page, wanted) => async () => JSON.stringify({ wanted, ...(await page.evaluate(() => {
+  const container = document.getElementById("viewerContainer");
+  return { top: container.scrollTop, max: container.scrollHeight - container.clientHeight, width: container.clientWidth };
+})) });
 
 async function main() {
   const userData = fs.mkdtempSync(path.join(os.tmpdir(), "chess-viewer-test-"));
@@ -92,14 +97,24 @@ async function main() {
     await page.locator('.page[data-page-number="1"] .annotationLayer a[href^="#"]').last().click();
     const jumped = await waitFor(async () => { const p = await place(page); return p.top > start.top + 10 && p; }, "the internal link");
     await menu(app, "go-back");
-    await waitFor(async () => Math.abs((await place(page)).top - start.top) < 2, "Back");
+    await waitFor(async () => Math.abs((await place(page)).top - start.top) < 2, "Back", layout(page, start.top));
+
+    // Focusing a page's text, which PDF.js does after a link once the text is drawn, leaves the view
+    // where it is
+    const unfocused = await page.evaluate(() => {
+      const container = document.getElementById("viewerContainer");
+      const top = container.scrollTop;
+      document.querySelector('.page[data-page-number="1"] .textLayer').focus();
+      return { before: top, after: container.scrollTop };
+    });
+    assert.equal(unfocused.after, unfocused.before, "focusing the text scrolled the view");
 
     // First Page, then Back to where it was
     await page.evaluate((top) => { document.getElementById("viewerContainer").scrollTop = top; }, jumped.top);
     await menu(app, "go-first");
-    await waitFor(async () => (await place(page)).top < 2, "First Page");
+    await waitFor(async () => (await place(page)).top < 2, "First Page", layout(page, 0));
     await menu(app, "go-back");
-    await waitFor(async () => Math.abs((await place(page)).top - jumped.top) < 2, "Back from First Page");
+    await waitFor(async () => Math.abs((await place(page)).top - jumped.top) < 2, "Back from First Page", layout(page, jumped.top));
 
     // Zoom
     const width = () => page.evaluate(() => document.querySelector(".page").clientWidth);

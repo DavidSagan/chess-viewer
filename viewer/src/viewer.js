@@ -9,6 +9,16 @@ const { EventBus, PDFLinkService, PDFViewer } = await import(`${PDFJS}web/pdf_vi
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(`${PDFJS}build/pdf.worker.mjs`, import.meta.url).href;
 
 const AUTO_SCALE = "page-width";
+
+// After following a link, PDF.js focuses the text of the page it went to once that text is drawn.
+// The focus would scroll the view, and the text can finish drawing after the reader has gone
+// elsewhere with Back or First Page, so the view would jump back. The focus stays, for screen
+// readers, but without the scroll.
+const focusElement = HTMLElement.prototype.focus;
+HTMLElement.prototype.focus = function (options) {
+  if (this.classList.contains("textLayer")) options = { ...options, preventScroll: true };
+  return focusElement.call(this, options);
+};
 const container = document.getElementById("viewerContainer");
 const eventBus = new EventBus();
 const linkService = new PDFLinkService({ eventBus, ignoreDestinationZoom: true });
